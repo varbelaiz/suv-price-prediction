@@ -1,64 +1,75 @@
 import pandas as pd
+import numpy as np
 import re
-from unicodedata import normalize
 from pathlib import Path
+from unicodedata import normalize
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.cluster import DBSCAN
 
+INPUT_FILE = Path("data/train/cleaned_train.csv")
+OUTPUT_FILE = Path("data/train/transformed_train.csv")
 
-def clean_version(text: str) -> str:
-    if pd.isna(text):
-        return ""
-    text = normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
-    text = re.sub(r"[^a-z0-9 ]+", " ", text)
-    return re.sub(r"\s+", " ", text).strip()
+def clean_version(s):
+    s = "" if pd.isna(s) else s
+    s = normalize("NFKD", s.lower()).encode("ascii", "ignore").decode("ascii")
+    s = re.sub(r"[^a-z0-9 ]+", " ", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return s
 
-def cluster_group(group: pd.DataFrame, eps: float = 0.3) -> pd.DataFrame:
-    if group["version_clean"].nunique() <= 1:
+def cluster_versions(group):
+    group = group.copy()
+    group["version_clean"] = group["Versión"].apply(clean_version)
+    group = group[group["version_clean"] != ""].reset_index(drop=True)
+    
+    if len(group) == 0:
+        group["version_canon"] = ["Unassigned"] * len(group)
         return group
-
-    # al menos una versión debe tener 3+ caracteres para n-grams 3-5
-    if group["version_clean"].str.len().max() < 3:
-        return group
-
-    vec = CountVectorizer(analyzer="char", ngram_range=(1, 5))
+    
+    vectorizer = CountVectorizer(analyzer="char", ngram_range=(3, 5))
     try:
-        X = vec.fit_transform(group["version_clean"]).toarray()
-    except ValueError:          # empty vocabulary
+        X = vectorizer.fit_transform(group["version_clean"]).toarray()
+    except ValueError:
+        group["version_canon"] = ["Unassigned"] * len(group)
         return group
 
     n_versions = group["version_clean"].nunique()
-    min_samples = max(2, n_versions // 4)
-
-    db = DBSCAN(eps=eps, min_samples=min_samples, metric="cosine")
+    db = DBSCAN(eps=0.3, min_samples=max(2, n_versions // 4), metric="cosine")
     group["cluster"] = db.fit_predict(X)
 
     canon = (
-        group.groupby("cluster")["Versión"]
-        .agg(lambda x: x.value_counts().idxmax())
+        group[group["cluster"] != -1]
+            .groupby("cluster")["Versión"]
+            .agg(lambda s: s.value_counts().idxmax())
     )
     group["version_canon"] = group["cluster"].map(canon)
-
-    noise = group["cluster"] == -1
-    group.loc[noise, "version_canon"] = group.loc[noise, "Versión"]
-
-    group["Versión"] = group["version_canon"]
-    return group.drop(columns=["cluster", "version_canon"])
+    group["version_canon"] = group["version_canon"].fillna("Unassigned").astype(str)
+    return group
 
 
-
-def main() -> None:
-    src_path = Path("data/train/cleaned_train.csv")
-    df = pd.read_csv(src_path)
-    df["version_clean"] = df["Versión"].apply(clean_version)
-    df = df[df["version_clean"] != ""].reset_index(drop=True)
-    df = (
-    df.groupby(["Marca", "Modelo"], group_keys=False)
-      .apply(cluster_group, include_groups=True)
+def fill_by_mode(df, col):
+    mode_vals = (
+        df.groupby(["Marca", "Modelo", "version_canon"])[col]
+          .transform(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
     )
-    df.drop(columns=["version_clean"], inplace=True)
-    df.to_csv("data/train/clean_transformed.csv", index=False)
+    df[col] = df[col].fillna(mode_vals)
 
+def main():
+    df = pd.read_csv(INPUT_FILE)
+    grouped = df.groupby(["Marca", "Modelo"])
+    clustered_dfs = [cluster_versions(group) for _, group in grouped]
+    full_df = pd.concat(clustered_dfs, ignore_index=True)
+
+    full_df["Versión"] = full_df["version_canon"]
+
+    for col in ["cv", "Motor", "Tracción", "Turbo"]:
+        if col in full_df.columns:
+            fill_by_mode(full_df, col)
+
+    full_df.drop(columns=["version_clean", "cluster", "version_canon"], inplace=True, errors="ignore")
+
+
+    full_df.to_csv(OUTPUT_FILE, index=False)
+    print("Clustering finalizado. Archivo guardado en:", OUTPUT_FILE)
 
 if __name__ == "__main__":
     main()
