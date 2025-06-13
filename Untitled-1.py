@@ -12,6 +12,9 @@ from sklearn.cluster import AgglomerativeClustering, DBSCAN
 from sklearn.cluster import AffinityPropagation
 from sklearn.metrics.pairwise import cosine_similarity
 
+from difflib import SequenceMatcher
+
+
 # %%
 path = "data/train/cleaned_train.csv"
 
@@ -25,8 +28,8 @@ df = pd.read_csv(path)
 # ## Experimentos para un modelo especificado
 
 # %%
-brand = "Chevrolet"
-model = "Tracker"
+brand = "Ford"
+model = "Ecosport"
 
 version_df = df[(df["Marca"] == brand) & (df["Modelo"] == model)].reset_index(drop=True)
 
@@ -164,15 +167,98 @@ print("\nClusters densos:", canon.size,
 
 
 # %% [markdown]
-# Asignar cada muestra al centoride al que pertenece
+# ### Usar los datos de `mercadolibre_versions.csv`
 
 # %%
-version_df["Versión"] = version_df["version_canon"]
-version_df.drop(columns=["cluster", "version_canon"], inplace=True)
+ml_versions = pd.read_csv('data/mercadolibre_versions.csv')
+ford_ml = ml_versions[(ml_versions['Brand'] == brand) &
+                      (ml_versions['Model'] == model ) &
+                      (ml_versions['Version'] != 'N/A')]
 
-print("Versiones únicas tras el clustering:",
-      version_df["Versión"].nunique())
-print("Etiquetas:", version_df["Versión"].unique())
+real_versions = ford_ml['Version'].tolist()
+
+clustered_counts = version_df['Versión'].value_counts()
+print(clustered_counts.head())
+
+threshold = 0.3
+vectorizer = CountVectorizer(analyzer='char', ngram_range=(2, 3))
+
+final_mapping = {}
+mapping_results = []
+
+for clustered in clustered_counts.index:
+    if clustered == 'Unassigned':
+        best_match = 'Se'
+        best_score = 0.0
+    else:
+        best_match = None
+        best_score = 0.0
+        clean_clustered = clean_version(clustered)
+        for rv in real_versions:
+            clean_real = clean_version(rv)
+            if clean_clustered and clean_real:
+                X = vectorizer.fit_transform([clean_clustered, clean_real])
+                score = cosine_similarity(X[0:1], X[1:2])[0][0]
+            else:
+                score = 0.0
+            if score > best_score:
+                best_score = score
+                best_match = rv
+        if best_score < threshold:
+            best_match = 'Se'
+    final_mapping[clustered] = best_match
+    mapping_results.append({
+        'clustered_version': clustered,
+        'count': clustered_counts[clustered],
+        'mapped_to': best_match,
+        'similarity_score': best_score
+    })
+
+mapping_df = pd.DataFrame(mapping_results)
+print(mapping_df.to_string(index=False))
+
+# %%
+# Apply the mapping to the dataframe
+print("Before mapping:")
+print("Original version counts:", version_df["Versión"].value_counts())
+print(f"Total unique versions: {version_df['Versión'].nunique()}")
+
+# Apply the mapping
+version_df["Versión"] = version_df["Versión"].map(final_mapping)
+
+print("\nAfter mapping:")
+print("Mapped version counts:", version_df["Versión"].value_counts())
+print(f"Total unique versions: {version_df['Versión'].nunique()}")
+
+# Verify that all versions are now real MercadoLibre versions
+mapped_versions = set(version_df["Versión"].unique())
+real_versions_set = set(real_versions)
+
+print(f"\nValidation:")
+print(f"All mapped versions are real versions: {mapped_versions.issubset(real_versions_set)}")
+print(f"Mapped versions: {sorted(mapped_versions)}")
+print(f"Real versions not used: {sorted(real_versions_set - mapped_versions)}")
+
+# Show final summary
+final_summary = version_df["Versión"].value_counts().reset_index()
+final_summary.columns = ["Version", "Count"]
+final_summary["Percentage"] = (final_summary["Count"] / final_summary["Count"].sum() * 100).round(2)
+
+print(f"\nFinal Version Distribution:")
+print("="*50)
+print(final_summary.to_string(index=False))
+
+# %% [markdown]
+# # Asignar cada muestra al cluster que pertenece
+
+# %%
+version_df['Versión'] = version_df['Versión'].map(final_mapping)
+
+summary = version_df['Versión'].value_counts().reset_index()
+summary.columns = ['Version', 'Count']
+summary['Percentage'] = (summary['Count'] / summary['Count'].sum() * 100).round(2)
+
+print(summary.to_string(index=False))
 
 
 # %% [markdown]

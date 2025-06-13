@@ -53,20 +53,41 @@ def fill_by_mode(df, col):
     )
     df[col] = df[col].fillna(mode_vals)
 
+
 def main():
     df = pd.read_csv(INPUT_FILE)
+    
+    # Print initial statistics
+    initial_unique_versions = df['Versión'].nunique()
+    initial_total_records = len(df)
+    print(f"=== BEFORE PROCESSING ===")
+    print(f"Total records: {initial_total_records}")
+    print(f"Unique versions: {initial_unique_versions}")
+    print()
+    
     grouped = df.groupby(["Marca", "Modelo"])
     clustered_dfs = [cluster_versions(group) for _, group in grouped]
     full_df = pd.concat(clustered_dfs, ignore_index=True)
 
     full_df["Versión"] = full_df["version_canon"]
+    
+    # Print statistics after clustering
+    final_unique_versions = full_df['Versión'].nunique()
+    unassigned_count = (full_df['Versión'] == 'Unassigned').sum()
+    unassigned_percentage = (unassigned_count / len(full_df)) * 100
+    
+    print(f"=== AFTER PROCESSING ===")
+    print(f"Total records: {len(full_df)}")
+    print(f"Unique versions after clustering: {final_unique_versions}")
+    print(f"Unassigned versions: {unassigned_count} ({unassigned_percentage:.2f}%)")
+    print(f"Version reduction: {initial_unique_versions} → {final_unique_versions} ({initial_unique_versions - final_unique_versions} fewer unique versions)")
+    print()
 
     for col in ["cv", "Motor", "Tracción", "Turbo"]:
         if col in full_df.columns:
             fill_by_mode(full_df, col)
 
     full_df.drop(columns=["version_clean", "cluster", "version_canon"], inplace=True, errors="ignore")
-
 
     full_df.to_csv(OUTPUT_FILE, index=False)
     print("Clustering finalizado. Archivo guardado en:", OUTPUT_FILE)
