@@ -1,0 +1,27 @@
+Dado el texto de una publicación de venta de un vehículo, necesito que evalúes y categorices los daños mencionados en la descripción del vehículo según las siguientes categorías:
+
+"cosmetic_damage": 1 si menciona daños cosméticos como rayones, abolladuras menores, pintura deteriorada, detalles en tapizados o elementos visuales, 0 si no.
+
+"functional_damage": 1 si menciona daños funcionales o problemas mecánicos menores pero el auto aún funciona normalmente (por ejemplo: suspensión desgastada, desgaste de frenos), 0 si no.
+
+"severe_damage": 1 si menciona daños severos en componentes críticos como motor, transmisión, caja de cambios o sistema eléctrico que afectan gravemente la operación del vehículo, 0 si no.
+
+La respuesta debe estar en formato JSON como se indica a continuación:
+
+{
+"cosmetic_damage": 0 o 1,
+"functional_damage": 0 o 1,
+"severe_damage": 0 o 1
+}
+
+Ejemplo:
+
+Descripción: "Auto con varios rayones en la pintura y un leve desgaste en la suspensión, motor y transmisión en buen estado"
+
+Respuesta esperada:
+
+{
+"cosmetic_damage": 1,
+"functional_damage": 1,
+"severe_damage": 0
+}
