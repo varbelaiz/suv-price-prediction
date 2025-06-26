@@ -91,6 +91,7 @@ def remove_traction(text):
     return re.sub(' +', ' ', text).strip()
 
 def remove_other_data(row):
+    
     version = str(row.get('Versión', ''))
     marca = str(row.get('Marca', '')).lower()
     modelo = str(row.get('Modelo', '')).lower()
@@ -134,19 +135,15 @@ def main():
     """
     Main function to process the raw dataset and create cleaned train/test splits.
     """
-    # Load the raw dataset
     dataset = pd.read_csv(RAW)
     
-    # Extract features from the data
     dataset['Turbo'] = dataset.apply(is_turbo, axis=1)
     dataset['cv'] = dataset['Versión'].apply(extract_cv)
     dataset['Tracción'] = dataset['Versión'].apply(extract_traccion)
     dataset['Motor'] = dataset.apply(fix_motor, axis=1)
     
-    # Clean the Versión column using the combined function
     dataset['Versión'] = dataset.apply(clean_version_column, axis=1)
     
-    # Save the cleaned dataset
     dataset.to_csv(CLEAN_ALL, index=False)
     
     # Split into train and test sets
