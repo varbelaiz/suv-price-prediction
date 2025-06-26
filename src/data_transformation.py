@@ -5,9 +5,11 @@ import re
 from pathlib import Path
 from unicodedata import normalize
 from typing import List, Protocol, Dict, Tuple
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
 # ---------------------------------------------------------------------------
 # I/O paths
@@ -45,6 +47,7 @@ COLUMNS_ORDER = [
 
 
 class Transformer(Protocol):
+    
     def fit(self, df: pd.DataFrame) -> "Transformer": ...
     def transform(self, df: pd.DataFrame) -> pd.DataFrame: ...
     def fit_transform(self, df: pd.DataFrame) -> pd.DataFrame:
@@ -54,7 +57,6 @@ class Transformer(Protocol):
 
 
 class VersionClustering:
-
 
     def __init__(self, versions_path: str | None, thr: float, verbose: bool = True):
         self.versions_path = versions_path                    # catálogo opcional
@@ -239,6 +241,104 @@ class VersionClustering:
 
 
 
+class DescriptionEmbeddings:
+    """
+    Transform text descriptions into low-dimensional numerical features using TF-IDF + PCA.
+    
+    This is a standard approach for text feature engineering that:
+    1. Converts text to TF-IDF vectors (captures word importance)
+    2. Applies PCA to reduce dimensionality 
+    3. Adds the reduced features as new columns to the dataframe
+    """
+    
+    def __init__(self, 
+                 text_column: str = "Descripción",
+                 n_components: int = 20,
+                 max_features: int = 1000,
+                 min_df: int = 2,
+                 max_df: float = 0.8,
+                 verbose: bool = True):
+        """
+        Args:
+            text_column: Column containing text descriptions
+            n_components: Number of PCA components (final feature count)
+            max_features: Maximum number of TF-IDF features before PCA
+            min_df: Ignore terms that appear in fewer than min_df documents
+            max_df: Ignore terms that appear in more than max_df fraction of documents
+            verbose: Whether to print progress information
+        """
+        self.text_column = text_column
+        self.n_components = n_components
+        self.max_features = max_features
+        self.min_df = min_df
+        self.max_df = max_df
+        self.verbose = verbose
+        
+        # Initialize components
+        self.tfidf = TfidfVectorizer(
+            max_features=max_features,
+            min_df=min_df,
+            max_df=max_df,
+            stop_words=None,  # Spanish stop words could be added here
+            lowercase=True,
+            strip_accents='unicode',
+            ngram_range=(1, 2)  # unigrams and bigrams
+        )
+        self.scaler = StandardScaler()
+        self.pca = PCA(n_components=n_components, random_state=42)
+        
+        # Will store feature names for the output columns
+        self.feature_names = [f"desc_pca_{i+1}" for i in range(n_components)]
+        
+    def fit(self, df: pd.DataFrame):
+        """Fit TF-IDF vectorizer and PCA on the training data."""
+        if self.text_column not in df.columns:
+            raise ValueError(f"Column '{self.text_column}' not found in dataframe")
+        
+        # Prepare text data
+        texts = df[self.text_column].fillna("").astype(str)
+        
+        if self.verbose:
+            print(f"DescriptionEmbeddings: Processing {len(texts)} descriptions")
+        
+        # Fit TF-IDF
+        tfidf_matrix = self.tfidf.fit_transform(texts)
+        
+        if self.verbose:
+            print(f"DescriptionEmbeddings: TF-IDF created {tfidf_matrix.shape[1]} features")
+        
+        # Fit scaler and PCA
+        tfidf_scaled = self.scaler.fit_transform(tfidf_matrix.toarray())
+        self.pca.fit(tfidf_scaled)
+        
+        if self.verbose:
+            explained_variance = self.pca.explained_variance_ratio_.sum()
+            print(f"DescriptionEmbeddings: PCA with {self.n_components} components explains {explained_variance:.3f} of variance")
+        
+        return self
+    
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Transform descriptions to PCA features and add them to the dataframe."""
+        if not hasattr(self.tfidf, 'vocabulary_'):
+            raise RuntimeError("DescriptionEmbeddings must be fitted before transform()")
+        
+        # Prepare text data
+        texts = df[self.text_column].fillna("").astype(str)
+        
+        # Transform through the pipeline: TF-IDF -> Scale -> PCA
+        tfidf_matrix = self.tfidf.transform(texts)
+        tfidf_scaled = self.scaler.transform(tfidf_matrix.toarray())
+        pca_features = self.pca.transform(tfidf_scaled)
+        
+        # Create dataframe with PCA features
+        pca_df = pd.DataFrame(pca_features, columns=self.feature_names, index=df.index)
+        
+        # Concatenate with original dataframe
+        result = pd.concat([df, pca_df], axis=1)
+        
+        return result
+
+
 class FillNaNs:
     def __init__(self, columns: List[str]):
         self.columns = columns
@@ -322,6 +422,7 @@ class Pipeline:
 def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
+        DescriptionEmbeddings(verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         DropColumns(["Tipo de carrocería"]),
         ReorderColumns(COLUMNS_ORDER),
