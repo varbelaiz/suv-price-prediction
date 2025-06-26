@@ -1,143 +1,361 @@
 import pandas as pd
 import numpy as np
 import re
+
 from pathlib import Path
 from unicodedata import normalize
+from typing import List, Protocol, Dict, Tuple
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
 
-INPUT_FILE = Path("data/train/cleaned_train.csv")
-OUTPUT_FILE = Path("data/train/transformed_train.csv")
+# ---------------------------------------------------------------------------
+# I/O paths
+# ---------------------------------------------------------------------------
+TRAIN_INPUT_FILE = Path("data/train/cleaned_train.csv")
+TRAIN_OUTPUT_FILE = Path("data/train/transformed_train.csv")
+
+TEST_INPUT_FILE = Path("data/test/cleaned_test.csv")
+TEST_OUTPUT_FILE = Path("data/test/transformed_test.csv")
+
+VERSIONS_FILE = "data/mercadolibre_versions.csv"  # optional catalogue
+SIMILARITY_THRESHOLD = 0.4
 
 COLUMNS_ORDER = [
-    "idx", "Marca", "Modelo", "Versión", "Título", "Motor", "Turbo", "cv", 
-    "Tracción", "Color", "Tipo de combustible", "Puertas", "Transmisión", 
-    "Con cámara de retroceso", "Kilómetros", "Precio", "Moneda", 
-    "Descripción", "Tipo de vendedor"
+    "idx",
+    "Marca",
+    "Modelo",
+    "Versión",
+    "Título",
+    "Motor",
+    "Turbo",
+    "cv",
+    "Tracción",
+    "Color",
+    "Tipo de combustible",
+    "Puertas",
+    "Transmisión",
+    "Con cámara de retroceso",
+    "Kilómetros",
+    "Precio",
+    "Moneda",
+    "Descripción",
+    "Tipo de vendedor",
 ]
 
 
-def clean_version(text: str) -> str:
-    if pd.isna(text):
-        return ""
-    text = normalize("NFKD", text.lower()).encode("ascii", "ignore").decode("ascii")
-    text = re.sub(r"[^a-z0-9 ]+", " ", text)
-    text = re.sub(r"\s+", " ", text).strip()
-    return text
+class Transformer(Protocol):
+    def fit(self, df: pd.DataFrame) -> "Transformer": ...
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame: ...
+    def fit_transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        self.fit(df)
+        return self.transform(df)
 
 
-def _canonicalize_with_dbscan(group: pd.DataFrame) -> pd.DataFrame:
-    group = group.copy()
-    group["_clean"] = group["Versión"].apply(clean_version)
-    group = group[group["_clean"] != ""].reset_index(drop=True)
-    if group.empty:
-        group["version_canon"] = "Unassigned"
-        return group
-    vect = CountVectorizer(analyzer="char", ngram_range=(1, 3))
-    X = vect.fit_transform(group["_clean"]).toarray()
-    eps = 0.3
-    min_samples = max(2, group["_clean"].nunique() // 4)
-    clusters = DBSCAN(eps=eps, min_samples=min_samples, metric="cosine").fit_predict(X)
-    group["_cluster"] = clusters
-    canon_map = (
-        group[group["_cluster"] != -1]
-        .groupby("_cluster")["Versión"]
-        .agg(lambda s: s.value_counts().idxmax())
-    )
-    group["version_canon"] = group["_cluster"].map(canon_map).fillna("Unassigned")
-    return group.drop(columns=["_clean", "_cluster"])
+
+class VersionClustering:
 
 
-def _canonicalize_with_csv(group: pd.DataFrame, versions_path: str, thr: float) -> pd.DataFrame:
+    def __init__(self, versions_path: str | None, thr: float, verbose: bool = True):
+        self.versions_path = versions_path                    # catálogo opcional
+        self.thr = thr                                        # umbral de similitud
+        self.verbose = verbose
+        self._mapping: Dict[Tuple[str, str, str], str] = {}   # lookup exacto
+        self._canon_by_bm: Dict[Tuple[str, str], List[str]] = {}  # lista de canónicas
+        self._vect = CountVectorizer(analyzer="char", ngram_range=(1, 3), lowercase=True)
 
-    
-    ml_versions = pd.read_csv(versions_path)
+    def fit(self, df: pd.DataFrame):
 
-    brand = group["Marca"].iloc[0]
-    model = group["Modelo"].iloc[0]
-    real = ml_versions[(ml_versions["Brand"] == brand) & (ml_versions["Model"] == model) & (ml_versions["Version"] != "N/A")]
-    real_versions = real["Version"].tolist()
+        before = df["Versión"].nunique()
+        
+        # First pass: collect all versions to fit a global vectorizer
+        all_versions = [self._clean(v) for v in df["Versión"].dropna().unique()]
+        all_versions = [v for v in all_versions if v]
+        
+        if all_versions:
+            self._vect.fit(all_versions)
+            if self.verbose:
+                print(f"VersionClustering: fitted vectorizer on {len(all_versions)} unique versions")
+        
+        processed: List[pd.DataFrame] = []
 
-    if not real_versions:
-        print(f"No real versions found for {brand} {model}")
-        return _canonicalize_with_dbscan(group)
-    
-    vect = CountVectorizer(analyzer="char", ngram_range=(1, 3), lowercase=True)
-    mapping = {}
-    for original in group["Versión"].unique():
-        best_score = 0.0
-        best_match = original
-        cleaned_original = clean_version(original)
-        for rv in real_versions:
-            cleaned_rv = clean_version(rv)
-            if cleaned_original and cleaned_rv:
-                X = vect.fit_transform([cleaned_original, cleaned_rv])
-                score = cosine_similarity(X[0:1], X[1:2])[0][0]
+        for (brand, model), g in df.groupby(["Marca", "Modelo"]):
+            clustered = self._cluster_group(g, brand, model)
+            
+            processed.append(clustered)
+            
+            # guardamos las versiones canónicas para el fallback
+            self._canon_by_bm[(brand, model)] = clustered["version_canon"].unique().tolist()
+
+        all_clustered = pd.concat(processed, ignore_index=True)
+
+        # construimos el diccionario de lookup exacto
+        for _, row in all_clustered.iterrows():
+            key = (row["Marca"], row["Modelo"], row["Versión"])
+            self._mapping[key] = row["version_canon"]
+
+        after = all_clustered["version_canon"].nunique()
+
+        if self.verbose:
+            print(f"VersionClustering: unique versions reduced from {before} to {after}")
+
+            
+        return self
+
+    def transform(self, df: pd.DataFrame):
+
+        if not self._mapping:
+            raise RuntimeError("VersionClustering must be fitted before transform().")
+
+        def map_or_fallback(row):
+            key = (row["Marca"], row["Modelo"], row["Versión"])
+            # 1️⃣  Lookup exacto
+            if key in self._mapping:
+                return self._mapping[key]
+
+            # 2️⃣  Fallback: versión nueva → buscamos la más parecida entre canónicas
+            canon_list = self._canon_by_bm.get((row["Marca"], row["Modelo"]), [])
+            if not canon_list:
+                return row["Versión"]  # sin referencia para comparar
+
+            cleaned_orig = self._clean(row["Versión"])
+            best_score, best_match = 0.0, row["Versión"]
+
+            for canon in canon_list:
+                X = self._vect.fit_transform([cleaned_orig, self._clean(canon)]) if cleaned_orig else None
+                score = cosine_similarity(X[0:1], X[1:2])[0][0] if X is not None else 0
                 if score > best_score:
-                    best_score = score
-                    best_match = rv
-        mapping[original] = best_match if best_score >= thr else original
-    group = group.copy()
-    group["version_canon"] = group["Versión"].map(mapping)
-    return group
+                    best_score, best_match = score, canon
+            return best_match if best_score >= self.thr else row["Versión"]
+
+        out = df.copy()
+        out["Versión"] = out.apply(map_or_fallback, axis=1)
+        return out
+
+    # -------------------------- INTERNALS --------------------------------
+    def _cluster_group(self, group: pd.DataFrame, brand: str, model: str) -> pd.DataFrame:
+        """Two-stage clustering: catalogue matching followed by DBSCAN for unmatched versions."""
+        catalogue = self._get_catalogue(brand, model)
+        
+        if not catalogue:
+            # No catalogue available, use DBSCAN only
+            return self._dbscan_cluster(group)
+        
+        # Stage 1: Apply catalogue-based clustering
+        stage1_result = self._string_similarity_cluster(group, catalogue)
+        
+        # Stage 2: Apply DBSCAN to versions that weren't matched to catalogue
+        # (i.e., versions where version_canon == original Versión)
+        unmatched_mask = stage1_result["version_canon"] == stage1_result["Versión"]
+        
+        if not unmatched_mask.any():
+            # All versions were successfully matched to catalogue
+            return stage1_result
+        
+        # Extract unmatched versions for DBSCAN clustering
+        unmatched_group = stage1_result[unmatched_mask].copy()
+        matched_group = stage1_result[~unmatched_mask].copy()
+        
+        if len(unmatched_group) <= 1:
+            # Too few unmatched versions to cluster
+            return stage1_result
+        
+        # Apply DBSCAN to unmatched versions
+        unmatched_clustered = self._dbscan_cluster(unmatched_group)
+        
+        # Combine matched and newly clustered results
+        final_result = pd.concat([matched_group, unmatched_clustered], ignore_index=True)
+        
+        return final_result[["Marca", "Modelo", "Versión", "version_canon"]]
+
+    def _get_catalogue(self, brand: str, model: str) -> List[str]:
+        if self.versions_path and Path(self.versions_path).exists():
+            cat = pd.read_csv(self.versions_path)
+            return cat[(cat["Brand"] == brand) & (cat["Model"] == model)]["Version"].dropna().tolist()
+        return []
+
+    def _dbscan_cluster(self, group):
+
+        grp = group.copy()
+        grp["_clean"] = grp["Versión"].apply(self._clean)
+        grp = grp[grp["_clean"] != ""].reset_index(drop=True)
+        
+        if grp.empty:
+            grp["version_canon"] = "Unassigned"
+            return grp[["Marca", "Modelo", "Versión", "version_canon"]]
+
+        # Use the pre-fitted global vectorizer for richer feature space
+        X = self._vect.transform(grp["_clean"])
+        clusters = DBSCAN(eps=0.3, min_samples=max(2, grp.shape[0] // 4), metric="cosine").fit_predict(X)
+        grp["_cluster"] = clusters
+
+        canon = grp[grp["_cluster"] != -1].groupby("_cluster")["Versión"].agg(lambda s: s.value_counts().idxmax())
+        grp["version_canon"] = grp["_cluster"].map(canon).fillna("Unassigned")
+        return grp[["Marca", "Modelo", "Versión", "version_canon"]]
+
+    def _string_similarity_cluster(self, group, catalogue):
+
+        mapping: Dict[str, str] = {}
+        
+        for original in group["Versión"].dropna().unique():
+            cleaned_orig = self._clean(original)
+            if not cleaned_orig:
+                mapping[original] = original
+                continue
+                
+            best_score, best_match = 0.0, original
+            
+            # Transform original version using the pre-fitted global vectorizer
+            orig_vec = self._vect.transform([cleaned_orig])
+            
+            for real in catalogue:
+                cleaned_real = self._clean(real)
+                if not cleaned_real:
+                    continue
+                    
+                # Transform catalogue version using the pre-fitted global vectorizer
+                real_vec = self._vect.transform([cleaned_real])
+                score = cosine_similarity(orig_vec, real_vec)[0][0]
+                
+                if score > best_score:
+                    best_score, best_match = score, real
+                    
+            mapping[original] = best_match if best_score >= self.thr else original
+
+        grp = group.copy()
+        grp["version_canon"] = grp["Versión"].map(mapping)
+        return grp[["Marca", "Modelo", "Versión", "version_canon"]]
 
 
-def cluster_versions(
-    group: pd.DataFrame,
-    method: str = "dbscan",
-    ml_versions_path: str = "data/mercadolibre_versions.csv",
-    threshold: float = 0.3,
-) -> pd.DataFrame:
-    if method == "csv":
-        return _canonicalize_with_csv(group, ml_versions_path, threshold)
-    return _canonicalize_with_dbscan(group)
+    @staticmethod
+    def _clean(s):
+        """Normaliza texto: lower, ASCII, solo [a‑z0‑9 ]."""
+        if pd.isna(s):
+            return ""
+        if not isinstance(s, str):
+            s = str(s)
+        txt = normalize("NFKD", s.lower()).encode("ascii", "ignore").decode("ascii")
+        return re.sub(r"[^a-z0-9 ]+", " ", txt).strip()
 
 
-def fill_by_mode(df: pd.DataFrame, col: str):
-    modes = df.groupby(["Marca", "Modelo", "version_canon"])[col].transform(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
-    df[col] = df[col].fillna(modes)
+
+class FillNaNs:
+    def __init__(self, columns: List[str]):
+        self.columns = columns
+        self._modes: pd.Series | None = None
+
+    def fit(self, df: pd.DataFrame):
+        base = ["Marca", "Modelo"]
+        ver = "Versión"
+        grp = df.groupby(base + [ver])
+        self._modes = grp[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
+        return self
+
+    def transform(self, df: pd.DataFrame):
+
+        if self._modes is None:
+            raise RuntimeError("FillNaNs must be fitted before transform().")
+
+        base = ["Marca", "Modelo"]
+        ver = "Versión"
+
+        def impute(row, col):
+            key = tuple(row[c] for c in base + [ver])
+            return self._modes.loc[key, col] if key in self._modes.index else row[col]
+
+        out = df.copy()
+        for col in self.columns:
+            if col in out.columns:
+                out[col] = out.apply(lambda r: r[col] if pd.notna(r[col]) else impute(r, col), axis=1)
+        return out
 
 
-def main():
-    df = pd.read_csv(INPUT_FILE)
 
-    # Analizar y unificar versiones
-    before_unique = df["Versión"].nunique()
-    print("Records", len(df), "unique versions", before_unique)
+class DropColumns:
+    def __init__(self, columns: List[str]):
+        self.columns = columns
 
-    grouped = df.groupby(["Marca", "Modelo"])
-    processed = [cluster_versions(g, method='csv') for _, g in grouped]
+    def fit(self, df: pd.DataFrame):
+        return self  
 
-    full_df = pd.concat(processed, ignore_index=True)
-    full_df["Versión"] = full_df["version_canon"]
-    after_unique = full_df["Versión"].nunique()
-    print("After", len(full_df), "unique", after_unique)
-    
-    # Imputar valores faltantes
-    for col in ["cv", "Motor", "Tracción", "Turbo"]:
-        if col in full_df.columns:
-            fill_by_mode(full_df, col)
-    full_df.drop(columns=["version_canon"], inplace=True)
-    
-    # Borrar "Tipo de carrocería" (redundante)
-    if "Tipo de carrocería" in full_df.columns:
-        full_df.drop(columns=["Tipo de carrocería"], inplace=True)
-        print("Deleted 'Tipo de carrocería' column")
-    
-    
-    # Only include columns that actually exist in the dataframe
-    existing_columns = [col for col in COLUMNS_ORDER if col in full_df.columns]
-    
-    remaining_columns = [col for col in full_df.columns if col not in existing_columns]
+    def transform(self, df: pd.DataFrame):
+        return df.drop(columns=[c for c in self.columns if c in df.columns])
 
-    final_column_order = existing_columns + remaining_columns
-    
-    full_df = full_df[final_column_order]
-    
-    full_df.to_csv(OUTPUT_FILE, index=False)
-    print("Saved to", OUTPUT_FILE)
+
+class ReorderColumns:
+    def __init__(self, order: List[str]):
+        self.order = order
+
+    def fit(self, df: pd.DataFrame):
+        return self
+
+    def transform(self, df: pd.DataFrame):
+        existing = [c for c in self.order if c in df.columns]
+        remaining = [c for c in df.columns if c not in existing]
+        return df[existing + remaining]
+
+
+
+class Pipeline:
+    def __init__(self, steps: List[Transformer]):
+        self.steps = steps
+
+    def fit(self, df: pd.DataFrame):
+        tmp = df
+        for step in self.steps:
+            tmp = step.fit(tmp).transform(tmp) if hasattr(step, "fit") else step.transform(tmp)
+        return self
+
+    def transform(self, df: pd.DataFrame):
+        tmp = df
+        for step in self.steps:
+            tmp = step.transform(tmp)
+        return tmp
+
+    def fit_transform(self, df: pd.DataFrame):
+        self.fit(df)
+        return self.transform(df)
+
+
+
+
+def build_pipeline(verbose: bool = True) -> Pipeline:
+    return Pipeline([
+        VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
+        FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
+        DropColumns(["Tipo de carrocería"]),
+        ReorderColumns(COLUMNS_ORDER),
+    ])
+
+
+
+
+def transform_datasets(apply_to_test: bool = False, verbose: bool = True):
+    pipe = build_pipeline(verbose)
+
+    # ---- Train ----
+    train_df = pd.read_csv(TRAIN_INPUT_FILE)
+
+    # Apply transformations and sort rows by Marca and Modelo before saving
+    train_out = (
+        pipe.fit_transform(train_df)
+            .sort_values(by=["Marca", "Modelo"], ascending=[True, True])
+            .reset_index(drop=True)
+    )
+    train_out.to_csv(TRAIN_OUTPUT_FILE, index=False)
+
+    # ---- Test ----
+    if apply_to_test:
+        test_df = pd.read_csv(TEST_INPUT_FILE)
+        test_out = (
+            pipe.transform(test_df)
+                .sort_values(by=["Marca", "Modelo"], ascending=[True, True])
+                .reset_index(drop=True)
+        )
+        test_out.to_csv(TEST_OUTPUT_FILE, index=False)
+        if verbose:
+            print("Test set transformed without leakage.")
 
 
 if __name__ == "__main__":
-    main()
+    transform_datasets(apply_to_test=True, verbose=True)
