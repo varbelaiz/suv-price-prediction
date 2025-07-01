@@ -131,6 +131,51 @@ def clean_version_column(row):
     
     return version
 
+
+def extract_version_from_title(row):
+    """
+    Extract version information from the title by removing brand, model and applying cleaning.
+    Used as fallback when Versión column is empty.
+    """
+    title = str(row.get('Título', ''))
+    marca = str(row.get('Marca', ''))
+    modelo = str(row.get('Modelo', ''))
+    
+    if not title or title.lower() in ['nan', 'none', '']:
+        return 'Unknown'
+    
+    # Convert to lowercase for processing
+    title_lower = title.lower()
+    marca_lower = marca.lower() if marca and marca != 'nan' else ''
+    modelo_lower = modelo.lower() if modelo and modelo != 'nan' else ''
+    
+    # Remove brand and model from title
+    if marca_lower and marca_lower != 'nan':
+        title_lower = re.sub(rf'\b{re.escape(marca_lower)}\b', '', title_lower)
+    
+    if modelo_lower and modelo_lower != 'nan':
+        title_lower = re.sub(rf'\b{re.escape(modelo_lower)}\b', '', title_lower)
+    
+    # Clean up extra spaces
+    title_lower = re.sub(r'\s+', ' ', title_lower).strip()
+    
+    # Apply the same cleaning functions as version column
+    version = remove_cilinder_size(title_lower)
+    version = remove_transmission(version)
+    version = remove_horsepower(version)
+    version = remove_traction(version)
+    
+    # Create a temporary row for remove_other_data
+    temp_row = row.copy()
+    temp_row['Versión'] = version
+    version = remove_other_data(temp_row)
+    
+    # If still empty after cleaning, return 'Unknown'
+    if not version or version.strip() == '':
+        return 'Unknown'
+    
+    return version.strip()
+
 def main():
     """
     Main function to process the raw dataset and create cleaned train/test splits.
@@ -144,11 +189,26 @@ def main():
     
     dataset['Versión'] = dataset.apply(clean_version_column, axis=1)
     
+    # Check for empty strings after cleaning
+    empty_mask = (dataset['Versión'] == '') | (dataset['Versión'].isna())
+    empty_count = empty_mask.sum()
+    print(f"Empty versions after cleaning: {empty_count}")
+    
+    if empty_count > 0:
+        print("Extracting versions from titles for empty entries...")
+        dataset.loc[empty_mask, 'Versión'] = dataset[empty_mask].apply(extract_version_from_title, axis=1)
+        
+        final_unknown = (dataset['Versión'] == 'Unknown').sum()
+        print(f"Final 'Unknown' versions: {final_unknown}")
+    
+    print("Nans in Versión:", dataset['Versión'].isna().sum())
+    
     dataset.to_csv(CLEAN_ALL, index=False)
     
     # Split into train and test sets
     train_df, test_df = train_test_split(dataset, test_size=0.2, random_state=42)
     train_df.to_csv(TRAIN_FILE, index=False)
+
     test_df.to_csv(TEST_FILE, index=False)
     
     print(f"Data preprocessing completed successfully!")
