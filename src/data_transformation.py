@@ -83,7 +83,7 @@ class Pipeline:
 def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
-        DescriptionEmbeddings(verbose=verbose, n_components=50),
+        DescriptionEmbeddings(verbose=verbose, n_components=20),
         FillVersionNaNs(verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
