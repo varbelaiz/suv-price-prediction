@@ -308,9 +308,9 @@ class DescriptionEmbeddings:
         max_df: float = 0.8,
         hidden_dims: List[int] = None,
         batch_size: int = 128,
-        learning_rate: float = 1e-1,
-        epochs: int = 50,
-        beta: float = 1.0,
+        learning_rate: float = 1e-3,
+        epochs: int = 100,
+        beta: float = 0.5,
         verbose: bool = True,
     ):
         self.text_column = text_column
