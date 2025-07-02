@@ -664,6 +664,78 @@ class TargetEncoder:
         return result
 
 
+class Normalizer:
+    """
+    Normalize specified columns using StandardScaler.
+    Handles the case where some columns might not exist.
+    """
+    
+    def __init__(self, 
+                 target_columns: List[str] = None,
+                 verbose: bool = True):
+        """
+        Args:
+            target_columns: List of columns to normalize. If None, will use default set.
+            verbose: Whether to print progress information
+        """
+        if target_columns is None:
+            # Default columns to normalize
+            default_cols = ["Marca", "Modelo", "Versión", "Motor", "cv", "Kilómetros", "Año"]
+            # Add desc_pca columns
+            desc_pca_cols = [f"desc_pca_{i}" for i in range(1, 31)]
+            target_columns = default_cols + desc_pca_cols
+            
+        self.target_columns = target_columns
+        self.verbose = verbose
+        
+        # Will store fitted scalers for each column
+        self._scalers: Dict[str, StandardScaler] = {}
+        self._columns_to_normalize: List[str] = []
+        
+    def fit(self, df: pd.DataFrame):
+        """Fit StandardScaler on each target column that exists in the dataframe."""
+        self._scalers = {}
+        self._columns_to_normalize = []
+        
+        for col in self.target_columns:
+            if col in df.columns:
+                # Check if column is numeric
+                if pd.api.types.is_numeric_dtype(df[col]):
+                    scaler = StandardScaler()
+                    # Reshape for sklearn (needs 2D array)
+                    scaler.fit(df[col].values.reshape(-1, 1))
+                    self._scalers[col] = scaler
+                    self._columns_to_normalize.append(col)
+                elif self.verbose:
+                    print(f"\t NORMALIZER: Column '{col}' is not numeric, skipping")
+            elif self.verbose:
+                print(f"\t NORMALIZER: Column '{col}' not found, skipping")
+        
+        if self.verbose:
+            print(f"\t NORMALIZER: Will normalize {len(self._columns_to_normalize)} columns: {self._columns_to_normalize}")
+        
+        return self
+    
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        """Normalize the fitted columns using StandardScaler."""
+        if not self._scalers:
+            raise RuntimeError("Normalizer must be fitted before transform()")
+        
+        result = df.copy()
+        
+        for col in self._columns_to_normalize:
+            if col in result.columns:
+                scaler = self._scalers[col]
+                # Transform and reshape back to 1D
+                normalized_values = scaler.transform(result[col].values.reshape(-1, 1)).flatten()
+                result[col] = normalized_values
+        
+        if self.verbose:
+            print(f"\t NORMALIZER: Normalized {len(self._columns_to_normalize)} columns")
+        
+        return result
+
+
 class Pipeline:
     def __init__(self, steps: List[Transformer]):
         self.steps = steps
@@ -699,10 +771,11 @@ def build_pipeline(verbose: bool = True) -> Pipeline:
         DescriptionEmbeddings(verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
+        Normalizer(verbose=verbose),
         CurrencyConverter(verbose=verbose),
         OneHotEncoder(["Tracción", "Tipo de combustible", "Transmisión", "Con cámara de retroceso", "Moneda", "Tipo de vendedor"], verbose=verbose),
-        DropColumns(["Tipo de carrocería", "Título", "Descripción", "Color"]),
-        OrderColumns(column_order=COLUMNS_ORDER),
+        DropColumns(["Tipo de carrocería", "Título", "Descripción", "Color", "idx"]),
+        OrderColumns(column_order=COLUMNS_ORDER),        
     ])
 
 

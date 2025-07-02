@@ -54,13 +54,6 @@ def main():
         print("Error: Los datos deben estar totalmente numerizados.")
         sys.exit(1)
 
-    # Verificación y normalización
-    if not esta_normalizado(X_train) or not esta_normalizado(X_val):
-        print("Los datos no estaban normalizados. Normalizando...")
-        scaler = StandardScaler()
-        X_train = pd.DataFrame(scaler.fit_transform(X_train), columns=X_train.columns)
-        X_val = pd.DataFrame(scaler.transform(X_val), columns=X_val.columns)
-
     # Entrenamiento del modelo
     model = XGBRegressor(**params)
     model.fit(X_train, y_train)
