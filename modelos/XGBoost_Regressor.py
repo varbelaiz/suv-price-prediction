@@ -37,7 +37,6 @@ def main():
     archivo_val = sys.argv[2]
     """
 
-
     archivo_train = "data/train/transformed_train.csv"
     archivo_val = "data/train/transformed_val.csv"
 

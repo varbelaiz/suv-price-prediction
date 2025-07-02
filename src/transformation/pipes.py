@@ -202,100 +202,231 @@ class VersionClustering:
 
 
 
+import numpy as np
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.decomposition import TruncatedSVD
+
 class DescriptionEmbeddings:
     """
-    Transform text descriptions into low-dimensional numerical features using TF-IDF + PCA.
-    
-    This is a standard approach for text feature engineering that:
-    1. Converts text to TF-IDF vectors (captures word importance)
-    2. Applies PCA to reduce dimensionality 
-    3. Adds the reduced features as new columns to the dataframe
+    TF-IDF + Truncated SVD embeddings (separate pipelines for new and used cars).
     """
-    
-    def __init__(self, 
-                 text_column: str = "Descripción",
-                 n_components: int = 30,
-                 max_features: int = 1000,
-                 min_df: int = 2,
-                 max_df: float = 0.7,
-                 verbose: bool = True):
-        """
-        Args:
-            text_column: Column containing text descriptions
-            n_components: Number of PCA components (final feature count)
-            max_features: Maximum number of TF-IDF features before PCA
-            min_df: Ignore terms that appear in fewer than min_df documents
-            max_df: Ignore terms that appear in more than max_df fraction of documents
-            verbose: Whether to print progress information
-        """
+
+    def __init__(
+        self,
+        text_column: str = "Descripción",
+        kilometers_column: str = "Kilómetros",
+        n_components: int = 50,
+        max_features: int = 2000,
+        min_df: int = 2,
+        max_df: float = 0.8,
+        verbose: bool = True,
+    ):
         self.text_column = text_column
+        self.kilometers_column = kilometers_column
         self.n_components = n_components
         self.max_features = max_features
         self.min_df = min_df
         self.max_df = max_df
         self.verbose = verbose
-        
-        # Initialize components
-        self.tfidf = TfidfVectorizer(
+
+        self.n_components_new = n_components // 2
+        self.n_components_used = n_components - self.n_components_new
+
+        self.vectorizer_new = TfidfVectorizer(
             max_features=max_features,
             min_df=min_df,
             max_df=max_df,
-            stop_words=None,  # Spanish stop words could be added here
             lowercase=True,
-            strip_accents='unicode',
-            ngram_range=(1, 2)  # unigrams and bigrams
+            strip_accents="unicode",
+            ngram_range=(1, 2),
         )
-        self.scaler = StandardScaler()
-        self.pca = PCA(n_components=n_components, random_state=42)
+        self.svd_new = TruncatedSVD(
+            n_components=self.n_components_new, random_state=42
+        )
+
+        self.vectorizer_used = TfidfVectorizer(
+            max_features=max_features,
+            min_df=min_df,
+            max_df=max_df,
+            lowercase=True,
+            strip_accents="unicode",
+            ngram_range=(1, 2),
+        )
+        self.svd_used = TruncatedSVD(
+            n_components=self.n_components_used, random_state=42
+        )
+
+        self.feature_names = [
+            *(f"desc_new_svd_{i+1}" for i in range(self.n_components_new)),
+            *(f"desc_used_svd_{i+1}" for i in range(self.n_components_used)),
+        ]
+
+    def fit(self, df: pd.DataFrame):
+        if self.text_column not in df.columns:
+            raise ValueError(f"Missing column {self.text_column}")
+        if self.kilometers_column not in df.columns:
+            raise ValueError(f"Missing column {self.kilometers_column}")
+
+        new_mask = df[self.kilometers_column] == 0
+        used_mask = df[self.kilometers_column] > 0
+
+        new_texts = (
+            df.loc[new_mask, self.text_column].fillna("").astype(str).values
+        )
+        used_texts = (
+            df.loc[used_mask, self.text_column].fillna("").astype(str).values
+        )
+
+        if self.verbose:
+            print(
+                f"\tDESCRIPTION EMBEDDINGS: {new_mask.sum()} new | {used_mask.sum()} used"
+            )
+
+        if len(new_texts) >= self.min_df:
+            tfidf_new = self.vectorizer_new.fit_transform(new_texts)
+            self.svd_new.fit(tfidf_new)
+            if self.verbose:
+                print(
+                    f"\tDESCRIPTION EMBEDDINGS: New cars SVD var "
+                    f"{self.svd_new.explained_variance_ratio_.sum():.3f}"
+                )
+
+        if len(used_texts) >= self.min_df:
+            tfidf_used = self.vectorizer_used.fit_transform(used_texts)
+            self.svd_used.fit(tfidf_used)
+            if self.verbose:
+                print(
+                    f"\tDESCRIPTION EMBEDDINGS: Used cars SVD var "
+                    f"{self.svd_used.explained_variance_ratio_.sum():.3f}"
+                )
+
+        return self
+
+    def transform(self, df: pd.DataFrame) -> pd.DataFrame:
+        new_features = np.zeros((len(df), self.n_components_new))
+        used_features = np.zeros((len(df), self.n_components_used))
+
+        new_mask = df[self.kilometers_column] == 0
+        used_mask = df[self.kilometers_column] > 0
+
+        if new_mask.any() and hasattr(self.vectorizer_new, "vocabulary_"):
+            new_texts = (
+                df.loc[new_mask, self.text_column].fillna("").astype(str).values
+            )
+            tfidf_new = self.vectorizer_new.transform(new_texts)
+            new_features[new_mask] = self.svd_new.transform(tfidf_new)
+
+        if used_mask.any() and hasattr(self.vectorizer_used, "vocabulary_"):
+            used_texts = (
+                df.loc[used_mask, self.text_column]
+                .fillna("")
+                .astype(str)
+                .values
+            )
+            tfidf_used = self.vectorizer_used.transform(used_texts)
+            used_features[used_mask] = self.svd_used.transform(tfidf_used)
+
+        all_features = np.concatenate([new_features, used_features], axis=1)
+        pca_df = pd.DataFrame(all_features, columns=self.feature_names, index=df.index)
+
+        return pd.concat([df, pca_df], axis=1)
+
+class FillVersionNaNs:
+    """
+    Fill NaN values in the 'Versión' column with the most frequent version 
+    for each Marca-Modelo combination.
+    """
+    
+    def __init__(self, 
+                 version_column: str = "Versión",
+                 brand_column: str = "Marca", 
+                 model_column: str = "Modelo",
+                 verbose: bool = True):
+        """
+        Args:
+            version_column: Column containing versions to fill
+            brand_column: Brand column for grouping
+            model_column: Model column for grouping  
+            verbose: Whether to print progress information
+        """
+        self.version_column = version_column
+        self.brand_column = brand_column
+        self.model_column = model_column
+        self.verbose = verbose
         
-        # Will store feature names for the output columns
-        self.feature_names = [f"desc_pca_{i+1}" for i in range(n_components)]
+        # Will store the mode version for each brand-model combination
+        self._version_modes: Dict[Tuple[str, str], str] = {}
         
     def fit(self, df: pd.DataFrame):
-        """Fit TF-IDF vectorizer and PCA on the training data."""
-        if self.text_column not in df.columns:
-            raise ValueError(f"Column '{self.text_column}' not found in dataframe")
+        """Fit by calculating the mode version for each brand-model combination."""
+        if self.version_column not in df.columns:
+            raise ValueError(f"Column '{self.version_column}' not found in dataframe")
+        if self.brand_column not in df.columns:
+            raise ValueError(f"Column '{self.brand_column}' not found in dataframe")
+        if self.model_column not in df.columns:
+            raise ValueError(f"Column '{self.model_column}' not found in dataframe")
         
-        # Prepare text data
-        texts = df[self.text_column].fillna("").astype(str)
+        # Calculate mode version for each brand-model combination
+        self._version_modes = {}
+        
+        for (brand, model), group in df.groupby([self.brand_column, self.model_column]):
+            # Get non-null versions for this brand-model
+            valid_versions = group[self.version_column].dropna()
+            
+            if len(valid_versions) > 0:
+                # Find the most frequent version
+                mode_version = valid_versions.mode()
+                if len(mode_version) > 0:
+                    self._version_modes[(brand, model)] = mode_version.iloc[0]
+                else:
+                    # If no clear mode, use the first version
+                    self._version_modes[(brand, model)] = valid_versions.iloc[0]
         
         if self.verbose:
-            print(f"\t DESCRIPTION EMBEDDINGS: Processing {len(texts)} descriptions")
-        
-        # Fit TF-IDF
-        tfidf_matrix = self.tfidf.fit_transform(texts)
-        
-        if self.verbose:
-            print(f"\t DESCRIPTION EMBEDDINGS: TF-IDF created {tfidf_matrix.shape[1]} features")
-        
-        # Fit scaler and PCA
-        tfidf_scaled = self.scaler.fit_transform(tfidf_matrix.toarray())
-        self.pca.fit(tfidf_scaled)
-        
-        if self.verbose:
-            explained_variance = self.pca.explained_variance_ratio_.sum()
-            print(f"\t DESCRIPTION EMBEDDINGS: PCA with {self.n_components} components explains {explained_variance:.3f} of variance")
+            filled_combinations = len(self._version_modes)
+            print(f"\t VERSION NAN FILLER: Found mode versions for {filled_combinations} brand-model combinations")
         
         return self
     
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
-        """Transform descriptions to PCA features and add them to the dataframe."""
-        if not hasattr(self.tfidf, 'vocabulary_'):
-            raise RuntimeError("DescriptionEmbeddings must be fitted before transform()")
+        """Fill NaN versions with the mode version for each brand-model."""
+        if not self._version_modes:
+            raise RuntimeError("FillVersionNaNs must be fitted before transform()")
         
-        # Prepare text data
-        texts = df[self.text_column].fillna("").astype(str)
+        result = df.copy()
         
-        # Transform through the pipeline: TF-IDF -> Scale -> PCA
-        tfidf_matrix = self.tfidf.transform(texts)
-        tfidf_scaled = self.scaler.transform(tfidf_matrix.toarray())
-        pca_features = self.pca.transform(tfidf_scaled)
+        # Find rows with NaN versions
+        nan_mask = result[self.version_column].isna()
+        nan_count_before = nan_mask.sum()
         
-        # Create dataframe with PCA features
-        pca_df = pd.DataFrame(pca_features, columns=self.feature_names, index=df.index)
+        if nan_count_before == 0:
+            if self.verbose:
+                print(f"\t VERSION NAN FILLER: No NaN versions found")
+            return result
         
-        # Concatenate with original dataframe
-        result = pd.concat([df, pca_df], axis=1)
+        # Fill NaN versions
+        def fill_version(row):
+            if pd.isna(row[self.version_column]):
+                key = (row[self.brand_column], row[self.model_column])
+                if key in self._version_modes:
+                    return self._version_modes[key]
+                else:
+                    # No mode available for this brand-model, keep NaN
+                    return row[self.version_column]
+            else:
+                return row[self.version_column]
+        
+        result[self.version_column] = result.apply(fill_version, axis=1)
+        
+        # Count how many were filled
+        nan_count_after = result[self.version_column].isna().sum()
+        filled_count = nan_count_before - nan_count_after
+        
+        if self.verbose:
+            print(f"\t VERSION NAN FILLER: Filled {filled_count} NaN versions out of {nan_count_before}")
+            if nan_count_after > 0:
+                print(f"\t VERSION NAN FILLER: {nan_count_after} versions remain as NaN (no mode available)")
         
         return result
 

@@ -84,6 +84,7 @@ def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
         DescriptionEmbeddings(verbose=verbose, n_components=50),
+        FillVersionNaNs(verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         Normalizer(verbose=verbose),
@@ -99,7 +100,11 @@ def transform_datasets(apply_to_test: bool = False, val_size: float = 0.2, verbo
 
     # Load the full training data
     full_train_df = pd.read_csv(TRAIN_INPUT_FILE)
-    print("Nans in Versión:", full_train_df["Versión"].isna().sum())
+    
+    # Print number of rows with "Unknown" versions
+    print(f"Nans in Versión: {full_train_df['Versión'].isna().sum()}")
+    print(f"Porcentaje de Nans en Versión: {full_train_df['Versión'].isna().sum() / len(full_train_df)}")
+
     
     # Split into train and validation sets
     train_df, val_df = train_test_split(
