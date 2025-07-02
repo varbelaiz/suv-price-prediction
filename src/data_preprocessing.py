@@ -248,7 +248,7 @@ class VersionFromTitleExtractor:
         modelo = str(row.get('Modelo', ''))
         
         if not title or title.lower() in ['nan', 'none', '']:
-            return 'Unknown'
+            return np.nan
         
         # Convert to lowercase for processing
         title_lower = title.lower()
@@ -273,7 +273,7 @@ class VersionFromTitleExtractor:
         
         # If still empty after cleaning, return 'Unknown'
         if not version or version.strip() == '':
-            return 'Unknown'
+            return np.nan
         
         return version.strip()
 
