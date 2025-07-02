@@ -22,7 +22,7 @@ VERSIONS_FILE = "data/mercadolibre_versions.csv"  # optional catalogue
 
 SIMILARITY_THRESHOLD = 0.3
 EMBEDDING_COMPONENTS = 30
-EXCHANGE_RATE = 1400.0
+EXCHANGE_RATE = 1300.0
 
 COLUMNS_ORDER = [
     "idx",
@@ -86,10 +86,10 @@ class Pipeline:
 def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
-        DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS),
+        # DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS, hidden_dims=[32, 64]),
         FillVersionNaNs(verbose=verbose),
+        # TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
-        TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         Normalizer(verbose=verbose, target_columns=["Motor", "cv", "Kilómetros", "Año"] + [f"embed_{i}" for i in range(1, EMBEDDING_COMPONENTS + 1)]),
         CurrencyConverter(verbose=verbose, usd_to_target_rate=EXCHANGE_RATE),
         OneHotEncoder(["Tipo de combustible", "Transmisión",  "Moneda", "Tipo de vendedor"], verbose=verbose),
