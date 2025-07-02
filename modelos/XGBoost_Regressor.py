@@ -11,7 +11,7 @@ params = {
     "subsample": 1.0,
     "reg_lambda": 1,
     "reg_alpha": 0.01,
-    "n_estimators": 300,
+    "n_estimators": 600,
     "max_depth": 6,
     "learning_rate": 0.1,
     "gamma": 0,
@@ -28,12 +28,18 @@ def esta_normalizado(df, tolerancia=0.2):
 # --- Código principal ---
 
 def main():
+    """
     if len(sys.argv) != 3:
         print("Uso: python entrenar_xgboost.py archivo_train.csv archivo_val.csv")
         sys.exit(1)
 
     archivo_train = sys.argv[1]
     archivo_val = sys.argv[2]
+    """
+
+
+    archivo_train = "data/train/transformed_train.csv"
+    archivo_val = "data/train/transformed_val.csv"
 
     df_train = pd.read_csv(archivo_train)
     df_val = pd.read_csv(archivo_val)
