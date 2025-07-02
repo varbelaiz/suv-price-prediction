@@ -19,7 +19,10 @@ TEST_INPUT_FILE = Path("data/test/cleaned_test.csv")
 TEST_OUTPUT_FILE = Path("data/test/transformed_test.csv")
 
 VERSIONS_FILE = "data/mercadolibre_versions.csv"  # optional catalogue
+
 SIMILARITY_THRESHOLD = 0.3
+EMBEDDING_COMPONENTS = 30
+EXCHANGE_RATE = 1400.0
 
 COLUMNS_ORDER = [
     "idx",
@@ -83,14 +86,14 @@ class Pipeline:
 def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
-        DescriptionEmbeddings(verbose=verbose, n_components=20),
+        DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS),
         FillVersionNaNs(verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
-        Normalizer(verbose=verbose),
-        CurrencyConverter(verbose=verbose),
-        OneHotEncoder(["Tracción", "Tipo de combustible", "Transmisión", "Con cámara de retroceso", "Moneda", "Tipo de vendedor"], verbose=verbose),
-        DropColumns(["Tipo de carrocería", "Título", "Descripción", "Color", "idx"]),
+        Normalizer(verbose=verbose, target_columns=["Motor", "cv", "Kilómetros", "Año"] + [f"embed_{i}" for i in range(1, EMBEDDING_COMPONENTS + 1)]),
+        CurrencyConverter(verbose=verbose, usd_to_target_rate=EXCHANGE_RATE),
+        OneHotEncoder(["Tipo de combustible", "Transmisión",  "Moneda", "Tipo de vendedor"], verbose=verbose),
+        DropColumns(["Tipo de carrocería", "Título", "Color", "Descripción", "price_is_anticipo", "idx", "Puertas", "Tracción", "Con cámara de retroceso"]),
         OrderColumns(column_order=COLUMNS_ORDER),        
     ])
 
@@ -100,7 +103,7 @@ def transform_datasets(apply_to_test: bool = False, val_size: float = 0.2, verbo
 
     # Load the full training data
     full_train_df = pd.read_csv(TRAIN_INPUT_FILE)
-    
+
     # Print number of rows with "Unknown" versions
     print(f"Nans in Versión: {full_train_df['Versión'].isna().sum()}")
     print(f"Porcentaje de Nans en Versión: {full_train_df['Versión'].isna().sum() / len(full_train_df)}")
@@ -126,7 +129,7 @@ def transform_datasets(apply_to_test: bool = False, val_size: float = 0.2, verbo
     print("-" * 20, "Train (Fit + Transform)", "-" * 20)
     train_out = pipe.fit_transform(train_df)
     train_out.to_csv(TRAIN_OUTPUT_FILE, index=False)
-    
+
     # ---- Validation: Transform only ----
     print("-" * 20, "Validation (Transform)", "-" * 20)
     val_out = pipe.transform(val_df)
@@ -142,6 +145,21 @@ def transform_datasets(apply_to_test: bool = False, val_size: float = 0.2, verbo
     else:
         if verbose:
             print("Train and validation datasets transformed successfully!")
+
+    # --- Export version mapping after all transforms ---
+    # Find VersionClustering instance in the pipeline
+    version_clustering = None
+    for step in pipe.steps:
+        if isinstance(step, VersionClustering):
+            version_clustering = step
+            break
+    if version_clustering is not None:
+        mapping_df = version_clustering.export_mapping()
+        mapping_file = "data/train/version_mapping_val.csv"
+        mapping_df.to_csv(mapping_file, index=False)
+        print(f"Version mapping exported to: {mapping_file}")
+    else:
+        print("VersionClustering step not found in pipeline; mapping not exported.")
 
 
 if __name__ == "__main__":

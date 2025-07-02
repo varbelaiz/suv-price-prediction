@@ -37,22 +37,25 @@ class TurboExtractor:
 
 
 class CVExtractor:
-    """Extract CV (horsepower) information from Versión column."""
+    """Extract CV (horsepower) information from Versión, Título, and Descripción columns."""
     
     def process(self, df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
         result = df.copy()
-        result['cv'] = result['Versión'].apply(self._extract_cv)
+        result['cv'] = result.apply(self._extract_cv, axis=1)
         if verbose:
             cv_found = result['cv'].notna().sum()
-            print(f"\t CV EXTRACTOR: Extracted CV values for {cv_found} vehicles")
+            print(f"\t CV EXTRACTOR: Extracted CV/hp values for {cv_found} vehicles")
         return result
     
-    def _extract_cv(self, text):
-        if not isinstance(text, str):
-            return np.nan
-        match = re.search(r'(\d+)\s*[cC][vV]\b', text)
-        if match:
-            return int(match.group(1))
+    def _extract_cv(self, row):
+        # Try Versión, then Título, then Descripción
+        for col in ['Versión', 'Título', 'Descripción']:
+            text = row.get(col, None)
+            if not isinstance(text, str):
+                continue
+            match = re.search(r'(\d+)\s*(cv|hp)\b', text, re.IGNORECASE)
+            if match:
+                return int(match.group(1))
         return np.nan
 
 
@@ -339,6 +342,59 @@ class KilometersCleaner:
         return np.nan
 
 
+class AnticipoExtractor:
+    def __init__(
+        self,
+        text_column: str = "Descripción",
+        km_column: str = "Kilómetros",
+        verbose: bool = True,
+    ):
+        self.text_column = text_column
+        self.km_column = km_column
+        self.verbose = verbose
+
+        # patrones que indican con mucha seguridad que el precio publicado es solo anticipo
+        self.strong_patterns = [
+            re.compile(r"(?:precio|valor|importe)\s+(?:publicado|expresado|es)\s+(?:un\s+)?anticipo", re.I),
+            re.compile(r"precio\s+de\s+anticipo", re.I),
+            re.compile(r"precio\s+publicado\s+.*anticipo", re.I),
+        ]
+
+        # keywords que, en presencia de “anticipo”, refuerzan la hipótesis de financiación
+        self.weak_keywords = [
+            "cuota", "cuotas", "financi", "resto", "tasa", "plan", "mínimo", "minimo"
+        ]
+
+        self.verbose = verbose
+
+    # ---------- API ----------
+    def process(self, df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
+        out = df.copy()
+        out["price_is_anticipo"] = out.apply(self._flag_row, axis=1)
+        if self.verbose:
+            flagged = int(out["price_is_anticipo"].sum())
+            print(f"\tANTICIPO EXTRACTOR: {flagged} vehículos 0 km marcados como anticipo")
+        return out
+
+    # ---------- helpers ----------
+    def _flag_row(self, row) -> int:
+        # Solo 0 km
+        km = row.get(self.km_column, None)
+        if pd.isna(km) or km > 0:
+            return 0
+
+        desc = str(row.get(self.text_column, "")).lower()
+
+        # 1) patrones fuertes
+        if any(pat.search(desc) for pat in self.strong_patterns):
+            return 1
+
+        # 2) combinación “anticipo” + keyword débil
+        if "anticipo" in desc and any(kw in desc for kw in self.weak_keywords):
+            return 1
+
+        return 0
+
 class Pipeline:
     """Pipeline for chaining preprocessors."""
     
@@ -362,6 +418,7 @@ def build_preprocessing_pipeline() -> Pipeline:
         VersionCleaner(),
         VersionFromTitleExtractor(),
         KilometersCleaner(),
+        AnticipoExtractor(),
     ])
 
 
@@ -374,6 +431,7 @@ def preprocess_data(verbose: bool = True):
     
     # Load raw data
     dataset = pd.read_csv(RAW)
+    dataset = dataset.drop_duplicates()
     if verbose:
         print(f"Loaded raw dataset: {dataset.shape}")
     

@@ -1,15 +1,21 @@
 from unicodedata import normalize
-from typing import List, Protocol, Dict, Tuple
+from typing import List, Dict, Tuple
+from sklearn.decomposition import TruncatedSVD
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.decomposition import PCA
 from sklearn.preprocessing import StandardScaler
 
 import pandas as pd
 import numpy as np
 import re
 from pathlib import Path
+
+# PyTorch imports for VAE
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
 
 
 class VersionClustering:
@@ -95,6 +101,14 @@ class VersionClustering:
         out["Versión"] = out.apply(map_or_fallback, axis=1)
         return out
 
+    def export_mapping(self) -> pd.DataFrame:
+        """Export the mapping from (Marca, Modelo, Versión) to canonical version as a DataFrame."""
+        rows = [
+            {"Marca": k[0], "Modelo": k[1], "Version": k[2], "version_canon": v}
+            for k, v in self._mapping.items()
+        ]
+        return pd.DataFrame(rows)
+
     # -------------------------- INTERNALS --------------------------------
     def _cluster_group(self, group: pd.DataFrame, brand: str, model: str) -> pd.DataFrame:
         """Two-stage clustering: catalogue matching followed by DBSCAN for unmatched versions."""
@@ -144,7 +158,7 @@ class VersionClustering:
         grp = grp[grp["_clean"] != ""].reset_index(drop=True)
         
         if grp.empty:
-            grp["version_canon"] = "Unassigned"
+            grp["version_canon"] = grp["Versión"]  # Keep original version
             return grp[["Marca", "Modelo", "Versión", "version_canon"]]
 
         # Use the pre-fitted global vectorizer for richer feature space
@@ -153,7 +167,11 @@ class VersionClustering:
         grp["_cluster"] = clusters
 
         canon = grp[grp["_cluster"] != -1].groupby("_cluster")["Versión"].agg(lambda s: s.value_counts().idxmax())
-        grp["version_canon"] = grp["_cluster"].map(canon).fillna("Unassigned")
+        
+        # For unclustered versions (noise), keep the original version instead of "Unassigned"
+        grp["version_canon"] = grp["_cluster"].map(canon).fillna(grp["Versión"])
+
+        
         return grp[["Marca", "Modelo", "Versión", "version_canon"]]
 
     def _string_similarity_cluster(self, group, catalogue):
@@ -201,39 +219,113 @@ class VersionClustering:
         return re.sub(r"[^a-z0-9 ]+", " ", txt).strip()
 
 
+class VAE(nn.Module):
+    """Variational Autoencoder for dimensionality reduction."""
+    
+    def __init__(self, input_dim: int, latent_dim: int, hidden_dims: List[int] = None):
+        super(VAE, self).__init__()
+        
+        if hidden_dims is None:
+            hidden_dims = [256, 128]
+        
+        # Encoder
+        encoder_layers = []
+        prev_dim = input_dim
+        
+        for hidden_dim in hidden_dims:
+            encoder_layers.extend([
+                nn.Linear(prev_dim, hidden_dim),
+                nn.BatchNorm1d(hidden_dim),
+                nn.ReLU(),
+                nn.Dropout(0.2)
+            ])
+            prev_dim = hidden_dim
+        
+        self.encoder = nn.Sequential(*encoder_layers)
+        
+        # Latent space
+        self.fc_mu = nn.Linear(prev_dim, latent_dim)
+        self.fc_var = nn.Linear(prev_dim, latent_dim)
+        
+        # Decoder
+        decoder_layers = []
+        hidden_dims_reversed = hidden_dims[::-1]
+        prev_dim = latent_dim
+        
+        for hidden_dim in hidden_dims_reversed:
+            decoder_layers.extend([
+                nn.Linear(prev_dim, hidden_dim),
+                nn.BatchNorm1d(hidden_dim),
+                nn.ReLU(),
+                nn.Dropout(0.2)
+            ])
+            prev_dim = hidden_dim
+        
+        decoder_layers.append(nn.Linear(prev_dim, input_dim))
+        self.decoder = nn.Sequential(*decoder_layers)
+    
+    def encode(self, x):
+        h = self.encoder(x)
+        mu = self.fc_mu(h)
+        log_var = self.fc_var(h)
+        return mu, log_var
+    
+    def reparameterize(self, mu, log_var):
+        std = torch.exp(0.5 * log_var)
+        eps = torch.randn_like(std)
+        return mu + eps * std
+    
+    def decode(self, z):
+        return self.decoder(z)
+    
+    def forward(self, x):
+        mu, log_var = self.encode(x)
+        z = self.reparameterize(mu, log_var)
+        return self.decode(z), mu, log_var
+    
+    def loss_function(self, recon_x, x, mu, log_var, beta=1.0):
+        """VAE loss: reconstruction loss + KL divergence."""
+        # Reconstruction loss (MSE)
+        recon_loss = nn.MSELoss(reduction='sum')(recon_x, x)
+        
+        # KL divergence
+        kl_loss = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
+        
+        return recon_loss + beta * kl_loss
 
-import numpy as np
-import pandas as pd
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.decomposition import TruncatedSVD
 
 class DescriptionEmbeddings:
     """
-    TF-IDF + Truncated SVD embeddings (separate pipelines for new and used cars).
+    TF-IDF + VAE embeddings for vehicle descriptions.
     """
 
     def __init__(
         self,
         text_column: str = "Descripción",
-        kilometers_column: str = "Kilómetros",
         n_components: int = 50,
         max_features: int = 2000,
         min_df: int = 2,
         max_df: float = 0.8,
+        hidden_dims: List[int] = None,
+        batch_size: int = 128,
+        learning_rate: float = 1e-1,
+        epochs: int = 50,
+        beta: float = 1.0,
         verbose: bool = True,
     ):
         self.text_column = text_column
-        self.kilometers_column = kilometers_column
         self.n_components = n_components
         self.max_features = max_features
         self.min_df = min_df
         self.max_df = max_df
+        self.hidden_dims = hidden_dims
+        self.batch_size = batch_size
+        self.learning_rate = learning_rate
+        self.epochs = epochs
+        self.beta = beta
         self.verbose = verbose
-
-        self.n_components_new = n_components // 2
-        self.n_components_used = n_components - self.n_components_new
-
-        self.vectorizer_new = TfidfVectorizer(
+        
+        self.vectorizer = TfidfVectorizer(
             max_features=max_features,
             min_df=min_df,
             max_df=max_df,
@@ -241,96 +333,89 @@ class DescriptionEmbeddings:
             strip_accents="unicode",
             ngram_range=(1, 2),
         )
-        self.svd_new = TruncatedSVD(
-            n_components=self.n_components_new, random_state=42
-        )
-
-        self.vectorizer_used = TfidfVectorizer(
-            max_features=max_features,
-            min_df=min_df,
-            max_df=max_df,
-            lowercase=True,
-            strip_accents="unicode",
-            ngram_range=(1, 2),
-        )
-        self.svd_used = TruncatedSVD(
-            n_components=self.n_components_used, random_state=42
-        )
-
-        self.feature_names = [
-            *(f"desc_new_svd_{i+1}" for i in range(self.n_components_new)),
-            *(f"desc_used_svd_{i+1}" for i in range(self.n_components_used)),
-        ]
+        self.vae = None
+        self.feature_names = [f"embed_{i+1}" for i in range(n_components)]
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     def fit(self, df: pd.DataFrame):
         if self.text_column not in df.columns:
             raise ValueError(f"Missing column {self.text_column}")
-        if self.kilometers_column not in df.columns:
-            raise ValueError(f"Missing column {self.kilometers_column}")
-
-        new_mask = df[self.kilometers_column] == 0
-        used_mask = df[self.kilometers_column] > 0
-
-        new_texts = (
-            df.loc[new_mask, self.text_column].fillna("").astype(str).values
-        )
-        used_texts = (
-            df.loc[used_mask, self.text_column].fillna("").astype(str).values
-        )
-
+        
+        texts = df[self.text_column].fillna("").astype(str).values
+        tfidf = self.vectorizer.fit_transform(texts)
+        
         if self.verbose:
-            print(
-                f"\tDESCRIPTION EMBEDDINGS: {new_mask.sum()} new | {used_mask.sum()} used"
-            )
-
-        if len(new_texts) >= self.min_df:
-            tfidf_new = self.vectorizer_new.fit_transform(new_texts)
-            self.svd_new.fit(tfidf_new)
-            if self.verbose:
-                print(
-                    f"\tDESCRIPTION EMBEDDINGS: New cars SVD var "
-                    f"{self.svd_new.explained_variance_ratio_.sum():.3f}"
-                )
-
-        if len(used_texts) >= self.min_df:
-            tfidf_used = self.vectorizer_used.fit_transform(used_texts)
-            self.svd_used.fit(tfidf_used)
-            if self.verbose:
-                print(
-                    f"\tDESCRIPTION EMBEDDINGS: Used cars SVD var "
-                    f"{self.svd_used.explained_variance_ratio_.sum():.3f}"
-                )
-
+            print(f"\tDESCRIPTION EMBEDDINGS: TF-IDF shape: {tfidf.shape}")
+        
+        # Convert to dense array and normalize
+        tfidf_dense = tfidf.toarray()
+        scaler = StandardScaler()
+        tfidf_scaled = scaler.fit_transform(tfidf_dense)
+        
+        # Initialize and train VAE
+        self.vae = VAE(
+            input_dim=tfidf_scaled.shape[1],
+            latent_dim=self.n_components,
+            hidden_dims=self.hidden_dims
+        ).to(self.device)
+        
+        self._train_vae(tfidf_scaled)
+        
+        if self.verbose:
+            print(f"\tDESCRIPTION EMBEDDINGS: VAE fitted with {self.n_components} latent dimensions")
+        
         return self
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
-        new_features = np.zeros((len(df), self.n_components_new))
-        used_features = np.zeros((len(df), self.n_components_used))
+        if self.text_column not in df.columns:
+            raise ValueError(f"Missing column {self.text_column}")
+        if self.vae is None:
+            raise RuntimeError("DescriptionEmbeddings must be fitted before transform().")
+        
+        texts = df[self.text_column].fillna("").astype(str).values
+        tfidf = self.vectorizer.transform(texts)
+        
+        # Convert to dense array and normalize
+        tfidf_dense = tfidf.toarray()
+        scaler = StandardScaler()
+        tfidf_scaled = scaler.fit_transform(tfidf_dense)
+        
+        # Encode using VAE
+        self.vae.eval()
+        with torch.no_grad():
+            tfidf_tensor = torch.FloatTensor(tfidf_scaled).to(self.device)
+            mu, _ = self.vae.encode(tfidf_tensor)
+            features = mu.cpu().numpy()
+        
+        features_df = pd.DataFrame(features, columns=self.feature_names, index=df.index)
+        return pd.concat([df, features_df], axis=1)
+    
+    def _train_vae(self, data: np.ndarray):
+        """Train the VAE on the given data."""
+        dataset = TensorDataset(torch.FloatTensor(data))
+        dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+        
+        optimizer = optim.Adam(self.vae.parameters(), lr=self.learning_rate)
+        
+        self.vae.train()
+        for epoch in range(self.epochs):
+            total_loss = 0
+            for batch_data in dataloader:
+                x = batch_data[0].to(self.device)
+                
+                optimizer.zero_grad()
+                recon_x, mu, log_var = self.vae(x)
+                loss = self.vae.loss_function(recon_x, x, mu, log_var, self.beta)
+                
+                loss.backward()
+                optimizer.step()
+                
+                total_loss += loss.item()
+            
+            if self.verbose and (epoch + 1) % 10 == 0:
+                avg_loss = total_loss / len(dataloader)
+                print(f"\tDESCRIPTION EMBEDDINGS: Epoch {epoch+1}/{self.epochs}, Loss: {avg_loss:.4f}")
 
-        new_mask = df[self.kilometers_column] == 0
-        used_mask = df[self.kilometers_column] > 0
-
-        if new_mask.any() and hasattr(self.vectorizer_new, "vocabulary_"):
-            new_texts = (
-                df.loc[new_mask, self.text_column].fillna("").astype(str).values
-            )
-            tfidf_new = self.vectorizer_new.transform(new_texts)
-            new_features[new_mask] = self.svd_new.transform(tfidf_new)
-
-        if used_mask.any() and hasattr(self.vectorizer_used, "vocabulary_"):
-            used_texts = (
-                df.loc[used_mask, self.text_column]
-                .fillna("")
-                .astype(str)
-                .values
-            )
-            tfidf_used = self.vectorizer_used.transform(used_texts)
-            used_features[used_mask] = self.svd_used.transform(tfidf_used)
-
-        all_features = np.concatenate([new_features, used_features], axis=1)
-        pca_df = pd.DataFrame(all_features, columns=self.feature_names, index=df.index)
-
-        return pd.concat([df, pca_df], axis=1)
 
 class FillVersionNaNs:
     """
@@ -486,7 +571,7 @@ class CurrencyConverter:
     def __init__(self, 
                  price_column: str = "Precio",
                  currency_column: str = "Moneda", 
-                 usd_to_target_rate: float = 1100.0,
+                 usd_to_target_rate: float = 1200.0,
                  verbose: bool = True):
         """
         Args:
@@ -766,10 +851,9 @@ class Normalizer:
             verbose: Whether to print progress information
         """
         if target_columns is None:
-            # Default columns to normalize
             default_cols = ["Marca", "Modelo", "Versión", "Motor", "cv", "Kilómetros", "Año"]
             # Add desc_pca columns
-            desc_pca_cols = [f"desc_pca_{i}" for i in range(1, 31)]
+            desc_pca_cols = [f"desc_svd_{i}" for i in range(1, 31)]
             target_columns = default_cols + desc_pca_cols
             
         self.target_columns = target_columns
@@ -798,8 +882,6 @@ class Normalizer:
             elif self.verbose:
                 print(f"\t NORMALIZER: Column '{col}' not found, skipping")
         
-        if self.verbose:
-            print(f"\t NORMALIZER: Will normalize {len(self._columns_to_normalize)} columns: {self._columns_to_normalize}")
         
         return self
     
