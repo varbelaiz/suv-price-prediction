@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import StandardScaler
+from sklearn.decomposition import PCA
 
 import pandas as pd
 import numpy as np
@@ -296,7 +297,7 @@ class VAE(nn.Module):
 
 class DescriptionEmbeddings:
     """
-    TF-IDF + VAE embeddings for vehicle descriptions.
+    TF-IDF + PCA embeddings for vehicle descriptions.
     """
 
     def __init__(
@@ -306,11 +307,6 @@ class DescriptionEmbeddings:
         max_features: int = 2000,
         min_df: int = 2,
         max_df: float = 0.8,
-        hidden_dims: List[int] = None,
-        batch_size: int = 128,
-        learning_rate: float = 1e-3,
-        epochs: int = 100,
-        beta: float = 0.5,
         verbose: bool = True,
     ):
         self.text_column = text_column
@@ -318,11 +314,6 @@ class DescriptionEmbeddings:
         self.max_features = max_features
         self.min_df = min_df
         self.max_df = max_df
-        self.hidden_dims = hidden_dims
-        self.batch_size = batch_size
-        self.learning_rate = learning_rate
-        self.epochs = epochs
-        self.beta = beta
         self.verbose = verbose
         
         self.vectorizer = TfidfVectorizer(
@@ -331,11 +322,11 @@ class DescriptionEmbeddings:
             max_df=max_df,
             lowercase=True,
             strip_accents="unicode",
-            ngram_range=(1, 2),
+            ngram_range=(2, 3),
         )
-        self.vae = None
+        self.scaler = StandardScaler()
+        self.pca = PCA(n_components=n_components, random_state=42)
         self.feature_names = [f"embed_{i+1}" for i in range(n_components)]
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     def fit(self, df: pd.DataFrame):
         if self.text_column not in df.columns:
@@ -349,27 +340,22 @@ class DescriptionEmbeddings:
         
         # Convert to dense array and normalize
         tfidf_dense = tfidf.toarray()
-        scaler = StandardScaler()
-        tfidf_scaled = scaler.fit_transform(tfidf_dense)
+        tfidf_scaled = self.scaler.fit_transform(tfidf_dense)
         
-        # Initialize and train VAE
-        self.vae = VAE(
-            input_dim=tfidf_scaled.shape[1],
-            latent_dim=self.n_components,
-            hidden_dims=self.hidden_dims
-        ).to(self.device)
-        
-        self._train_vae(tfidf_scaled)
+        # Fit PCA
+        self.pca.fit(tfidf_scaled)
         
         if self.verbose:
-            print(f"\tDESCRIPTION EMBEDDINGS: VAE fitted with {self.n_components} latent dimensions")
+            explained_variance = self.pca.explained_variance_ratio_.sum()
+            print(f"\tDESCRIPTION EMBEDDINGS: PCA fitted with {self.n_components} components")
+            print(f"\tDESCRIPTION EMBEDDINGS: Explained variance ratio: {explained_variance:.4f}")
         
         return self
 
     def transform(self, df: pd.DataFrame) -> pd.DataFrame:
         if self.text_column not in df.columns:
             raise ValueError(f"Missing column {self.text_column}")
-        if self.vae is None:
+        if self.pca is None:
             raise RuntimeError("DescriptionEmbeddings must be fitted before transform().")
         
         texts = df[self.text_column].fillna("").astype(str).values
@@ -377,44 +363,13 @@ class DescriptionEmbeddings:
         
         # Convert to dense array and normalize
         tfidf_dense = tfidf.toarray()
-        scaler = StandardScaler()
-        tfidf_scaled = scaler.fit_transform(tfidf_dense)
+        tfidf_scaled = self.scaler.transform(tfidf_dense)
         
-        # Encode using VAE
-        self.vae.eval()
-        with torch.no_grad():
-            tfidf_tensor = torch.FloatTensor(tfidf_scaled).to(self.device)
-            mu, _ = self.vae.encode(tfidf_tensor)
-            features = mu.cpu().numpy()
+        # Apply PCA transformation
+        features = self.pca.transform(tfidf_scaled)
         
         features_df = pd.DataFrame(features, columns=self.feature_names, index=df.index)
         return pd.concat([df, features_df], axis=1)
-    
-    def _train_vae(self, data: np.ndarray):
-        """Train the VAE on the given data."""
-        dataset = TensorDataset(torch.FloatTensor(data))
-        dataloader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
-        
-        optimizer = optim.Adam(self.vae.parameters(), lr=self.learning_rate)
-        
-        self.vae.train()
-        for epoch in range(self.epochs):
-            total_loss = 0
-            for batch_data in dataloader:
-                x = batch_data[0].to(self.device)
-                
-                optimizer.zero_grad()
-                recon_x, mu, log_var = self.vae(x)
-                loss = self.vae.loss_function(recon_x, x, mu, log_var, self.beta)
-                
-                loss.backward()
-                optimizer.step()
-                
-                total_loss += loss.item()
-            
-            if self.verbose and (epoch + 1) % 10 == 0:
-                avg_loss = total_loss / len(dataloader)
-                print(f"\tDESCRIPTION EMBEDDINGS: Epoch {epoch+1}/{self.epochs}, Loss: {avg_loss:.4f}")
 
 
 class FillVersionNaNs:
