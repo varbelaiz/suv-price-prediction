@@ -22,7 +22,7 @@ VERSIONS_FILE = "data/mercadolibre_versions.csv"  # optional catalogue
 
 SIMILARITY_THRESHOLD = 0.2
 EMBEDDING_COMPONENTS = 5
-EXCHANGE_RATE = 1200.0
+EXCHANGE_RATE = 1400.0
 
 COLUMNS_ORDER = [
     "idx",
@@ -86,7 +86,7 @@ class Pipeline:
 def build_pipeline(verbose: bool = True) -> Pipeline:
     return Pipeline([
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
-        # DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS, hidden_dims=[32, 64]),
+        DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS),
         FillVersionNaNs(verbose=verbose),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
