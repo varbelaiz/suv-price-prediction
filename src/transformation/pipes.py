@@ -1,6 +1,7 @@
 from unicodedata import normalize
 from typing import List, Dict, Tuple
 from sklearn.decomposition import TruncatedSVD
+from sklearn.ensemble import IsolationForest
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn.cluster import DBSCAN
 from sklearn.metrics.pairwise import cosine_similarity
@@ -471,67 +472,81 @@ class FillVersionNaNs:
         return result
 
 
+
 class FillNaNs:
     def __init__(self, columns: List[str]):
         self.columns = columns
-        self._modes_by_version: pd.Series | None = None  # Marca + Modelo + Versión
-        self._modes_by_model: pd.Series | None = None    # Marca + Modelo (fallback)
-        self._modes_by_brand: pd.Series | None = None    # Marca (fallback final)
+        self._modes_full: pd.DataFrame | None = None   # Marca + Modelo + Versión
+        self._modes_model: pd.DataFrame | None = None  # Marca + Modelo
+        self._modes_marca: pd.DataFrame | None = None  # Marca
+        self._modes_global: pd.Series | None = None    # Global
 
     def fit(self, df: pd.DataFrame):
         base = ["Marca", "Modelo"]
         ver = "Versión"
-        
-        # Fit modes by Marca + Modelo + Versión
-        grp_version = df.groupby(base + [ver])
-        self._modes_by_version = grp_version[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
-        
-        # Fit modes by Marca + Modelo (fallback)
+
+        # Nivel 1: Marca + Modelo + Versión
+        grp_full = df.groupby(base + [ver])
+        self._modes_full = grp_full[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
+
+        # Nivel 2: Marca + Modelo
         grp_model = df.groupby(base)
-        self._modes_by_model = grp_model[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
-        
-        # Fit modes by Marca (fallback final)
-        grp_brand = df.groupby(["Marca"])
-        self._modes_by_brand = grp_brand[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
-        
+        self._modes_model = grp_model[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
+
+        # Nivel 3: Marca
+        grp_marca = df.groupby(["Marca"])
+        self._modes_marca = grp_marca[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
+
+        # Nivel 4: Global
+        self._modes_global = df[self.columns].agg(lambda s: s.mode().iloc[0] if not s.mode().empty else np.nan)
+
         return self
 
     def transform(self, df: pd.DataFrame):
-        if self._modes_by_version is None or self._modes_by_model is None or self._modes_by_brand is None:
+        if any(mode is None for mode in [self._modes_full, self._modes_model, self._modes_marca, self._modes_global]):
             raise RuntimeError("FillNaNs must be fitted before transform().")
 
         base = ["Marca", "Modelo"]
         ver = "Versión"
 
         def impute(row, col):
-            # Try Marca + Modelo + Versión first
-            key_version = tuple(row[c] for c in base + [ver])
-            if key_version in self._modes_by_version.index:
-                mode_value = self._modes_by_version.loc[key_version, col]
-                if pd.notna(mode_value):
-                    return mode_value
-            
-            # Fallback to Marca + Modelo
+            key_full = tuple(row[c] for c in base + [ver])
             key_model = tuple(row[c] for c in base)
-            if key_model in self._modes_by_model.index:
-                mode_value = self._modes_by_model.loc[key_model, col]
-                if pd.notna(mode_value):
-                    return mode_value
-            
-            # Final fallback to Marca
-            key_brand = row["Marca"]
-            if key_brand in self._modes_by_brand.index:
-                mode_value = self._modes_by_brand.loc[key_brand, col]
-                if pd.notna(mode_value):
-                    return mode_value
-            
-            # If all fail, return original value
+            key_marca = row["Marca"]
+
+            # Nivel 1
+            if key_full in self._modes_full.index:
+                val = self._modes_full.loc[key_full, col]
+                if pd.notna(val):
+                    return val
+
+            # Nivel 2
+            if key_model in self._modes_model.index:
+                val = self._modes_model.loc[key_model, col]
+                if pd.notna(val):
+                    return val
+
+            # Nivel 3
+            if key_marca in self._modes_marca.index:
+                val = self._modes_marca.loc[key_marca, col]
+                if pd.notna(val):
+                    return val
+
+            # Nivel 4 (global)
+            val = self._modes_global[col]
+            if pd.notna(val):
+                return val
+
+            # No se pudo imputar (muy raro)
             return row[col]
 
         out = df.copy()
         for col in self.columns:
             if col in out.columns:
-                out[col] = out.apply(lambda r: r[col] if pd.notna(r[col]) else impute(r, col), axis=1)
+                out[col] = out.apply(
+                    lambda r: r[col] if pd.notna(r[col]) else impute(r, col),
+                    axis=1
+                )
         return out
 
 
@@ -888,3 +903,42 @@ class Normalizer:
         
         return result
 
+
+class OutlierRemover:
+    """
+    Remove rows identified as outliers using Isolation Forest.
+    """
+
+    def __init__(self, columns: List[str], contamination: float = 0.01, random_state: int = 42, verbose: bool = True):
+        self.columns = columns
+        self.contamination = contamination
+        self.random_state = random_state
+        self.verbose = verbose
+        self.model = None
+
+    def fit(self, df: pd.DataFrame):
+        data = df[self.columns].dropna()
+        self.model = IsolationForest(contamination=self.contamination, random_state=self.random_state)
+        self.model.fit(data)
+        if self.verbose:
+            print(f"\t OUTLIER REMOVER: Fitted on {len(data)} samples")
+        return self
+
+    def transform(self, df: pd.DataFrame):
+        if self.model is None:
+            raise RuntimeError("OutlierRemover must be fitted before transform()")
+
+        data = df[self.columns]
+        isna_mask = data.isna().any(axis=1)
+        valid_mask = ~isna_mask
+
+        # Predict only on valid rows
+        preds = pd.Series([1] * len(df), index=df.index)  # default is "not outlier"
+        preds[valid_mask] = self.model.predict(data[valid_mask])
+
+        # Keep only inliers
+        mask = preds == 1
+        if self.verbose:
+            removed = (~mask).sum()
+            print(f"\t OUTLIER REMOVER: Removed {removed} outliers")
+        return df[mask].reset_index(drop=True)

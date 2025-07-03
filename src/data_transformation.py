@@ -90,6 +90,7 @@ def build_pipeline(verbose: bool = True) -> Pipeline:
         FillVersionNaNs(verbose=verbose),
         TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
+        OutlierRemover(columns=["Kilómetros"], contamination=0.01, verbose=verbose), 
         Normalizer(verbose=verbose, target_columns=["Motor", "cv", "Kilómetros", "Año"] + [f"embed_{i}" for i in range(1, EMBEDDING_COMPONENTS + 1)]),
         CurrencyConverter(verbose=verbose, usd_to_target_rate=EXCHANGE_RATE),
         OneHotEncoder(["Tipo de combustible", "Transmisión",  "Moneda", "Tipo de vendedor", "Con camára de retroceso"], verbose=verbose),
