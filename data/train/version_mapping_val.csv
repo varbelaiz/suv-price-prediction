@@ -1,5 +1,5 @@
 Marca,Modelo,Version,version_canon
-Alfa Romeo,Stelvio,new tributo italiano,Distinctive Q4
+Alfa Romeo,Stelvio,new tributo italiano,new tributo italiano
 Alfa Romeo,Stelvio,q4 veloce,Veloce
 Alfa Romeo,Stelvio,distinctive q4,Distinctive Q4
 Alfa Romeo,Stelvio,q4 super,Super
@@ -12,9 +12,9 @@ Audi,Q2,40 stronic sport quattro,Sport
 Audi,Q2,35 sport,Sport
 Audi,Q2,stronic sport quattro,Sport
 Audi,Q2,35 advanced,35 advanced
-Audi,Q2,t quattro,40 stronicquattro
+Audi,Q2,t quattro,40 quattro
 Audi,Q2,40 stronicquattro,40 stronicquattro
-Audi,Q2,40 quattro,40 stronicquattro
+Audi,Q2,40 quattro,40 quattro
 Audi,Q2,30 stronic,40 stronicquattro
 Audi,Q3,stronic,stronic
 Audi,Q3,35tfsi,35tfsi
@@ -29,10 +29,10 @@ Audi,Q3,sportback,sportback
 Audi,Q3,35 stronic,stronic
 Audi,Q3,sport,sport
 Audi,Q3 Sportback,35tfsi sportback,35tfsi sportback
-Audi,Q3 Sportback,40tfsi s line quattro,35tfsi sportback
-Audi,Q3 Sportback,40tfsi quattro,35tfsi sportback
-Audi,Q3 Sportback,40tfsi quattro sportback,35tfsi sportback
-Audi,Q3 Sportback,40 quattro,35tfsi sportback
+Audi,Q3 Sportback,40tfsi s line quattro,40tfsi quattro
+Audi,Q3 Sportback,40tfsi quattro,40tfsi quattro
+Audi,Q3 Sportback,40tfsi quattro sportback,40tfsi quattro
+Audi,Q3 Sportback,40 quattro,40 quattro
 Audi,Q5,45 sport,45 sport
 Audi,Q5,stronic,tiptronic quattro
 Audi,Q5,45 advanced,45 advanced
@@ -54,8 +54,8 @@ Audi,Q7,tiptronic quattro,tiptronic quattro
 Audi,Q7,55 s-line quattro,55 s-line quattro
 Audi,Q7,tdi tiptronic quattro,tiptronic quattro
 Audi,Q7,55 sline quattro,55 s-line quattro
-Audi,Q7,v6t fsi quattro,tiptronic quattro
-Audi,Q7,tdi tipt. quattro luxury,tiptronic quattro
+Audi,Q7,v6t fsi quattro,v6t fsi quattro
+Audi,Q7,tdi tipt. quattro luxury,tdi tipt. quattro luxury
 Audi,Q8,55 quattro,55 quattro
 Audi,SQ5,stronic,stronic
 Audi,q5 sportback,45tfsi quattro s tronic s-line,S-line
@@ -65,16 +65,16 @@ BAIC,X35,luxury,Luxury
 BAIC,X35,confort,Confort
 BAIC,X35,luxury sport bi-tono,Luxury
 BAIC,X35,"confort ""sport""",Confort
-BAIC,X55,il,Elite
 BAIC,X55,elite,Elite
 BAIC,X55,plus,Plus
-BAIC,X55,luxury,Plus
 BAIC,X55,t plus,Plus
 BAIC,X55,il limited,Elite
+BAIC,X55,il,il
 BAIC,X55,ii luxury,ii luxury
 BAIC,X55,ii luxury bi-tono,ii luxury
 BAIC,X55,beijing,beijing
 BAIC,X55,ii,ii
+BAIC,X55,luxury,ii luxury
 BAIC,X55,x 55 luxury,x 55 luxury
 BMW,Serie 4,440i gran m package,440i gran m package
 BMW,X1,sdrive 18i active,Active
@@ -92,18 +92,18 @@ BMW,X1,xdrive 20d active,Active
 BMW,X1,okm 2025 black edition ( - ),Black Edition
 BMW,X1,25i xdrive xline,Xline
 BMW,X1,xdrive 28i executive,Executive
-BMW,X1,20i sport okm año 2025 - audi q3 ni audi q5 gla 250,Black Edition
-BMW,X1,i,Black Edition
 BMW,X1,sdrive 20d active,Active
 BMW,X1,xdrive20i xline,Xline
-BMW,X1,xdrive 20 i,Executive
-BMW,X1,20i xdrive,Executive
+BMW,X1,xdrive 20 i,Active
+BMW,X1,20i xdrive,Active
 BMW,X1,18i sdrive,Active
 BMW,X1,s-drive 20i sportline,Sportline
-BMW,X1,2.5i xdrive,Executive
+BMW,X1,2.5i xdrive,Active
 BMW,X1,s-drive,Active
 BMW,X1,sdrive 25i x line,Xline
 BMW,X1,25e,25e
+BMW,X1,20i sport okm año 2025 - audi q3 ni audi q5 gla 250,20i sport okm año 2025 - audi q3 ni audi q5 gla 250
+BMW,X1,i,i
 BMW,X1,18i okm 2025,18i okm 2025
 BMW,X1,18i,18i
 BMW,X2,sdrive20i msportx,Sdrive20i Msportx
@@ -118,15 +118,8 @@ BMW,X2,m35i mperformance,Mperformance
 BMW,X2,xdrive20i m pack sport pro,Sdrive20i Msportx
 BMW,X3,m40i mperformance,Mperformance
 BMW,X3,xdrive 35i executive,Executive
-BMW,X3,xdrive 30e,Executive
-BMW,X3,xdrive 20 i,Executive
-BMW,X3,xdrive advantage l,Executive
 BMW,X3,xdrive 20d executive,Executive
-BMW,X3,30i xdrive,Executive
-BMW,X3,20 xdrive,Executive
-BMW,X3,20i xdrive,Executive
 BMW,X3,2.5si selective,Executive
-BMW,X3,si xdrive limited edition blindada br3 360,Xline
 BMW,X3,xdrive m50 m performance,Mperformance
 BMW,X3,xdrive 30i xline,Xline
 BMW,X3,xdrive 30e xline,Xline
@@ -135,25 +128,29 @@ BMW,X3,30i xline xdrive,Xline
 BMW,X3,xdrive 20i xline,Xline
 BMW,X3,xdrive 28i xline,Xline
 BMW,X3,xdrive 30i executive,Executive
-BMW,X3,xdrive 35i m package,Executive
 BMW,X3,i executive,Executive
-BMW,X3,xdrive 30i,Executive
 BMW,X3,d executive,Executive
-BMW,X3,x3m competition,Mperformance
 BMW,X3,m50,m50
+BMW,X3,xdrive 30e,30i xdrive
+BMW,X3,xdrive 20 i,30i xdrive
+BMW,X3,xdrive advantage l,xdrive advantage l
+BMW,X3,30i xdrive,30i xdrive
+BMW,X3,20 xdrive,30i xdrive
+BMW,X3,20i xdrive,30i xdrive
+BMW,X3,si xdrive limited edition blindada br3 360,si xdrive limited edition blindada br3 360
 BMW,X3,30i,30i
+BMW,X3,xdrive 35i m package,xdrive 35i m package
+BMW,X3,xdrive 30i,30i xdrive
+BMW,X3,x3m competition,x3m competition
 BMW,X4,xdrive 28i xline,Xline
 BMW,X4,xdrive 35i m package,M Package
 BMW,X4,30 i xdrive m sport,30 i xdrive m sport
-BMW,X4,xdrive 30i,Executive
-BMW,X5,xdrive 35i pure excellence,Executive
+BMW,X4,xdrive 30i,xdrive 30i
 BMW,X5,premium stept,Premium
 BMW,X5,da executive,Executive
-BMW,X5,40i xdrive,Executive
 BMW,X5,xdrive 50i m package,M Package
 BMW,X5,d executive stept,Executive
 BMW,X5,iexecutive stept,Executive
-BMW,X5,m,Premium
 BMW,X5,xdrive 35i executive,Executive
 BMW,X5,xdrive 40d m package,M Package
 BMW,X5,xdrive 30d executive,Executive
@@ -164,14 +161,16 @@ BMW,X5,si executive,Executive
 BMW,X5,d executive,Executive
 BMW,X5,d executive stept.,Executive
 BMW,X5,is premium stept,Premium
-BMW,X5,xdrive 40i,Executive
-BMW,X5,40i x drive,Executive
-BMW,X5,40i xdrive m,Executive
+BMW,X5,xdrive 35i pure excellence,xdrive 35i pure excellence
+BMW,X5,40i xdrive,40i xdrive
 BMW,X5,xdrive 40i lci m sport pro,xdrive 40i lci m sport pro
-BMW,X5,40 i xdrive m sport,xdrive 40i lci m sport pro
+BMW,X5,m,m
+BMW,X5,40 i xdrive m sport,40 i xdrive m sport
 BMW,X5,40m,40m
+BMW,X5,xdrive 40i,40i xdrive
+BMW,X5,40i x drive,40i xdrive
+BMW,X5,40i xdrive m,40i xdrive
 BMW,X6,xdrive 35i sportive,Sportive
-BMW,X6,m,Premium
 BMW,X6,xdrive 35i pure extravagance,Extravagance
 BMW,X6,40 i xdrive m sport,Sportive
 BMW,X6,xdrive35i,Sportive
@@ -182,6 +181,7 @@ BMW,X6,xdrive 30d sportive,Sportive
 BMW,X6,35i pure extravagance,Extravagance
 BMW,X6,xdrive 50i premium,Premium
 BMW,X6,xdrive40i,Sportive
+BMW,X6,m,m
 Chery,Tiggo,confort,Confort
 Chery,Tiggo,f2 confort,Confort
 Chery,Tiggo,f2 luxury,Luxury
@@ -206,10 +206,10 @@ Chevrolet,Blazer,dlx,Dlx
 Chevrolet,Blazer,tahoe lt,Tahoe Lt
 Chevrolet,Blazer,,
 Chevrolet,Equinox,lt,Lt
-Chevrolet,Equinox,ls,Lt
 Chevrolet,Equinox,premier,premier
 Chevrolet,Equinox,ls a/t,ls a/t
 Chevrolet,Equinox,rs,rs
+Chevrolet,Equinox,ls,ls
 Chevrolet,Grand Blazer,dlx,dlx
 Chevrolet,Grand Vitara,i,i
 Chevrolet,Spin,lt 7as,Lt
@@ -230,7 +230,6 @@ Chevrolet,Tracker,premier ltz,Ltz
 Chevrolet,Tracker,t ltz,Ltz
 Chevrolet,Tracker,ltz+ motor ecotec,Ltz
 Chevrolet,Tracker,ltz premier,Ltz
-Chevrolet,Tracker,rs 6 velocidades,Rs
 Chevrolet,Tracker,ltz premier 2019,Ltz
 Chevrolet,Tracker,ltz premier l17,Ltz
 Chevrolet,Tracker,ltz 16 valvulas,Ltz
@@ -239,16 +238,17 @@ Chevrolet,Tracker,ltz plus l13,Ltz
 Chevrolet,Tracker,premier,premier
 Chevrolet,Tracker,t premier,premier
 Chevrolet,Tracker,premier +,premier
-Chevrolet,Tracker,premier 6 velocidades,premier 6 velocidades
+Chevrolet,Tracker,premier 6 velocidades,6 velocidades
 Chevrolet,Tracker,argentina,argentina
 Chevrolet,Tracker,premier automático,premier automático
 Chevrolet,Tracker,t premier l20,premier
 Chevrolet,Tracker,6 velocidades,6 velocidades
+Chevrolet,Tracker,rs 6 velocidades,6 velocidades
 Chevrolet,Tracker,t premier l23,premier
-Chevrolet,Tracker,rs 1.2n 6 velocidad,rs 1.2n 6 velocidad
+Chevrolet,Tracker,rs 1.2n 6 velocidad,6 velocidades
 Chevrolet,Tracker,my24,my24
 Chevrolet,Tracker,c/cuero,c/cuero
-Chevrolet,Tracker,rs 1.2n 6 velocidades,rs 1.2n 6 velocidades
+Chevrolet,Tracker,rs 1.2n 6 velocidades,6 velocidades
 Chevrolet,Trailblazer,nueva ltz tdci,Ltz
 Chevrolet,Trailblazer,high country 7 plazas automático 510nm,High Country
 Chevrolet,Trailblazer,td high country,High Country
@@ -277,7 +277,7 @@ Citroën,C3 Aircross,vti feel pack,Feel Pack
 Citroën,C3 Aircross,vti feel pack 7as,Feel Pack
 Citroën,C3 Aircross,t200 shine,Shine
 Citroën,C3 Aircross,feel,Feel
-Citroën,C3 Aircross,vti 115 feel am20.5,Feel Pack
+Citroën,C3 Aircross,vti 115 feel am20.5,Feel
 Citroën,C3 Aircross,vti 115 exclusive my way,Exclusive
 Citroën,C3 Aircross,t200 feel pack 7,Feel Pack
 Citroën,C3 Aircross,shine t200 7 plazas,Shine
@@ -298,7 +298,7 @@ Citroën,C4 Cactus,thp eat6 pack confort bt,Feel Pack
 Citroën,C4 Cactus,feel pack plus,Feel Pack
 Citroën,C4 Cactus,thp 165 shine,Shine
 Citroën,C4 Cactus,vti feel pk,Feel Pack
-Citroën,C4 Cactus,puretech rip curl,Rip Curl
+Citroën,C4 Cactus,puretech rip curl,Puretech
 Citroën,C4 Cactus,vti feel l18,Feel
 Citroën,C4 Cactus,feel,Feel
 Citroën,C4 Cactus,vti 115 origins,Origins
@@ -322,25 +322,25 @@ D.S.,DS7 Crossback,e tense hibrida,e tense hibrida
 D.S.,DS7 Crossback,hdi 180 automatic bastille,hdi 180 automatic bastille
 D.S.,DS7 Crossback,rivoli hdi,rivoli hdi
 D.S.,DS7 Crossback,e-tense 300 bastille,e-tense 300 bastille
-D.S.,DS7 Crossback,ds automobiles ds7 thp e-tense bastille+,e-tense 300 bastille
+D.S.,DS7 Crossback,ds automobiles ds7 thp e-tense bastille+,ds automobiles ds7 thp e-tense bastille+
 D.S.,DS7 Crossback,180 hdi automátic bastille my21,hdi 180 automatic bastille
 D.S.,DS7 Crossback,ds 7 crossback e-tense 300 bastile+,e-tense 300 bastille
 DS AUTOMOBILES,DS7,pallas,pallas
 Daihatsu,Terios,sx,sx
-Dodge,Journey,sxt (3 filas) atx,"sxt (techo, dvd, nav)"
-Dodge,Journey,"sxt atx6 (techo, dvd)","sxt (techo, dvd, nav)"
-Dodge,Journey,sxt atx (3 filas),"sxt (techo, dvd, nav)"
+Dodge,Journey,sxt (3 filas) atx,rt atx (3 filas)+dvd+techo
+Dodge,Journey,"sxt atx6 (techo, dvd)","sxt atx4 (techo, dvd)"
+Dodge,Journey,sxt atx (3 filas),rt atx (3 filas)+dvd+techo
 Dodge,Journey,se atx,se atx
-Dodge,Journey,sxt atx techo 3filas,"sxt (techo, dvd, nav)"
-Dodge,Journey,rt atx (3 filas)+dvd+techo,"sxt (techo, dvd, nav)"
+Dodge,Journey,sxt atx techo 3filas,rt atx (3 filas)+dvd+techo
+Dodge,Journey,rt atx (3 filas)+dvd+techo,rt atx (3 filas)+dvd+techo
 Dodge,Journey,"sxt (techo, dvd, nav)","sxt (techo, dvd, nav)"
-Dodge,Journey,"sxt atx4 (techo, dvd)","sxt (techo, dvd, nav)"
-Dodge,Journey,rt atx (3 filas),"sxt (techo, dvd, nav)"
+Dodge,Journey,"sxt atx4 (techo, dvd)","sxt atx4 (techo, dvd)"
+Dodge,Journey,rt atx (3 filas),rt atx (3 filas)+dvd+techo
 Dodge,Journey,rt,rt
 Dodge,Journey,r/t atx,r/t atx
-Dodge,Journey,sxt atx (3 filas)+dvd+techo,"sxt (techo, dvd, nav)"
-Dodge,Journey,sxt atx (2 filas),"sxt (techo, dvd, nav)"
-Dodge,Journey,rt atx (3 filas)+techo,"sxt (techo, dvd, nav)"
+Dodge,Journey,sxt atx (3 filas)+dvd+techo,rt atx (3 filas)+dvd+techo
+Dodge,Journey,sxt atx (2 filas),rt atx (3 filas)+dvd+techo
+Dodge,Journey,rt atx (3 filas)+techo,rt atx (3 filas)+dvd+techo
 Dodge,Journey,r/t,r/t
 Dodge,Journey,sxt,sxt
 D·S,DS7 Crossback,puretech performance line,puretech performance line
@@ -375,7 +375,6 @@ Ford,Ecosport,freestyle,Freestyle
 Ford,Ecosport,se tdci,Se
 Ford,Ecosport,titanium powershift dps6,Titanium
 Ford,Ecosport,freestyle 143,Freestyle
-Ford,Ecosport,s,S
 Ford,Ecosport,my10 xl plus mp3,My10 Xls
 Ford,Ecosport,my10 xls,My10 Xls
 Ford,Ecosport,xls mp3,Xls Mp3
@@ -407,9 +406,10 @@ Ford,Ecosport,titanium automatico,Titanium
 Ford,Ecosport,titanium n,Titanium
 Ford,Ecosport,freesty,Freestyle
 Ford,Ecosport,gdi,gdi
+Ford,Ecosport,s,s
 Ford,Ecosport,s l18,s l18
 Ford,Ecosport,gdi storm,gdi storm
-Ford,Ecosport,storm,gdi storm
+Ford,Ecosport,storm,storm
 Ford,Ecosport,s tdci,s tdci
 Ford,Explorer,xlt limited,xlt limited
 Ford,Explorer,xlt,xlt
@@ -448,9 +448,8 @@ Haval,H6,3ra generacion,3ra generacion
 Haval,Jolion,supreme,supreme
 Honda,CR-V,si,Si
 Honda,CR-V,ex l,Ex-l
-Honda,CR-V,lx (mexico),Ex-l
+Honda,CR-V,lx (mexico),Lx
 Honda,CR-V,lx,Lx
-Honda,CR-V,i,I
 Honda,CR-V,ex,Ex
 Honda,CR-V,ex (mexico),Ex
 Honda,CR-V,advanced hybrid,Advanced
@@ -458,6 +457,7 @@ Honda,CR-V,ex-l,Ex-l
 Honda,CR-V,active lx,Active
 Honda,CR-V,e:hev advance hybrid,Advanced
 Honda,CR-V,lx l12,Ex-l
+Honda,CR-V,i,i
 Honda,CR-V,i scout,i scout
 Honda,HR-V,ex-l,Ex-l
 Honda,HR-V,lx,Lx
@@ -612,7 +612,7 @@ Jeep,Grand Cherokee,scv limited,Limited
 Jeep,Grand Cherokee,v8 scv limited,Limited
 Jeep,Grand Cherokee,crd3.0 limited atx,Limited
 Jeep,Patriot,sport atx,sport atx
-Jeep,Patriot,sport mtx,sport atx
+Jeep,Patriot,sport mtx,sport mtx
 Jeep,Renegade,longitude,Longitude
 Jeep,Renegade,trailhawk,Trailhawk
 Jeep,Renegade,sport,Sport
@@ -621,7 +621,6 @@ Jeep,Renegade,sport my18,Sport
 Jeep,Renegade,willys,Sport Wild
 Jeep,Renegade,sport l18,Sport
 Jeep,Renegade,sport wild,Sport Wild
-Jeep,Renegade,willys t270,Sport Wild
 Jeep,Renegade,longitude l16,Longitude
 Jeep,Renegade,sport plus l17,Sport
 Jeep,Renegade,longitude l18,Longitude
@@ -631,6 +630,7 @@ Jeep,Renegade,t270 willys,Sport Wild
 Jeep,Renegade,serie-s,serie-s
 Jeep,Renegade,serie s,serie-s
 Jeep,Renegade,serie s t270,serie-s
+Jeep,Renegade,willys t270,willys t270
 Jeep,Renegade,t270,t270
 Jeep,Renegade,t 270 serie-s,serie-s
 Jeep,Wrangler,rubicon atx,Rubicon
@@ -656,12 +656,12 @@ Kia,Seltos,lx,Lx
 Kia,Sorento,ex,Ex
 Kia,Sorento,ex premium,Ex
 Kia,Sorento,crdi ex,Ex
-Kia,Sorento,crdi ex tgv esp,Ex
 Kia,Sorento,ex crdi,Ex
-Kia,Sorento,crdi gt-line ex,Ex
 Kia,Sorento,ex plus,Ex
+Kia,Sorento,ex crdi full (),Ex
 Kia,Sorento,ex ejecutiva,Ex
-Kia,Sorento,ex crdi full (),ex crdi full ()
+Kia,Sorento,crdi ex tgv esp,crdi ex tgv esp
+Kia,Sorento,crdi gt-line ex,crdi gt-line ex
 Kia,Sorento,crdi,crdi
 Kia,Soul,classic,Classic
 Kia,Soul,pop,Pop
@@ -670,21 +670,21 @@ Kia,Soul,ex bc,Ex
 Kia,Soul,ex,Ex
 Kia,Soul,ex pop l09,Pop
 Kia,Sportage,ex esp,Ex
-Kia,Sportage,ex x-line t-gdi,Ex Gt-line
+Kia,Sportage,ex x-line t-gdi,X-line
 Kia,Sportage,t-gdi x-line,X-line
 Kia,Sportage,ex,Ex
 Kia,Sportage,ex t-gdi,Ex Gt-line
 Kia,Sportage,crdi ex gt-line,Ex Gt-line
 Kia,Sportage,crdi ex,Ex
-Kia,Sportage,ex a/t,Ex Gt-line
-Kia,Sportage,t-gdi ex,Ex Gt-line
-Kia,Sportage,i abs,i abs
-Kia,Sportage,gdi ex auto,Ex Gt-line
-Kia,Sportage,"ex a/t, techo cuero",Ex Gt-line
+Kia,Sportage,ex a/t,Ex
+Kia,Sportage,t-gdi ex,Ex
+Kia,Sportage,gdi ex auto,Ex
 Kia,Sportage,ex crdi,Ex
 Kia,Sportage,ex (),Ex
 Kia,Sportage,ex premium,Ex Premium
 Kia,Sportage,x-line,X-line
+Kia,Sportage,i abs,i abs
+Kia,Sportage,"ex a/t, techo cuero","ex a/t, techo cuero"
 Land Rover,Defender,90 soft top,90 soft top
 Land Rover,Defender,sw 110 7s,sw 110 7s
 Land Rover,Discovery,sport hse,Sport
@@ -700,17 +700,17 @@ Land Rover,Evoque,hse,Hse
 Land Rover,Evoque,prestige,Prestige
 Land Rover,Evoque,si4,si4
 Land Rover,Evoque,hse dynamic,Se R-dynamic
-Land Rover,Evoque,p300 se hybrid,Se R-dynamic
+Land Rover,Evoque,p300 se hybrid,Se
 Land Rover,Evoque,hse plus,Hse
 Land Rover,Freelander,xedi,Xedi
-Land Rover,Range Rover,evoque 2017,Vogue
+Land Rover,Range Rover,evoque 2017,evoque 2017
 Land Rover,Range Rover,se,Se
 Land Rover,Range Rover,vogue,Vogue
 Land Rover,Range Rover,,
 Land Rover,Range Rover Sport,sdv6 hse,Hse
+Land Rover,Range Rover Sport,v6 hse c/cámara sunrrond,Hse
 Land Rover,Range Rover Sport,v8 s/c hse,Hse
 Land Rover,Range Rover Sport,hse v8,Hse
-Land Rover,Range Rover Sport,v6 hse c/cámara sunrrond,v6 hse c/cámara sunrrond
 Land Rover,Range Rover Sport,sv v8,sv v8
 Land Rover,Range Rover Sport,v8 s/c,v8 s/c
 Lexus,NX,300h luxury,300h luxury
@@ -732,7 +732,7 @@ Mercedes-Benz,Clase GLA,gla 250 4matic,gla250 4matic
 Mercedes-Benz,Clase GLC,glc250 300 4matic atomático,glc250 300 4matic atomático
 Mercedes-Benz,Clase GLC,glc43 amg 4matic,glc250 300 4matic atomático
 Mercedes-Benz,Clase GLC,glc coupé 43 4matic,glc coupé 43 4matic
-Mercedes-Benz,Clase GLC,300 amg-line,glc250 300 4matic atomático
+Mercedes-Benz,Clase GLC,300 amg-line,300 amg-line
 Mercedes-Benz,Clase GLC,glc250 300 4matic,glc250 300 4matic atomático
 Mercedes-Benz,Clase GLC,glc300 4matic amg-line,glc250 300 4matic atomático
 Mercedes-Benz,Clase GLC,glc300 4matic offroad,glc250 300 4matic atomático
@@ -763,15 +763,15 @@ Mercedes-Benz,ML,63 amg 4matic,63 amg 4matic
 Mercedes-Benz,ML,ml350 blueefficiency 4 matic,ml350 blueefficiency 4 matic
 Mercedes-Benz,ML,350 4matic,350 4matic
 Mini,Cooper Countryman,countryman cooper s classic confort,countryman cooper s classic confort
-Mitsubishi,Montero,gls di-d tc cu,Gls Metal Top
+Mitsubishi,Montero,gls di-d tc cu,Gls
 Mitsubishi,Montero,glx,Glx
 Mitsubishi,Montero,metal top v6,Metal Top
-Mitsubishi,Montero,gls i tc,Gls Metal Top
+Mitsubishi,Montero,gls i tc,Gls
 Mitsubishi,Nativa,glx i,Glx
 Mitsubishi,Outlander,sport gls,sport gls
 Mitsubishi,Outlander,gls c/t,gls c/t
 Mitsubishi,Outlander,gls full,gls full
-Mitsubishi,Outlander,gls full 7 plazas,gls full
+Mitsubishi,Outlander,gls full 7 plazas,gls full 7 plazas
 Mitsubishi,Outlander,gls,gls
 Mitsubishi,Outlander,gls s- (),gls s- ()
 Nissan,Kicks,exclusive,Exclusive
@@ -783,19 +783,19 @@ Nissan,Kicks,exclusive l17,Exclusive
 Nissan,Kicks,special edition,Special Edition
 Nissan,Kicks,advance f2,Advance
 Nissan,Kicks,play exclusive,Exclusive
-Nissan,Kicks,play advance plus,Advance Ucl
+Nissan,Kicks,play advance plus,Advance
 Nissan,Kicks,advance l22,Advance
 Nissan,Kicks,advance l21,Advance
 Nissan,Kicks,exclusive bt l21,Exclusive Bt
 Nissan,Kicks,advance ucl,Advance Ucl
 Nissan,Kicks,special edition l18,Special Edition
-Nissan,Kicks,play adv plus,Advance Ucl
 Nissan,Kicks,exclusive special edition,Special Edition
 Nissan,Kicks,sense,sense
 Nissan,Kicks,sense l21,sense
 Nissan,Kicks,xplay,xplay
 Nissan,Kicks,sense f2,sense
 Nissan,Kicks,x play,x play
+Nissan,Kicks,play adv plus,play adv plus
 Nissan,Murano,exclusive,Exclusive
 Nissan,Murano,v6,v6
 Nissan,Pathfinder,se,Se
@@ -851,24 +851,24 @@ Peugeot,208,blindado rb3,blindado rb3
 Peugeot,3008,gt-line thp tiptronic,Gt-line
 Peugeot,3008,gt-line hdi tiptronic,Gt-line
 Peugeot,3008,hdi feline tiptronic l13,Feline
-Peugeot,3008,gt pack tiptronic,Gt-line
 Peugeot,3008,gt pack thp,Gt-line
 Peugeot,3008,feline tiptronic hdi,Feline
-Peugeot,3008,hdi gt pack tiptronic l21,Gt-line
 Peugeot,3008,gt-line thp pack tiptronic,Gt-line
-Peugeot,3008,gt pack hibrid4,Gt-line
 Peugeot,3008,gt-line hdi pack tiptronic,Gt-line
 Peugeot,3008,feline hdi,Feline
-Peugeot,3008,gt pack tiptronic l21,Gt-line
+Peugeot,3008,gt pack tiptronic,gt pack tiptronic
 Peugeot,3008,hybrid4,hybrid4
+Peugeot,3008,hdi gt pack tiptronic l21,gt pack tiptronic
 Peugeot,3008,gt pack am23.5,gt pack am23.5
+Peugeot,3008,gt pack hibrid4,gt pack hybrid4
 Peugeot,3008,gt pack hybrid4,gt pack hybrid4
+Peugeot,3008,gt pack tiptronic l21,gt pack tiptronic
 Peugeot,4008,feline,Feline
 Porsche,Cayenne,v6,v6
 Porsche,Cayenne,(958),(958)
 Porsche,Cayenne,s hybrid tiptronic (958),s hybrid tiptronic (958)
 Porsche,Cayenne,v6 (957),v6 (957)
-Porsche,Cayenne,s (958),(958)
+Porsche,Cayenne,s (958),s (958)
 Porsche,Cayenne,v6 platinum edition,v6 platinum edition
 Porsche,Cayenne,v8 s (957),v8 s (957)
 Porsche,Cayenne,blindada rb3,blindada rb3
@@ -878,7 +878,7 @@ Porsche,Macan,t,t
 Porsche,Macan,gts,gts
 Porsche,Macan,4 electric,4 electric
 Porsche,Macan,gts pdk linea nueva,gts pdk linea nueva
-Porsche,Macan,electric,electric
+Porsche,Macan,electric,4 electric
 Porsche,Panamera,4 s (970),4 s (970)
 Porsche,Panamera,(970),(970)
 Range Rover,Evoque,si4,si4
@@ -914,13 +914,13 @@ Renault,Duster,dynamique ph2,Dynamique
 Renault,Duster,expression l15,Expression
 Renault,Duster,te h road ii,Tech Road
 Renault,Duster,privileg,Privilege
-Renault,Duster,de luxe media nav,Dynamique
 Renault,Duster,expression n,Expression
 Renault,Duster,intense,Intens
 Renault,Duster,confort plus l12,Confort
-Renault,Duster,zen,Intens
 Renault,Duster,luxe nav,luxe nav
 Renault,Duster,luxe,luxe
+Renault,Duster,de luxe media nav,de luxe media nav
+Renault,Duster,zen,zen
 Renault,Duster Oroch,outsider plus,Outsider
 Renault,Duster Oroch,dynamique,Dynamique
 Renault,Duster Oroch,outsider,Outsider
@@ -936,7 +936,7 @@ Renault,Koleos,dynamique plus,Dynamique
 Renault,Koleos,ph3 dynamique plus 4,Dynamique
 Renault,Koleos,intens l20,Intens
 Renault,Sandero,privilege 2018,privilege 2018
-Renault,Sandero Stepway,expression,Intense
+Renault,Sandero Stepway,expression,expression
 Renault,Sandero Stepway,nuevo privilege,Privilege
 Renault,Sandero Stepway,16v intense,Intense
 Rrenault,Duster,ph2 privilege,ph2 privilege
@@ -951,12 +951,12 @@ Subaru,Outback,un sawd,Un
 Suzuki,Grand Vitara,jiii,Jiii
 Suzuki,Grand Vitara,jlx-l,Jlx-l
 Suzuki,Grand Vitara,,
-Suzuki,Grand Vitara,i,Jiii
 Suzuki,Grand Vitara,jlx,Jlx
 Suzuki,Grand Vitara,xl-7 v6,Xl-7
 Suzuki,Grand Vitara,"3 puertas, motor","3 puertas, motor"
 Suzuki,Grand Vitara,2004,2004
-Suzuki,Grand Vitara,"3 puertas, 16v","3 puertas, motor"
+Suzuki,Grand Vitara,i,i
+Suzuki,Grand Vitara,"3 puertas, 16v","3 puertas, 16v"
 Suzuki,Grand Vitara,n,n
 Suzuki,Grand Vitara,tdi mazda,tdi mazda
 Suzuki,Jimny,jlx,Jlx
@@ -965,13 +965,13 @@ Suzuki,Jimny,glx 5p,Glx
 Suzuki,Jimny,jx aa,jx aa
 Suzuki,Jimny,glx monotone,Glx
 Suzuki,Samurai,metal/lona,metal/lona
-Suzuki,Vitara,gran tdi peugeot,gran tdi peugeot
 Suzuki,Vitara,jlx sidekick,Jlx
 Suzuki,Vitara,jlx t/lonasidekick,Jlx
 Suzuki,Vitara,gl+,Gl
 Suzuki,Vitara,glx,Glx
 Suzuki,Vitara,gl,Gl
-Suzuki,Vitara,gl plus allgrip,Gl
+Suzuki,Vitara,gran tdi peugeot,gran tdi peugeot
+Suzuki,Vitara,gl plus allgrip,gl plus allgrip
 Toyota,4Runner,2.8d l,2.8d l
 Toyota,4Runner,d,d
 Toyota,Corolla Cross,xei,Xei
@@ -989,7 +989,7 @@ Toyota,Corolla Cross,hybrid seg ecvt,Seg
 Toyota,Corolla Cross,seg ecvt hev,Seg
 Toyota,Corolla Cross,xei hev ecvt hybrid,Xei
 Toyota,Corolla Cross,xei hv e-,Xei
-Toyota,Corolla Cross,r,Gr-Sport
+Toyota,Corolla Cross,r,r
 Toyota,Corolla Cross,xei hev ecvt,Xei
 Toyota,Hilux SW4,srx 7as,Srx
 Toyota,Hilux SW4,,
@@ -1025,19 +1025,19 @@ Toyota,Land Cruiser,prado,Prado
 Toyota,Land Cruiser,prado vx,Prado
 Toyota,Land Cruiser,200 vx,Vx
 Toyota,Land Cruiser,prado txl,Prado
-Toyota,Land Cruiser,v6,Vx
 Toyota,Land Cruiser,td 200 vx w/floormat,200 vx w/floormat
 Toyota,Land Cruiser,dl,dl
 Toyota,Land Cruiser,200 vx w/floormat,200 vx w/floormat
+Toyota,Land Cruiser,v6,v6
 Toyota,Land Cruiser,200 v8 d4-d,200 v8 d4-d
 Toyota,RAV4,vx,Vx
 Toyota,RAV4,,
-Toyota,RAV4,tx,Vx
-Toyota,RAV4,vvt-i,Vx
 Toyota,RAV4,vx aut l13,Vx
 Toyota,RAV4,5p vx l16,Vx
+Toyota,RAV4,tx,tx
 Toyota,RAV4,hv xle,hv xle
 Toyota,RAV4,xle hv,xle hv
+Toyota,RAV4,vvt-i,vvt-i
 Toyota,RAV4,sport,sport
 Toyota,RAV4,full,full
 Toyota,SW4,tdi srx,Srx
@@ -1050,20 +1050,20 @@ Toyota,SW4,sr,Sr
 Toyota,SW4,diamond 2.8tdi 7as,Diamond
 Toyota,SW4,srv cuero i,Srv
 Toyota,SW4,srx tdi 7a,Srx
+Toyota,SW4,srv cuero i automat tope gama,Srv
 Toyota,SW4,sr 7as,Sr
 Toyota,SW4,diamond ll tdi 6a/t 7a,Diamond
 Toyota,SW4,srx 204c,Srx
 Toyota,SW4,gr-a tdi 7a,Gr-s
 Toyota,SW4,srx 7 asientos automatico,Srx
-Toyota,SW4,tdi sr l16 2016,Gr-s
 Toyota,SW4,bw- srx tdi 7a,Srx
 Toyota,SW4,srv cuero vvti 5 as - b4,Srv
 Toyota,SW4,gr,Gr-s
 Toyota,SW4,hilux- - srv - tdi,Srv
 Toyota,SW4,tdi srx l16,Srx
-Toyota,SW4,srv cuero i automat tope gama,srv cuero i automat tope gama
+Toyota,SW4,srx tdi 6 a/t 7a,Srx
 Toyota,SW4,vtv 7 asientos,vtv 7 asientos
-Toyota,SW4,srx tdi 6 a/t 7a,srx tdi 6 a/t 7a
+Toyota,SW4,tdi sr l16 2016,tdi sr l16 2016
 Vol,T-Cross,trendlinde,trendlinde
 Volkswagen,Nivus,200 comfortline,Comfortline
 Volkswagen,Nivus,200 trendline,Trendline
@@ -1147,34 +1147,34 @@ Volkswagen,Tiguan,premium tiptronic,Premium
 Volkswagen,Tiguan,sport & style tiptronic,Sport
 Volkswagen,Tiguan,exclusive,Exclusive
 Volkswagen,Tiguan,i sport style tiptronic,Sport
-Volkswagen,Tiguan,trendline,Elegance
 Volkswagen,Tiguan,sport & style i tiptronic,Sport
 Volkswagen,Tiguan,exclusive tip l12 2016,Exclusive
 Volkswagen,Tiguan,elegance,Elegance
-Volkswagen,Tiguan,comfortline 4 motion dsg,Sport
 Volkswagen,Tiguan,elegance i tiptronic,Elegance
 Volkswagen,Tiguan,i exclusive tiptronic,Exclusive
 Volkswagen,Tiguan,sport plus tiptronic,Sport
-Volkswagen,Tiguan,comfortline 2.0tsi 4motion,Sport
-Volkswagen,Tiguan,comfortline 4motion dsg,Sport
 Volkswagen,Tiguan,sport style tiptronic,Sport
-Volkswagen,Tiguan,t si impecable sin detalles,Elegance
 Volkswagen,Tiguan,sport style,Sport
 Volkswagen,Tiguan,exclusive dsg 7ma,Exclusive
-Volkswagen,Tiguan,t allspace trendline l17,Elegance
-Volkswagen,Tiguan,tdi allspace highline l19,Elegance
 Volkswagen,Tiguan,exclusive l12,Exclusive
 Volkswagen,Tiguan,premium i tiptronic,Premium
 Volkswagen,Tiguan,dsg,dsg
 Volkswagen,Tiguan,tdi,tdi
+Volkswagen,Tiguan,trendline,trendline
 Volkswagen,Tiguan,life 350 4m,life 350 4m
-Volkswagen,Tiguan,trendline dsg,trendline dsg
+Volkswagen,Tiguan,comfortline 4 motion dsg,comfortline 4motion dsg
+Volkswagen,Tiguan,trendline dsg,trendline
+Volkswagen,Tiguan,comfortline 2.0tsi 4motion,comfortline 4motion dsg
+Volkswagen,Tiguan,comfortline 4motion dsg,comfortline 4motion dsg
 Volkswagen,Tiguan,4 motion,4 motion
 Volkswagen,Tiguan,250 allspace 7 as,250 allspace 7 as
+Volkswagen,Tiguan,t si impecable sin detalles,t si impecable sin detalles
 Volkswagen,Tiguan,life 350 dsg,life 350 4m
+Volkswagen,Tiguan,t allspace trendline l17,t allspace trendline l17
 Volkswagen,Tiguan,life 350 4motion dsg,life 350 4m
 Volkswagen,Tiguan,#cf,#cf
-Volkswagen,Tiguan,dsg trendline,dsg trendline
+Volkswagen,Tiguan,tdi allspace highline l19,tdi allspace highline l19
+Volkswagen,Tiguan,dsg trendline,trendline
 Volkswagen,Tiguan,life 350,life 350 4m
 Volkswagen,Tiguan,life dsg,life 350 4m
 Volkswagen,Tiguan,life 350 dsg 4motion,life 350 4m
@@ -1202,14 +1202,14 @@ Volvo,XC40,p8 recharge,p8 recharge
 Volvo,XC40,ultimate recharged 100% electrica,ultimate recharged 100% electrica
 Volvo,XC60,t5 comfort,Comfort
 Volvo,XC60,t5 momentum,Momentum
-Volvo,XC60,t8 plug in hybrid,High Plus
+Volvo,XC60,t8 plug in hybrid,Plus
 Volvo,XC60,t6 high luxury,Luxury
-Volvo,XC60,t8 ultimate dark plug in hybrid,High Plus
 Volvo,XC60,t6 high,High
 Volvo,XC60,phev t8 polestar,phev t8 polestar
 Volvo,XC60,t6 inscription,t5 inscription
 Volvo,XC60,t5 inscription,t5 inscription
 Volvo,XC60,t5,t5
 Volvo,XC60,ultimate dark t8,ultimate dark t8
+Volvo,XC60,t8 ultimate dark plug in hybrid,ultimate dark t8
 Volvo,XC60,t8 ultimate dark,ultimate dark t8
 hiunday,Galloper,permutas,permutas
