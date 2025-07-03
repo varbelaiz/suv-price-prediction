@@ -342,6 +342,29 @@ class KilometersCleaner:
         return np.nan
 
 
+class CameraRetrocesoFixer:
+    """Fix 'Con cámara de retroceso' column by replacing NaN values with 0."""
+    
+    def process(self, df: pd.DataFrame, verbose: bool = True) -> pd.DataFrame:
+        result = df.copy()
+        
+        if 'Con cámara de retroceso' not in result.columns:
+            if verbose:
+                print(f"\t CAMERA RETROCESO FIXER: Column 'Con cámara de retroceso' not found, skipping")
+            return result
+        
+        # Count NaN values before fixing
+        nan_count_before = result['Con cámara de retroceso'].isna().sum()
+        
+        # Replace NaN values with 0
+        result['Con cámara de retroceso'] = result['Con cámara de retroceso'].fillna(0)
+        
+        if verbose:
+            print(f"\t CAMERA RETROCESO FIXER: Replaced {nan_count_before} NaN values with 0")
+        
+        return result
+
+
 class AnticipoExtractor:
     def __init__(
         self,
@@ -360,7 +383,7 @@ class AnticipoExtractor:
             re.compile(r"precio\s+publicado\s+.*anticipo", re.I),
         ]
 
-        # keywords que, en presencia de “anticipo”, refuerzan la hipótesis de financiación
+        # keywords que, en presencia de "anticipo", refuerzan la hipótesis de financiación
         self.weak_keywords = [
             "cuota", "cuotas", "financi", "resto", "tasa", "plan", "mínimo", "minimo"
         ]
@@ -389,7 +412,7 @@ class AnticipoExtractor:
         if any(pat.search(desc) for pat in self.strong_patterns):
             return 1
 
-        # 2) combinación “anticipo” + keyword débil
+        # 2) combinación "anticipo" + keyword débil
         if "anticipo" in desc and any(kw in desc for kw in self.weak_keywords):
             return 1
 
@@ -418,6 +441,7 @@ def build_preprocessing_pipeline() -> Pipeline:
         VersionCleaner(),
         VersionFromTitleExtractor(),
         KilometersCleaner(),
+        CameraRetrocesoFixer(),
         AnticipoExtractor(),
     ])
 

@@ -55,6 +55,9 @@ def extract_suv_data(json_file_path):
         if data.get('Carroceria') != 'SUV':
             return None
         
+        # Handle Precio field safely (it can be null)
+        precio_data = data.get('Precio') or {}
+        
         # Extract the required fields
         suv_data = {
             'Marca': decode_unicode(data.get('Marca', '')),
@@ -69,8 +72,8 @@ def extract_suv_data(json_file_path):
             'Cilindrada': decode_unicode(data.get('Cilindrada', '')),
             'Origen': decode_unicode(data.get('Origen', '')),
             'Garantia': decode_unicode(data.get('Garantia', '')),
-            'Moneda': decode_unicode(data.get('Precio', {}).get('Moneda', '')),
-            'Importe': data.get('Precio', {}).get('Importe', '')
+            'Moneda': decode_unicode(precio_data.get('Moneda', '')),
+            'Importe': precio_data.get('Importe', '')
         }
         
         return suv_data
@@ -81,8 +84,8 @@ def extract_suv_data(json_file_path):
 
 def main():
     # Define the base directory and output file
-    base_dir = Path('../data/autocosmos')
-    output_file = Path('../data/suvs_autocosmos.csv')
+    base_dir = Path('data/autocosmos')
+    output_file = Path('data/suvs_autocosmos.csv')
     
     # Define the columns for the CSV
     columns = [
@@ -112,7 +115,6 @@ def main():
     
     print(f"\nTotal SUVs found: {suv_count}")
     
-    # Write to CSV
     if suv_data_list:
         with open(output_file, 'w', newline='', encoding='utf-8') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=columns)

@@ -20,9 +20,9 @@ TEST_OUTPUT_FILE = Path("data/test/transformed_test.csv")
 
 VERSIONS_FILE = "data/mercadolibre_versions.csv"  # optional catalogue
 
-SIMILARITY_THRESHOLD = 0.3
-EMBEDDING_COMPONENTS = 30
-EXCHANGE_RATE = 1300.0
+SIMILARITY_THRESHOLD = 0.2
+EMBEDDING_COMPONENTS = 5
+EXCHANGE_RATE = 1200.0
 
 COLUMNS_ORDER = [
     "idx",
@@ -88,11 +88,11 @@ def build_pipeline(verbose: bool = True) -> Pipeline:
         VersionClustering(VERSIONS_FILE, SIMILARITY_THRESHOLD, verbose),
         # DescriptionEmbeddings(verbose=verbose, n_components=EMBEDDING_COMPONENTS, hidden_dims=[32, 64]),
         FillVersionNaNs(verbose=verbose),
-        # TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
+        TargetEncoder(["Marca", "Modelo", "Versión"], verbose=verbose),
         FillNaNs(["cv", "Motor", "Tracción", "Turbo"]),
         Normalizer(verbose=verbose, target_columns=["Motor", "cv", "Kilómetros", "Año"] + [f"embed_{i}" for i in range(1, EMBEDDING_COMPONENTS + 1)]),
         CurrencyConverter(verbose=verbose, usd_to_target_rate=EXCHANGE_RATE),
-        OneHotEncoder(["Tipo de combustible", "Transmisión",  "Moneda", "Tipo de vendedor"], verbose=verbose),
+        OneHotEncoder(["Tipo de combustible", "Transmisión",  "Moneda", "Tipo de vendedor", "Con camára de retroceso"], verbose=verbose),
         DropColumns(["Tipo de carrocería", "Título", "Color", "Descripción", "price_is_anticipo", "idx", "Puertas", "Tracción", "Con cámara de retroceso"]),
         OrderColumns(column_order=COLUMNS_ORDER),        
     ])

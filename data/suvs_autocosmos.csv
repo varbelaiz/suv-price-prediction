@@ -1,210 +1,709 @@
 Marca,Modelo,Version,VersionYear,Carroceria,Segmento,Propulsion,Transmision,Potencia,Cilindrada,Origen,Garantia,Moneda,Importe
-BMW,X4,xDrive 30i MSport,2024,SUV,D,nafta,Automática,252 cv,2.0L,Alemania,3 años ó 200.000 km,USD,106900
-Alfa Romeo,Stelvio,Distinctive Q4 2.0 Aut,2025,SUV,D,nafta,Automática,200 cv,2.0L,Italia,5 años ó 100.000 km,USD,79800
-Alfa Romeo,Stelvio,Quadrifoglio,2025,SUV,D,nafta,Automática,510 cv,3.0L,Italia,5 años ó 100.000 km,USD,298000
-Alfa Romeo,Stelvio,Veloce Q4 2.0 Aut 280Cv,2025,SUV,D,nafta,Automática,280 cv,2.0L,Italia,5 años ó 100.000 km,USD,99800
-Audi,Q2,35 T FSI Sport,2025,SUV,B,nafta,Automática,150 cv,1.4L,Alemania,No disponible,USD,51618
-Audi,Q2,40 T FSI Sport,2025,SUV,B,nafta,Automática,150 cv,1.4L,Alemania,No disponible,USD,57872
-Audi,Q3 Sportback,35 T FSI,2025,SUV,C,nafta,Manual,150 cv,1.4L,España,3 años ó 90.000 km,USD,56670
-Audi,Q3 Sportback,40 T FSI S Line Quattro,2025,SUV,C,nafta,Manual,150 cv,1.4L,España,3 años ó 90.000 km,USD,70239
-Audi,Q3 Sportback,40 T FSI,2025,SUV,C,nafta,Manual,150 cv,1.4L,España,3 años ó 90.000 km,USD,61392
-Audi,Q3,35 T FSI,2025,SUV,C,nafta,Manual,150 cv,1.4L,España,No disponible,USD,54999
-Audi,Q3,40 T FSI Quattro,2025,SUV,C,nafta,Automática,180 cv,2.0L,España,No disponible,USD,61475
-Audi,Q5 Sportback,45 TFSI Advanced,2025,SUV,D,nafta,Automática,250 cv,2.0L,Alemania,No disponible,USD,77171
-Audi,Q5 Sportback,45 TFSI Premium Black,2025,SUV,D,nafta,Automática,250 cv,2.0L,Alemania,No disponible,USD,106660
-Audi,Q5 Sportback,45 TFSI S line,2025,SUV,D,nafta,Automática,250 cv,2.0L,Alemania,No disponible,USD,96358
-Audi,Q5,45 TFSI Advanced,2025,SUV,D,nafta,Automática,252 cv,2.0L,Alemania,No disponible,USD,75518
-Audi,Q7,45 TDi S-Line Quattro,2025,SUV,F,diesel,Automática,249 cv,3.0L,Alemania,No disponible,USD,149482
-Audi,Q8 e-tron Sportback,55 TFSI quattro,2025,SUV,F,eléctrico,Automática,N/D cv,,Alemania,No disponible,USD,204318
-Audi,Q8 e-tron,55 TFSI quattro,2025,SUV,F,N/D,Automática,,,Alemania,No disponible,USD,195940
-Audi,Q8,55 TFSI quattro,2025,SUV,F,nafta,Automática,340 cv,3.0L,Alemania,No disponible,USD,159223
-BMW,iX2,xDrive30 MSport,2025,SUV,C,N/D,Automática,,,Alemania,3 años ó 200.000 km,USD,96900
-BMW,X1,Black Edition 20i,2025,SUV,C,nafta,Automática,204 cv,2.0L,Alemania,3 años ó 200.000 km,USD,77900
-BMW,X1,sDrive 18i xLine,2025,SUV,C,nafta,Automática,204 cv,2.0L,Alemania,3 años ó 200.000 km,USD,62900
-BMW,X1,xDrive 20i xLine,2025,SUV,C,nafta,Automática,204 cv,2.0L,Alemania,3 años ó 200.000 km,USD,77900
-BMW,X1,xDrive 25e xLine,2025,SUV,C,N/D,Automática,,,Alemania,3 años ó 200.000 km,USD,89900
-BMW,X2,xDrive20i MSport,2025,SUV,C,nafta,Automática,204 cv,2.0L,Alemania,3 años ó 200.000 km,USD,79900
-BMW,X3,xDrive 20i,2025,SUV,D,nafta,Automática,208 cv,2.0L,Alemania,3 años ó 200.000 km,USD,91900
-BMW,X3,xDrive M50i,2025,SUV,D,nafta,Automática,398 cv,3.0L,Alemania,3 años ó 200.000 km,USD,137900
-BMW,X5,xDrive40i M Sport Pro,2025,SUV,E,nafta-eléctrico,Automática,381 cv,3.0L,Estados Unidos,3 años ó 200.000 km,USD,179900
-BMW,X6 M,626Cv,2025,SUV,E,nafta,Automática,575 cv,4.4L,Alemania,3 años ó 200.000 km,USD,264900
-BMW,X6,xDrive40i MSportPro,2025,SUV,E,nafta,Automática,375 cv,3.0L,Estados Unidos,3 años ó 200.000 km,USD,189900
-BMW,X7,M Performance,2025,SUV,E,nafta,Automática,530 cv,4.4L,Estados Unidos,3 años ó 200.000 km,USD,259900
-Chery,Tiggo 4 Pro,1.5 Comfort CVT,2025,SUV,C,nafta,Automática,113 cv,1.5L,China,5 años ó 100.000 km,USD,25990
-Chery,Tiggo 4 Pro,1.5 Luxury CVT,2025,SUV,C,nafta,Automática,147 cv,1.5L,China,5 años ó 100.000 km,USD,29500
-Chevrolet,Tracker,1.2 Turbo Aut LTZ,2025,SUV,B,nafta,Automática,132 cv,1.2L,Brasil,3 años,ARS,34662900
-Chevrolet,Tracker,1.2 Turbo Aut Premier,2025,SUV,B,nafta,Automática,132 cv,1.2L,Brasil,3 años,ARS,37808900
-Chevrolet,Tracker,1.2 Turbo Aut RS,2025,SUV,B,nafta,Automática,132 cv,1.2L,Brasil,3 años ó 100.000 km,ARS,35549900
-Chevrolet,Tracker,1.2 Turbo Aut,2025,SUV,B,nafta,Automática,132 cv,1.2L,Brasil,3 años,ARS,30192900
-Chevrolet,Tracker,1.2 Turbo,2025,SUV,B,nafta,Manual,132 cv,1.2L,Brasil,3 años,ARS,28768900
-Chevrolet,Trailblazer,High Country 4x4 Aut,2025,SUV,D,diesel,Automática,207 cv,2.8L,Brasil,5 años ó 150.000 km,ARS,67175900
-Citroën,Basalt,Feel,2025,SUV,B,nafta,Manual,115 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,26400000
-Citroën,Basalt,First Edition,2025,SUV,B,nafta,Automática,125 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,30500000
-Citroën,Basalt,Live,2025,SUV,B,nafta,Manual,115 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,24800000
-Citroën,Basalt,Shine,2025,SUV,B,nafta,Automática,125 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,30160000
-Citroën,C3 Aircross,T200 Shine,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,32290000
-Citroën,C3 Aircross,VTi Feel 7 Plazas,2025,SUV,B,nafta,Manual,115 cv,1.5L,Brasil,3 años ó 100.000 km,ARS,31420000
-Citroën,C3 Aircross,VTi Feel Pack,2025,SUV,B,nafta,Manual,115 cv,1.5L,Brasil,3 años ó 100.000 km,ARS,31170000
-Citroën,C3 Aircross,VTi Live,2025,SUV,B,nafta,Manual,115 cv,1.5L,Brasil,3 años ó 100.000 km,ARS,28520000
-Citroën,C3 Aircross,VTi Shine 7 Plazas,2025,SUV,B,nafta,Automática,115 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,33740000
-Citroën,C4 Cactus,THP Shine Aut,2025,SUV,B,nafta,Automática,165 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,33070000
-Citroën,C4 Cactus,Vti 115 Feel Plus Aut,2025,SUV,B,nafta,Automática,115 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,30030000
-Citroën,C5 Aircross,THP 1.6 Turbo,2025,SUV,C,nafta,Automática,165 cv,1.6L,Francia,3 años ó 100.000 km,ARS,50910000
-DS,7 E-Tense,4X4,2025,SUV,C,nafta-eléctrico,Automática,200 cv,1.6L,Francia,3 años ó 100.000 km,ARS,86520000
-FIAT,Fastback Abarth,T270 1.3L GSE,2025,SUV,C,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,39058000
-FIAT,Fastback,Turbo 1.3L GSE,2025,SUV,C,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,35581000
-FIAT,Pulse Abarth,1.3L Turbo,2025,SUV,B,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,34919000
-FIAT,Pulse,1.3 Drive CVT,2025,SUV,B,nafta,Automática,99 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,29496000
-FIAT,Pulse,1.3 Drive,2025,SUV,B,nafta,Manual,99 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,28318000
-FIAT,Pulse,Audace 1.0 CVT,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,31873000
-FIAT,Pulse,Impetus 1.0 CVT,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,32972000
-Ford,Bronco Sport,Badlands 2.0L,2025,SUV,C,nafta,Automática,253 cv,2.0L,México,3 años ó 100.000 km,ARS,57802000
-Ford,Bronco Sport,Big Bend 1.5L,2025,SUV,C,nafta,Automática,184 cv,1.5L,México,3 años ó 100.000 km,ARS,51919500
-Ford,Bronco,Badlands,2025,SUV,C,nafta,Automática,334 cv,2.7L,Estados Unidos,3 años ó 100.000 km,ARS,121076600
-Ford,Kuga Híbrida,Platinum,2025,SUV,C,nafta-eléctrico,Automática,165 cv,2.5L,Estados Unidos,3 años ó 100.000 km,ARS,68767000
-Ford,Mustang Mach-E,GT Performance,2025,SUV,C,eléctrico,Automática,130 cv,,Estados Unidos,3 años ó 100.000 km,ARS,110880600
-Ford,Territory,SEL,2025,SUV,D,nafta,Automática,185 cv,1.8L,China,3 años ó 100.000 km,ARS,41700000
-Ford,Territory,Titanium,2025,SUV,D,nafta,Automática,185 cv,1.8L,China,3 años ó 100.000 km,ARS,48600000
-Haval,H6GT,4x4,2025,SUV,D,nafta,Automática,201 cv,2.0L,China,3 años ó 100.000 km,USD,48037
-Haval,H6,2.0T Aut 4x4,2025,SUV,D,nafta,Automática,201 cv,2.0L,China,3 años ó 100.000 km,ARS,43560
-Haval,H6,2.0T Aut,2025,SUV,D,nafta,Automática,201 cv,2.0L,China,3 años ó 100.000 km,ARS,39386
-Haval,Jolion,1.5T Supreme,2025,SUV,C,nafta,Automática,141 cv,1.5L,China,No disponible,USD,34000
-Honda,CR-V Hybrid,2.0L,2025,SUV,C,nafta-eléctrico,Automática,148 cv,2.0L,Tailandia,3 años ó 100.000 km,USD,74900
-Honda,CR-V,EX 4x2,2025,SUV,C,nafta,Automática,191 cv,1.5L,México,3 años ó 100.000 km,USD,59500
-Honda,CR-V,EXL 4x4,2025,SUV,C,nafta,Automática,191 cv,1.5L,México,3 años ó 100.000 km,USD,70800
-Honda,HR-V,EX-L CVT,2025,SUV,B,nafta,Automática,121 cv,1.5L,Brasil,3 años ó 100.000 km,USD,39550
-Honda,HR-V,LX CVT,2025,SUV,B,nafta,Automática,121 cv,1.5L,Brasil,3 años ó 100.000 km,USD,35235
-Honda,ZR-V,Touring,2025,SUV,C,nafta,Automática,157 cv,2.0L,México,3 años ó 100.000 km,USD,45630
-Hyundai,Creta,Safety +,2025,SUV,B,nafta,Automática,115 cv,1.5L,India,3 años ó 100.000 km,USD,35000
-Hyundai,Tucson,Safety 2.0 Aut,2025,SUV,C,nafta,Automática,156 cv,2.0L,Corea,3 años ó 100.000 km,USD,48000
-Hyundai,Tucson,Ultimate 1.6T DCT 4x4,2025,SUV,C,nafta,Automática,180 cv,1.6L,Corea,3 años ó 100.000 km,USD,58000
-JAC,JS4,Flagship,2025,SUV,B,nafta,Automática,147 cv,1.5L,China,7 años o 150.000 km,USD,29500
-JAC,JS4,Luxury,2025,SUV,B,nafta,Automática,147 cv,1.5L,China,7 años o 150.000 km,USD,27500
-JAC,JS8 Pro,1.5T GDi,2025,SUV,B,nafta,Automática,182 cv,1.5L,China,7 años o 150.000 km,USD,38900
-JAC,S2,Intelligent,2025,SUV,B,nafta,Manual,105 cv,1.5L,China,7 años o 150.000 km,USD,19900
-JAC,S2,Luxury,2025,SUV,B,nafta,Manual,105 cv,1.5L,China,7 años o 150.000 km,USD,21900
-Jeep,Commander,1.3L Limited T270,2025,SUV,D,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,47900
-Jeep,Commander,2.0L Overland TD380,2025,SUV,D,diesel,Automática,170 cv,2.0L,Brasil,3 años ó 100.000 km,USD,58200
-Jeep,Commander,Blackhawk,2025,SUV,D,diesel,Automática,170 cv,2.0L,Brasil,3 años ó 100.000 km,USD,58700
-Jeep,Compass,1.3 4x2 Limited,2025,SUV,C,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,41700
-Jeep,Compass,1.3 4x2 Serie S,2025,SUV,C,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,42100
-Jeep,Compass,1.3 4x2 Sport,2025,SUV,C,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,38600
-Jeep,Compass,Blackhawk,2025,SUV,C,nafta,Automática,272 cv,2.0L,Brasil,3 años ó 100.000 km,USD,51000
-Jeep,Grand Cherokee,Limited,2025,SUV,E,nafta,Automática,293 cv,3.6L,Estados Unidos,3 años ó 100.000 km,USD,133700
-Jeep,Renegade,Longitude Aut,2025,SUV,B,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,35600
-Jeep,Renegade,Serie-S Aut,2025,SUV,B,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,36400
-Jeep,Renegade,Sport Aut,2025,SUV,B,nafta,Automática,130 cv,1.8L,Brasil,3 años ó 100.000 km,USD,32200
-Jeep,Renegade,Willys,2025,SUV,B,nafta,Automática,175 cv,1.3L,Brasil,3 años ó 100.000 km,USD,40100
-Jeep,Wrangler,Rubicon 2P,2025,SUV,C,nafta,Automática,27 cv,2.0L,Estados Unidos,3 años ó 100.000 km,USD,119900
-Jeep,Wrangler,Rubicon 4P,2025,SUV,C,nafta,Automática,27 cv,2.0L,Estados Unidos,3 años ó 100.000 km,USD,126800
-Jetour,X70,1.5T Aut,2025,SUV,D,nafta,Automática,147 cv,1.5L,China,3 años ó 100.000 km,USD,33500
-Kaiyi,X3,1.5L Aut,2025,SUV,C,nafta,Automática,116 cv,1.5L,China,5 años ó 100.000 km,ARS,29900000
-KIA,Seltos,LX 1.6 Aut,2025,SUV,B,nafta,Automática,113 cv,1.5L,India,5 años ó 100.000 km,USD,36000
-KIA,Sorento,EX 2.2 CRDi 4x4 Aut,2025,SUV,D,diesel,Automática,202 cv,2.2L,Corea,5 años ó 100.000 km,USD,120000
-KIA,Sportage,EX 4x2,2025,SUV,C,nafta,Automática,178 cv,1.6L,Corea,5 años ó 100.000 km,USD,50000
-Land Rover,Discovery,HSE V6 3.0 TDi,2025,SUV,E,diesel,Automática,258 cv,3.0L,Gran Bretaña,No disponible,USD,197000
-Land Rover,Range Rover Evoque,5P 2.0 SE R-Dynamic,2025,SUV,C,nafta,Automática,221 cv,2.0L,Gran Bretaña,No disponible,USD,149900
-Land Rover,Range Rover Evoque,5P 2.0 SE,2025,SUV,C,nafta,Automática,300 cv,2.0L,Gran Bretaña,No disponible,USD,129900
-Land Rover,Range Rover Velar,2.0 S,2025,SUV,E,nafta,Automática,250 cv,2.0L,Gran Bretaña,2 años,USD,195000
-Land Rover,Range Rover,Vogue SE SDV8,2025,SUV,F,diesel,Automática,340 cv,4.4L,Gran Bretaña,2 años,USD,312900
-Land Rover,Range Rover,Vogue SE V8,2025,SUV,F,diesel,Automática,525 cv,5.0L,Gran Bretaña,2 años,USD,329900
-Lexus,GX,550 Luxury,2025,SUV,D,nafta-eléctrico,Automática,353 cv,3.5L,Japón,5 años ó 150.000 km,USD,198350
-Lexus,LBX,Active,2025,SUV,B,nafta-eléctrico,Automática,136 cv,1.5L,Japón,5 años ó 150.000 km,USD,52800
-Lexus,LX,600 Urban,2025,SUV,E,nafta,Automática,415 cv,3.5L,Japón,5 años ó 150.000 km,USD,237460
-Lexus,NX,350 F-Sport,2025,SUV,D,nafta,Automática,278 cv,2.4L,Japón,5 años ó 150.000 km,USD,88700
-Lexus,NX,350h Luxury,2025,SUV,D,nafta-eléctrico,Automática,242 cv,2.5L,Japón,5 años ó 150.000 km,USD,90000
-Lexus,NX,450h+,2025,SUV,D,nafta-eléctrico,Automática,N/D cv,2.4L,Japón,5 años ó 150.000 km,USD,156550
-Lexus,RX,350 F-Sport,2025,SUV,E,nafta,Automática,300 cv,3.5L,Japón,5 años ó 150.000 km,USD,107900
-Lexus,RX,450h+ Luxury,2025,SUV,E,nafta-eléctrico,Automática,N/D cv,2.5L,Japón,5 años ó 150.000 km,USD,166400
-Lexus,RX,500h F-Sport,2025,SUV,E,nafta-eléctrico,Automática,300 cv,3.5L,Japón,5 años ó 150.000 km,USD,142700
-Lexus,UX,250h,2025,SUV,C,nafta-eléctrico,Automática,152 cv,2.0L,Japón,5 años ó 150.000 km,USD,55600
-Mercedes,Clase GLA,200 Progressive Aut,2025,SUV,C,nafta,Automática,163 cv,1.3L,Alemania,3 años,USD,65000
-Mercedes,Clase GLA,250 Urban 4Matic AMG Line,2025,SUV,C,nafta,Automática,224 cv,2.0L,Alemania,3 años,USD,76700
-Mercedes,Clase GLB,200 Advance Aut,2025,SUV,C,nafta,Automática,163 cv,1.3L,Alemania,3 años,USD,66400
-Mercedes,Clase GLB,250 Progressive 4Matic,2025,SUV,C,nafta,Automática,224 cv,2.0L,Alemania,3 años,USD,76700
-Mercedes,Clase GLC,200 4Matic Avantgarde,2025,SUV,D,nafta-eléctrico,Automática,204 cv,2.0L,No disponible,3 años,USD,105000
-Mercedes,Clase GLC,300 4Matic MHEV,2025,SUV,D,nafta,Automática,258 cv,2.0L,No disponible,3 años,USD,119900
-Mercedes,Clase GLC,Coupé 300 4Matic,2025,SUV,D,nafta,Automática,258 cv,2.0L,No disponible,3 años,USD,140000
-Mercedes,Clase GLE AMG,AMG 53 S Coupé,2025,SUV,E,nafta,Automática,435 cv,3.0L,No disponible,No disponible,USD,240000
-Mercedes,Clase GLE,450 4MATIC,2025,SUV,E,nafta,Automática,367 cv,3.0L,No disponible,No disponible,USD,205000
-Mercedes,EQA,350 4MATIC,2025,SUV,C,eléctrico,Automática,292 cv,,Alemania,3 años,USD,102000
-Mercedes,EQE,500 4MATIC AMG Line,2025,SUV,C,eléctrico,Automática,408 cv,,Alemania,3 años,USD,199900
-MINI,Cooper Countryman,C Classic,2025,SUV,B,nafta,Automática,136 cv,1.5L,Gran Bretaña,3 años ó 200.000 km,USD,54900
-MINI,Cooper Countryman,S All4 Classic Confort,2025,SUV,B,nafta,Automática,192 cv,2.0L,Gran Bretaña,3 años ó 200.000 km,USD,59900
-MINI,Cooper Countryman,S All4 Favoured,2025,SUV,B,nafta,Automática,192 cv,2.0L,Gran Bretaña,3 años ó 200.000 km,USD,65900
-Mitsubishi,Outlander,2.5L 4x4 CVT,2025,SUV,D,nafta,Automática,184 cv,2.5L,Japón,3 años ó 100.000 km,USD,55000
-Nissan,Kicks,Advance CVT Plus,2025,SUV,B,nafta,Automática,120 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,36255800
-Nissan,Kicks,Advance CVT,2025,SUV,B,nafta,Automática,120 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,34620500
-Nissan,Kicks,Exclusive CVT,2025,SUV,B,nafta,Automática,120 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,38074400
-Nissan,Kicks,Sense,2025,SUV,B,nafta,Manual,120 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,29122000
-Nissan,X-Trail e-Power,e-4ORCE,2025,SUV,C,nafta-eléctrico,Automática,158 cv,1.5L,Japón,3 años ó 100.000 km,ARS,76635500
-Nissan,X-Trail,Exclusive,2025,SUV,C,nafta,Automática,181 cv,2.5L,Japón,3 años ó 100.000 km,ARS,63948200
-Peugeot,2008,Active T200,2025,SUV,B,nafta,Automática,120 cv,1.0L,Argentina,3 años ó 100.000 km,ARS,34240000
-Peugeot,2008,Allure T200,2025,SUV,B,nafta,Automática,120 cv,1.0L,Argentina,3 años ó 100.000 km,ARS,37800000
-Peugeot,2008,GT T200,2025,SUV,B,nafta,Automática,120 cv,1.0L,Argentina,3 años ó 100.000 km,ARS,42040000
-Peugeot,3008 SUV,GT Pack Hybrid4 4WD,2025,SUV,C,nafta-eléctrico,Automática,197 cv,1.6L,Francia,3 años ó 100.000 km,ARS,55593693
-Peugeot,5008 SUV,GT Pack,2025,SUV,D,diesel,Automática,165 cv,1.6L,Francia,3 años ó 100.000 km,ARS,56642436
-Porsche,Cayenne Coupé,3.0L Aut,2025,SUV,D,nafta,Automática,340 cv,3.0L,Alemania,4 años,USD,188800
-Porsche,Cayenne E-Hybrid Coupé,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,304 cv,3.0L,Alemania,4 años,USD,232200
-Porsche,Cayenne E-Hybrid,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,340 cv,3.0L,Alemania,4 años,USD,229900
-Porsche,Cayenne S Coupé,3.0L V6 Aut,2025,SUV,D,nafta,Automática,441 cv,3.0L,Alemania,4 años,USD,249200
-Porsche,Cayenne S E-Hybrid Coupé,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,353 cv,3.0L,Alemania,4 años,USD,259500
-Porsche,Cayenne S E-Hybrid,3.0L V8 Aut,2025,SUV,D,nafta-eléctrico,Automática,550 cv,4.0L,Alemania,4 años,USD,256300
-Porsche,Cayenne S,3.0L V6 Aut,2025,SUV,D,nafta,Automática,440 cv,3.0L,Alemania,4 años,USD,242900
-Porsche,Cayenne Turbo E-Hybrid Coupé,4.0L,2025,SUV,D,nafta-eléctrico,Automática,599 cv,4.0L,Alemania,4 años,USD,387400
-Porsche,Cayenne Turbo E-Hybrid,4.0L,2025,SUV,D,nafta-eléctrico,Automática,599 cv,4.0L,Alemania,4 años,USD,385500
-Porsche,Cayenne Turbo GT Coupé,Turbo GT,2025,SUV,D,nafta,Automática,640 cv,4.0L,Alemania,4 años,USD,589000
-Porsche,Cayenne Turbo GTS Coupé,500 CV,2025,SUV,D,nafta,Automática,500 cv,4.0L,Alemania,4 años,USD,288700
-Porsche,Cayenne,3.0L Aut,2025,SUV,D,nafta,Automática,340 cv,3.0L,Alemania,4 años,USD,184400
-Porsche,Macan 4 Electric,408 Cv,2025,SUV,D,eléctrico,Automática,408 cv,,Alemania,4 años,USD,174700
-Porsche,Macan 4S Electric,516 Cv,2025,SUV,D,eléctrico,Automática,516 cv,,Alemania,4 años,USD,189900
-Porsche,Macan Electric,430 Cv,2025,SUV,D,eléctrico,Automática,430 cv,,Alemania,4 años,USD,168100
-Porsche,Macan GTS,GTS,2025,SUV,D,nafta,Automática,381 cv,3.0L,Alemania,4 años,USD,211300
-Porsche,Macan S,S Diesel,2025,SUV,D,diesel,Automática,258 cv,3.0L,Alemania,4 años,USD,186800
-Porsche,Macan Turbo Electric,430 Cv,2025,SUV,D,eléctrico,Automática,408 cv,,Alemania,4 años,USD,233700
-Porsche,Macan Turbo,3.6L,2025,SUV,D,nafta,Automática,400 cv,3.6L,Alemania,No disponible,USD,138100
-Porsche,Macan,Macan,2025,SUV,D,nafta,Automática,252 cv,2.0L,Alemania,4 años,USD,128800
-Renault,Arkana E-Tech Hybrid,Esprit Alpine 1.3T,2025,SUV,D,nafta-eléctrico,Automática,140 cv,1.3L,Brasil,3 años ó 100.000 km,ARS,43900000
-Renault,Duster,Iconic 4x4,2025,SUV,B,nafta,Manual,163 cv,1.3L,Colombia,3 años ó 100.000 km,ARS,37410000
-Renault,Duster,Iconic CVT 4x2,2025,SUV,B,nafta,Automática,163 cv,1.3L,Colombia,3 años ó 100.000 km,ARS,35820000
-Renault,Duster,Intens,2025,SUV,B,nafta,Manual,115 cv,1.6L,Colombia,3 años ó 100.000 km,ARS,32730000
-Renault,Kardian,Evolution 156,2025,SUV,B,nafta,Manual,115 cv,1.6L,Brasil,3 años ó 100.000 km,ARS,29250000
-Renault,Kardian,Evolution 200 EDC,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,31830000
-Renault,Kardian,Premier Edition 200 EDC,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,35020000
-Renault,Kardian,Techno 200 EDC,2025,SUV,B,nafta,Automática,120 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,33270000
-Renault,Koleos,Intens 2.5 4x4,2025,SUV,C,nafta,Automática,170 cv,2.5L,Corea,3 años ó 100.000 km,ARS,46590000
-Renault,Megane E-Tech,220 CV,2025,SUV,C,eléctrico,Automática,N/D cv,,Brasil,3 años ó 100.000 km,ARS,54450000
-Subaru,Crosstrek Híbrida,2.0i AWD CVT Limited ES,2025,SUV,C,nafta-eléctrico,Automática,150 cv,2.0L,Japón,5 años ó 100.000 km,USD,48900
-Subaru,Crosstrek,2.0i AWD CVT Limited ES,2025,SUV,C,nafta,Automática,156 cv,2.0L,Japón,5 años ó 100.000 km,USD,44900
-Subaru,Forester Híbrido,2.0i Hybrid AWD CVT Limited ES,2025,SUV,C,nafta-eléctrico,Automática,150 cv,2.0L,Japón,5 años ó 100.000 km,USD,54900
-Subaru,Forester,2.5i AWD CVT Limited Sport ES,2025,SUV,C,nafta,Automática,184 cv,2.5L,Japón,5 años ó 100.000 km,USD,51900
-Suzuki,Jimny 5 Puertas,GL Monotone,2025,SUV,B,nafta,Manual,100 cv,1.5L,Japón,5 años ó 100.000 km,USD,41900
-Suzuki,Jimny 5 Puertas,GLX Monotone Aut,2025,SUV,B,nafta,Automática,100 cv,1.5L,Japón,5 años ó 100.000 km,USD,43900
-Suzuki,Jimny,GL Monotone,2025,SUV,B,nafta,Manual,100 cv,1.5L,Japón,5 años ó 100.000 km,USD,37900
-Suzuki,Jimny,GLX Bitone Aut,2025,SUV,B,nafta,Automática,100 cv,1.5L,Japón,5 años ó 100.000 km,USD,39900
-Suzuki,Jimny,GLX Monotone Aut,2025,SUV,B,nafta,Automática,100 cv,1.5L,Japón,5 años ó 100.000 km,USD,39900
-SWM,X7,1.5T Aut,2025,SUV,D,nafta,Automática,154 cv,1.5L,China,No disponible,USD,29000
-SWM,X7,1.8L,2025,SUV,D,nafta,Manual,135 cv,1.8L,China,No disponible,USD,25000
-Toyota,Corolla Cross,2.0 GR-Sport CVT,2025,SUV,C,nafta,Automática,170 cv,2.0L,Brasil,5 años ó 150.000 km,ARS,49279000
-Toyota,Corolla Cross,2.0 SEG CVT,2025,SUV,C,nafta,Automática,170 cv,2.0L,Brasil,5 años ó 150.000 km,ARS,47588000
-Toyota,Corolla Cross,2.0 XEi CVT,2025,SUV,C,nafta,Automática,170 cv,2.0L,Brasil,5 años ó 150.000 km,ARS,43313000
-Toyota,Corolla Cross,2.0 XLi CVT,2025,SUV,C,nafta,Automática,170 cv,2.0L,Brasil,5 años ó 150.000 km,ARS,40314000
-Toyota,Corolla Cross,Híbrida 1.8 SEG eCVT,2025,SUV,C,nafta-eléctrico,Automática,98 cv,1.8L,Brasil,5 años ó 150.000 km,ARS,49126000
-Toyota,Corolla Cross,Híbrida 1.8 XEi eCVT,2025,SUV,C,nafta-eléctrico,Automática,98 cv,1.8L,Brasil,5 años ó 150.000 km,ARS,44763000
-Toyota,SW4,Diamond II 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,204 cv,2.8L,Argentina,5 años ó 150.000 km,ARS,73166000
-Toyota,SW4,GR-S 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,224 cv,2.8L,Argentina,5 años ó 150.000 km,ARS,76941000
-Toyota,SW4,SRX 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,204 cv,2.8L,Argentina,5 años ó 150.000 km,ARS,72683000
-Volkswagen,Nivus,170 TSi,2025,SUV,B,nafta,Manual,101 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,31999100
-Volkswagen,Nivus,Comfortline 200 TSi,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,35936500
-Volkswagen,Nivus,Highline 200 TSi,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,38803100
-Volkswagen,Nivus,Outfit 200 TSi,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,39694600
-Volkswagen,Nivus,Trendline 200 TSi,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,33966700
-Volkswagen,T-Cross,170 TSi Trendline,2025,SUV,B,nafta,Manual,101 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,37297600
-Volkswagen,T-Cross,200 TSi Comfortline,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,42417950
-Volkswagen,T-Cross,200 TSi Extreme,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,47997550
-Volkswagen,T-Cross,200 TSi Highline,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,46820700
-Volkswagen,T-Cross,200 TSi Trendline Aut,2025,SUV,B,nafta,Automática,116 cv,1.0L,Brasil,3 años ó 100.000 km,ARS,39217650
-Volkswagen,Taos,Comfortline Aut,2025,SUV,C,nafta,Automática,150 cv,1.4L,Argentina,3 años ó 100.000 km,ARS,45717800
-Volkswagen,Taos,Highline Aut Bitono,2025,SUV,C,nafta,Automática,150 cv,1.4L,Argentina,3 años ó 100.000 km,ARS,51257500
-Volkswagen,Taos,Highline Aut,2025,SUV,C,nafta,Automática,150 cv,1.4L,Argentina,3 años ó 100.000 km,ARS,50802000
-Volkswagen,Tiguan,Allspace 350 TSi DSG Life,2025,SUV,C,nafta,Automática,220 cv,2.0L,México,3 años ó 100.000 km,ARS,70841800
+Alfa Romeo,Stelvio,Distinctive Q4 2.0 Aut,2023,SUV,D,nafta,Automática,200,2.0,Italia,5 años ó 100.000 km,,
+Alfa Romeo,Stelvio,Quadrifoglio,2023,SUV,D,nafta,Automática,510,3.0,Italia,5 años ó 100.000 km,,
+Alfa Romeo,Stelvio,Veloce Q4 2.0 Aut 280Cv,2023,SUV,D,nafta,Automática,280,2.0,Italia,5 años ó 100.000 km,,
+Audi,e-tron Sportback,55 quattro,2023,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,e-tron,Advanced 55 quattro,2023,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,Q2,30 T FSI Sport,2023,SUV,B,nafta,Automática,150,1.4,Alemania,No disponible,,
+Audi,Q3 Sportback,35 T FSI,2023,SUV,C,nafta,Manual,150,1.4,España,3 años ó 90.000 km,,
+Audi,Q3,35 T FSI,2023,SUV,C,nafta,Manual,150,1.4,España,No disponible,,
+Audi,Q3,40 T FSI Quattro,2023,SUV,C,nafta,Automática,180,2.0,España,No disponible,,
+Audi,Q5,45 TFSI Offroad,2023,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q5,45 TFSI Sport,2023,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q7,45 TDi S-Line Quattro,2023,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,,
+Audi,Q7,55 TFSi Offroad Quattro,2023,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q7,55 TFSi S-Line Quattro,2023,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q8,45 TDI quattro,2023,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,,
+Audi,Q8,55 TFSI quattro,2023,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,RS Q8,V8 4.0 TFSI Quattro,2023,SUV,E,nafta,Automática,600,4.0,Alemania,No disponible,,
+Audi,SQ5,SQ5 3.0 T FSI,2023,SUV,D,nafta,Automática,354,3.0,Alemania,No disponible,,
+BAIC,Senova,X25 1.5 Elite Aut,2023,SUV,A,nafta,Automática,115,1.5,China,7 años o 100.000 km,,
+BAIC,Senova,X25 1.5 Elite,2023,SUV,A,nafta,Manual,115,1.5,China,7 años o 100.000 km,,
+BAIC,X35,1.5 Luxury Aut,2023,SUV,B,nafta,Automática,110,1.5,China,7 años o 100.000 km,,
+BAIC,X35,1.5 Luxury,2023,SUV,B,nafta,Manual,110,1.5,China,7 años o 100.000 km,,
+BAIC,X55 II,Luxury,2023,SUV,C,nafta,Automática,138,1.5,China,7 años o 100.000 km,,
+BAIC,X55,1.5T CVT Honor,2023,SUV,C,nafta,Automática,110,1.5,China,7 años o 100.000 km,,
+BAIC,X55,1.5T Elite CVT,2023,SUV,C,nafta,Automática,148,1.5,China,7 años o 100.000 km,,
+BAIC,X55,1.5T TGV,2023,SUV,C,nafta,Automática,138,1.5,China,7 años o 100.000 km,,
+BMW,X1,sDrive 20i SportLine,2023,SUV,C,nafta,Automática,192,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X1,xDrive 20i,2023,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X2,sDrive20i MSportX,2023,SUV,C,nafta,Automática,192,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X2,sDrive35i,2023,SUV,C,nafta,Automática,306,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive 30e,2023,SUV,D,nafta-eléctrico,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive 30i,2023,SUV,D,nafta,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X4,xDrive 30i xLine,2023,SUV,D,nafta,Automática,252,2.0,Alemania,3 años ó 200.000 km,,
+Chery,Tiggo 2 PRO,Comfort 1.5 Aut,2023,SUV,B,nafta,Automática,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2 PRO,Comfort 1.5,2023,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2 PRO,Luxury 1.5,2023,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2,Comfort 1.5 Aut,2023,SUV,B,nafta,Automática,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2,Comfort 1.5,2023,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2,Luxury 1.5,2023,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Comfort CVT,2023,SUV,C,nafta,Automática,113,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Comfort,2023,SUV,C,nafta,Manual,113,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Luxury CVT,2023,SUV,C,nafta,Automática,147,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4,2.0 Comfort CVT,2023,SUV,C,nafta,Automática,122,2.0,China,5 años ó 100.000 km,,
+Chery,Tiggo 4,2.0 Comfort,2023,SUV,C,nafta,Manual,122,2.0,China,5 años ó 100.000 km,,
+Chery,Tiggo 8 Pro,Luxury CVT,2023,SUV,D,nafta,Automática,183,1.6,China,5 años ó 100.000 km,,
+Chevrolet,Equinox,1.5T Premier 4x4 Aut,2023,SUV,C,nafta,Automática,172,1.5,México,3 años ó 100.000 km,,
+Chevrolet,Equinox,1.5T RS 4x2 Aut,2023,SUV,C,nafta,Automática,172,1.5,México,3 años ó 100.000 km,,
+Chevrolet,Tracker,1.2 Turbo Aut LTZ,2023,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,,
+Chevrolet,Tracker,1.2 Turbo Aut Premier,2023,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,,
+Chevrolet,Tracker,1.2 Turbo Aut,2023,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,,
+Chevrolet,Tracker,1.2 Turbo,2023,SUV,B,nafta,Manual,132,1.2,Brasil,3 años,,
+Chevrolet,Trailblazer,2.8 4x4 Premier Aut,2023,SUV,D,diesel,Automática,200,2.8,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,THP Noir Aut,2023,SUV,B,nafta,Automática,165,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,THP Shine Aut Bitono,2023,SUV,B,nafta,Automática,165,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,THP Shine Aut,2023,SUV,B,nafta,Automática,165,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Aut,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Look Aut,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Look,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Plus Aut Bitono,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Plus Aut,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Plus Bitono,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack Plus,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Pack,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Plus Aut Bitono,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel Plus Aut,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C4 Cactus,Vti 115 Feel,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Citroën,C5 Aircross,THP 1.6 Turbo,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+Citroën,C5 Aircross,THP 165 Feel Pack Aut,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+DS,3 Crossback,Puretech 155 Rivoli+ Aut,2023,SUV,B,nafta,Automática,155,1.2,Francia,3 años ó 100.000 km,,
+DS,4 Crossback,Perfomance Line 215,2023,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,4 Crossback,Trocadero 215,2023,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback E-Tense,4X4 300 Bastille,2023,SUV,C,nafta-eléctrico,Automática,200,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Bastille 215,2023,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Bastille Aut,2023,SUV,C,nafta,Automática,180,2.0,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Performance Line 165 Aut,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Rivoli 215,2023,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Rivoli Aut,2023,SUV,C,nafta,Automática,180,2.0,Francia,3 años ó 100.000 km,,
+FAW,T33,1.2L,2023,SUV,D,nafta,Automática,143,1.2,China,3 años ó 100.000 km,,
+FAW,X40,1.6L Aut,2023,SUV,B,nafta,Automática,113,1.6,China,3 años ó 100.000 km,,
+FIAT,Pulse Abarth,1.3L Turbo,2023,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+FIAT,Pulse,1.3 Drive CVT,2023,SUV,B,nafta,Automática,99,1.3,Brasil,3 años ó 100.000 km,,
+FIAT,Pulse,1.3 Drive,2023,SUV,B,nafta,Manual,99,1.3,Brasil,3 años ó 100.000 km,,
+FIAT,Pulse,Audace 1.0 CVT,2023,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+FIAT,Pulse,Impetus 1.0 CVT,2023,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+Ford,Bronco Sport,Big Bend,2023,SUV,C,nafta,Automática,175,1.5,México,3 años ó 100.000 km,,
+Ford,Bronco Sport,Wildtrack,2023,SUV,C,nafta,Automática,253,2.0,México,3 años ó 100.000 km,,
+Ford,EcoSport,SE 1.5L Dragon,2023,SUV,B,nafta,Manual,123,1.5,India,3 años ó 100.000 km,,
+Ford,EcoSport,Titanium 1.5L Dragon Aut,2023,SUV,B,nafta,Automática,123,1.5,India,3 años ó 100.000 km,,
+Ford,EcoSport,Titanium 1.5L Dragon,2023,SUV,B,nafta,Manual,123,1.5,India,3 años ó 100.000 km,,
+Ford,Kuga Híbrida,Titanium,2023,SUV,C,nafta-eléctrico,Automática,165,2.5,Estados Unidos,8 años ó 160.000 kms (batería),,
+Ford,Territory,SEL 1.8L,2023,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,,
+Ford,Territory,Titanium 1.8L,2023,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,,
+Geely,Emgrand GS,Active,2023,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Balance Aut,2023,SUV,B,nafta,Automática,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Balance,2023,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Drive Plus,2023,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Drive,2023,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Executive Aut,2023,SUV,B,nafta,Automática,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Active 2.4 Aut,2023,SUV,C,nafta,Automática,162,2.4,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Drive 2.0,2023,SUV,C,nafta,Manual,141,2.0,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Executive 2.4 Aut 4x4,2023,SUV,C,nafta,Automática,162,2.4,China,5 años ó 150.000 km,,
+Haval,H6,2.0T Aut 4x4,2023,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,,
+Haval,H6,2.0T Aut,2023,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,,
+Haval,Jolion,1.5T,2023,SUV,C,nafta,Automática,141,1.5,China,No disponible,,
+Honda,CR-V,EX 4x2,2023,SUV,C,nafta,Automática,190,1.5,México,3 años ó 100.000 km,,
+Honda,CR-V,EXT 4x4,2023,SUV,C,nafta,Automática,190,1.5,México,3 años ó 100.000 km,,
+Honda,CR-V,LX 4x2,2023,SUV,C,nafta,Automática,186,2.4,México,3 años ó 100.000 km,,
+Honda,HR-V,EX CVT,2023,SUV,B,nafta,Automática,140,1.8,Argentina,3 años ó 100.000 km,,
+Honda,HR-V,EXL CVT,2023,SUV,B,nafta,Automática,140,1.8,Argentina,3 años ó 100.000 km,,
+Honda,HR-V,LX CVT,2023,SUV,B,nafta,Automática,140,1.8,Argentina,3 años ó 100.000 km,,
+Honda,Pilot,EX,2023,SUV,D,nafta,Automática,280,3.5,Estados Unidos,No disponible,,
+Honda,Pilot,Touring,2023,SUV,D,nafta,Automática,280,3.5,Estados Unidos,No disponible,,
+Honda,ZR-V,LX,2023,SUV,C,nafta,Automática,157,2.0,México,3 años ó 100.000 km,,
+Honda,ZR-V,Touring,2023,SUV,C,nafta,Automática,157,2.0,México,3 años ó 100.000 km,,
+Hyundai,Creta,Safety +,2023,SUV,B,nafta,Automática,115,1.5,India,3 años ó 100.000 km,,
+Hyundai,Creta,Safety,2023,SUV,B,nafta,Automática,123,1.6,India,3 años ó 100.000 km,,
+Hyundai,Creta,Style,2023,SUV,B,nafta,Automática,123,1.6,India,3 años ó 100.000 km,,
+Hyundai,Kona,Safety + 4x2,2023,SUV,B,nafta,Automática,177,1.6,Corea,3 años ó 100.000 km,,
+Hyundai,Kona,Safety + 4x4,2023,SUV,B,nafta,Automática,177,1.6,Corea,3 años ó 100.000 km,,
+Hyundai,Kona,Style 4x2,2023,SUV,B,nafta,Automática,177,1.6,Corea,3 años ó 100.000 km,,
+Hyundai,Santa Fe,2.2 CRDI 4x4 7 Asientos Aut,2023,SUV,D,diesel,Automática,200,2.2,Corea,3 años ó 100.000 km,,
+Hyundai,Santa Fe,2.4 4x2 7 Asientos Aut,2023,SUV,D,nafta,Automática,172,2.4,Corea,3 años ó 100.000 km,,
+Hyundai,Tucson,4x2 2.0 Aut Panorama Sunroof,2023,SUV,C,nafta,Automática,155,2.0,Corea,3 años ó 100.000 km,,
+Hyundai,Tucson,4x2 2.0 Aut Style,2023,SUV,C,nafta,Automática,155,2.0,Corea,3 años ó 100.000 km,,
+Hyundai,Tucson,4x4 2.0 Full Premium Aut,2023,SUV,C,nafta,Automática,155,2.0,Corea,3 años ó 100.000 km,,
+JAC,S2,Intelligent,2023,SUV,B,nafta,Manual,105,1.5,China,7 años o 150.000 km,,
+JAC,S3,Intelligent CVT,2023,SUV,B,nafta,Automática,109,1.6,China,7 años o 150.000 km,,
+JAC,S3,Intelligent,2023,SUV,B,nafta,Manual,109,1.6,China,7 años o 150.000 km,,
+Jaguar,E-Pace,300 Sport P300 4x4 Aut,2023,SUV,C,nafta-eléctrico,Automática,300,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE D200 4x4 Aut MHEV,2023,SUV,C,diesel,Automática,200,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P160 4x2 Aut,2023,SUV,C,nafta-eléctrico,Automática,160,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P200 4x4 Aut,2023,SUV,C,nafta-eléctrico,Automática,200,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P250 4x4 Aut,2023,SUV,C,nafta-eléctrico,Automática,250,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P300e 4x4 Aut PHEV,2023,SUV,C,nafta-eléctrico,Automática,300,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,S D200 4x4 Aut MHEV,2023,SUV,C,diesel,Automática,200,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,S P250 4x4 Aut,2023,SUV,C,nafta-eléctrico,Automática,250,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,SE P160 4x2 Aut,2023,SUV,C,nafta-eléctrico,Automática,160,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,SE P200 4x4 Aut MHEV,2023,SUV,C,nafta-eléctrico,Automática,200,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,2.0 Diesel Prestige,2023,SUV,D,diesel,Automática,179,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,2.0 R-Sport,2023,SUV,D,nafta,Automática,300,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,3.0 S/C Prestige Aut,2023,SUV,D,nafta,Automática,340,3.0,Gran Bretaña,3 años ó 100.000 km,,
+Jeep,Commander,1.3L Limited T270,2023,SUV,D,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Commander,2.0L Limited TD380,2023,SUV,D,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,,
+Jeep,Commander,2.0L Overland TD380,2023,SUV,D,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Limited Plus Aut,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Longitude Aut Plus,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Longitude Aut,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Serie-S,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Sport Aut,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,2.0 TD 4x4 Limited Plus Aut,2023,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,Trailhawk 2.0 4X4 TD Aut,2023,SUV,C,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,,
+Jeep,Grand Cherokee,Limited 3.6 Plus,2023,SUV,E,nafta,Automática,286,3.6,Estados Unidos,2 años ó 50.000 km,,
+Jeep,Grand Cherokee,Limited,2023,SUV,E,nafta,Automática,293,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jeep,Grand Cherokee,Overland 3.6,2023,SUV,E,nafta,Automática,286,3.6,Estados Unidos,2 años ó 50.000 km,,
+Jeep,Renegade,Longitude Aut,2023,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Renegade,Serie-S Aut,2023,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Renegade,Sport Aut,2023,SUV,B,nafta,Automática,130,1.8,Brasil,3 años ó 100.000 km,,
+Jeep,Renegade,Sport,2023,SUV,B,nafta,Manual,130,1.8,Brasil,3 años ó 100.000 km,,
+Jeep,Renegade,Trailhawk 4x4 Aut,2023,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Wrangler,Rubicon 2P Aut,2023,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jeep,Wrangler,Unlimited Rubicon 4P Aut,2023,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jeep,Wrangler,Unlimited Sahara 4P Aut,2023,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jetour,X70,1.5T Aut,2023,SUV,D,nafta,Automática,147,1.5,China,3 años ó 100.000 km,,
+Jetour,X70,1.5T,2023,SUV,D,nafta,Manual,147,1.5,China,3 años ó 100.000 km,,
+KIA,Seltos,LX 1.6 Aut,2023,SUV,B,nafta,Automática,123,1.6,India,5 años ó 100.000 km,,
+KIA,Sorento,EX 2.2 CRDi 4x4 Aut,2023,SUV,D,diesel,Automática,202,2.2,Corea,5 años ó 100.000 km,,
+KIA,Sportage,EX 4x2,2023,SUV,C,nafta,Automática,178,1.6,Corea,5 años ó 100.000 km,,
+KIA,Sportage,X-Line 4x4,2023,SUV,C,nafta,Automática,178,1.6,Corea,5 años ó 100.000 km,,
+Land Rover,Discovery,HSE V6 3.0 TDi,2023,SUV,E,diesel,Automática,258,3.0,Gran Bretaña,No disponible,,
+Land Rover,Range Rover Evoque,5P 2.0 SE R-Dynamic,2023,SUV,C,nafta,Automática,221,2.0,Gran Bretaña,No disponible,,
+Land Rover,Range Rover Evoque,5P 2.0 SE,2023,SUV,C,nafta,Automática,300,2.0,Gran Bretaña,No disponible,,
+Land Rover,Range Rover Velar,2.0 S,2023,SUV,E,nafta,Automática,250,2.0,Gran Bretaña,2 años,,
+Land Rover,Range Rover,Vogue SE SDV8,2023,SUV,F,diesel,Automática,340,4.4,Gran Bretaña,2 años,,
+Land Rover,Range Rover,Vogue SE V8,2023,SUV,F,diesel,Automática,525,5.0,Gran Bretaña,2 años,,
+Lexus,LX,600 Urban,2023,SUV,E,nafta,Automática,415,3.5,Japón,5 años ó 150.000 km,,
+Lexus,NX,350 F-Sport,2023,SUV,D,nafta,Automática,278,2.4,Japón,5 años ó 100.000 km,,
+Lexus,NX,350h Luxury,2023,SUV,D,nafta-eléctrico,Automática,242,2.5,Japón,5 años ó 100.000 km,,
+Lexus,RX,350 F-Sport,2023,SUV,E,nafta,Automática,300,3.5,Japón,5 años ó 100.000 km,,
+Lexus,RX,450h F-Sport,2023,SUV,E,nafta-eléctrico,Automática,300,3.5,Japón,5 años ó 100.000 km,,
+Lexus,RX,450h Luxury,2023,SUV,E,nafta-eléctrico,Automática,300,3.5,Japón,5 años ó 100.000 km,,
+Lexus,UX,250h,2023,SUV,C,nafta-eléctrico,Automática,152,2.0,Japón,5 años ó 100.000 km,,
+Maserati,Levante,GTS V8,2023,SUV,F,nafta,Automática,549,4.0,Italia,No disponible,,
+Maserati,Levante,Levante,2023,SUV,F,nafta,Automática,350,3.0,Italia,No disponible,,
+Maserati,Levante,S,2023,SUV,F,nafta,Automática,430,3.0,Italia,No disponible,,
+Maserati,Levante,Trofeo V8,2023,SUV,F,nafta,Automática,580,4.0,Italia,No disponible,,
+Mercedes,Clase GLA,200 Urban Aut,2023,SUV,C,nafta,Automática,163,1.3,Alemania,3 años,,
+Mercedes,Clase GLA,250 Urban 4Matic AMG Line,2023,SUV,C,nafta,Automática,224,2.0,Alemania,3 años,,
+Mercedes,Clase GLB,250 Progressive 4Matic,2023,SUV,C,nafta,Automática,224,2.0,Alemania,3 años,,
+Mercedes,Clase GLC AMG,43 AMG 4Matic,2023,SUV,D,nafta,Automática,367,3.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,63 S AMG 4Matic Coupé,2023,SUV,D,nafta,Automática,510,4.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,63 S AMG 4Matic,2023,SUV,D,nafta,Automática,510,4.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,Coupé 43 AMG 4Matic Aut,2023,SUV,D,nafta,Automática,367,3.0,No disponible,3 años,,
+Mercedes,Clase GLC,300 4Matic MHEV,2023,SUV,D,nafta,Automática,258,2.0,No disponible,3 años,,
+Mercedes,Clase GLC,300 4Matic Urban 258Cv,2023,SUV,D,nafta,Automática,258,2.0,No disponible,3 años,,
+Mercedes,Clase GLC,300 Coupé 4Matic AMG-Line 258Cv,2023,SUV,D,nafta,Automática,258,2.0,No disponible,3 años,,
+Mercedes,Clase GLE AMG,AMG 63 S Coupé,2023,SUV,E,nafta,Automática,585,5.5,No disponible,No disponible,,
+Mercedes,Clase G,500,2023,SUV,F,nafta,Automática,421,4.0,México,3 años,,
+Mercedes,EQA,350 4MATIC,2023,SUV,C,eléctrico,Automática,292,,Alemania,3 años,,
+MINI,Cooper Countryman,Cooper Classic,2023,SUV,B,nafta,Automática,136,1.5,Gran Bretaña,3 años ó 200.000 km,,
+MINI,Cooper Countryman,Cooper S Classic Confort,2023,SUV,B,nafta,Automática,192,2.0,Gran Bretaña,3 años ó 200.000 km,,
+MINI,Cooper Countryman,John Cooper Works,2023,SUV,B,nafta,Automática,306,2.0,Gran Bretaña,3 años ó 200.000 km,,
+Nissan,Kicks,Advance CVT Plus,2023,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,Kicks,Advance CVT,2023,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,Kicks,Advance,2023,SUV,B,nafta,Manual,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,Kicks,Exclusive CVT,2023,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,Kicks,Sense,2023,SUV,B,nafta,Manual,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,Kicks,X-Play Edición Limitada,2023,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,X-Trail e-Power,e-4ORCE,2023,SUV,C,nafta-eléctrico,Automática,158,1.5,Japón,3 años ó 100.000 km,,
+Nissan,X-Trail,Advance 2.5 4x4 CVT,2023,SUV,C,nafta,Automática,171,2.5,Japón,3 años ó 100.000 km,,
+Nissan,X-Trail,Exclusive 2.5 4x4 CVT,2023,SUV,C,nafta,Automática,171,2.5,Japón,3 años ó 100.000 km,,
+Nissan,X-Trail,Exclusive,2023,SUV,C,nafta,Automática,181,2.5,Japón,3 años ó 100.000 km,,
+Peugeot,2008,Feline Tiptronic,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Peugeot,2008,Feline,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Peugeot,2008,Sport THP Aut,2023,SUV,B,nafta,Automática,165,1.6,Brasil,3 años ó 100.000 km,,
+Peugeot,3008 SUV,Allure THP Tiptronic Pack,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,3008 SUV,Allure THP Tiptronic,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,3008 SUV,GT Line HDi Tiptronic,2023,SUV,C,diesel,Automática,150,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,3008 SUV,GT Line THP Tiptronic Pack,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,3008 SUV,GT Line THP Tiptronic,2023,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,3008 SUV,GT Pack Hybrid4 4WD,2023,SUV,C,nafta-eléctrico,Automática,197,1.6,Francia,3 años ó 100.000 km,,
+Peugeot,5008 SUV,Allure Plus Tiptronic HDi,2023,SUV,D,diesel,Automática,150,2.0,Francia,3 años ó 100.000 km,,
+Porsche,Cayenne Coupé Platinum Edition,3.0L,2023,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne Coupé,3.0L Aut,2023,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne E-Hybrid Coupé Platinum Edition,3.0L Aut,2023,SUV,D,nafta-eléctrico,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne E-Hybrid Platinum Edition,3.0L Aut,2023,SUV,D,nafta-eléctrico,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne E-Hybrid,3.0L Aut,2023,SUV,D,nafta-eléctrico,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne GTS Coupé,3.0L,2023,SUV,D,nafta,Automática,441,3.0,Alemania,4 años,,
+Porsche,Cayenne GTS,4.0L,2023,SUV,D,nafta,Automática,550,4.0,Alemania,4 años,,
+Porsche,Cayenne Platinum Edition,3.0L,2023,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,,
+Porsche,Cayenne S Coupé Platinum Edition,3.0L V6 Aut,2023,SUV,D,nafta,Automática,441,3.0,Alemania,4 años,,
+Porsche,Cayenne S Coupé,3.0L V6 Aut,2023,SUV,D,nafta,Automática,441,3.0,Alemania,4 años,,
+Porsche,Cayenne S E-Hybrid,3.0L V8 Aut,2023,SUV,D,nafta-eléctrico,Automática,550,4.0,Alemania,4 años,,
+Porsche,Cayenne S Platinum Edition,3.0L V6 Aut,2023,SUV,D,nafta,Automática,440,3.0,Alemania,4 años,,
+Porsche,Cayenne S,3.0L V6 Aut,2023,SUV,D,nafta,Automática,440,3.0,Alemania,4 años,,
+Porsche,Cayenne Turbo Coupé,Turbo Coupé,2023,SUV,D,nafta,Automática,550,4.0,Alemania,4 años,,
+Porsche,Cayenne Turbo GT Coupé,Turbo GT,2023,SUV,D,nafta,Automática,640,4.0,Alemania,4 años,,
+Porsche,Cayenne Turbo S E-Hybrid,3.0T V8 Aut S E-Hybrid,2023,SUV,D,nafta-eléctrico,Automática,550,4.0,Alemania,4 años,,
+Porsche,Cayenne Turbo,Turbo,2023,SUV,D,nafta,Automática,550,4.0,Alemania,4 años,,
+Porsche,Cayenne,3.0L Aut,2023,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,,
+Porsche,Macan GTS,GTS,2023,SUV,D,nafta,Automática,381,3.0,Alemania,4 años,,
+Porsche,Macan S,S Diesel,2023,SUV,D,diesel,Automática,258,3.0,Alemania,4 años,,
+Porsche,Macan Turbo,3.6L,2023,SUV,D,nafta,Automática,400,3.6,Alemania,No disponible,,
+Porsche,Macan,Macan,2023,SUV,D,nafta,Automática,252,2.0,Alemania,4 años,,
+Renault,Captur,Intens 1.6 CVT,2023,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,,
+Renault,Captur,Intens,2023,SUV,B,nafta,Manual,143,2.0,Brasil,3 años ó 100.000 km,,
+Renault,Captur,Life,2023,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,,
+Renault,Captur,Zen,2023,SUV,B,nafta,Manual,143,2.0,Brasil,3 años ó 100.000 km,,
+Renault,Duster,Iconic 1.3T 4x2,2023,SUV,B,nafta,Manual,163,1.3,Colombia,3 años ó 100.000 km,,
+Renault,Duster,Iconic 1.3T 4x4,2023,SUV,B,nafta,Manual,163,1.3,Colombia,3 años ó 100.000 km,,
+Renault,Duster,Intens 1.6 CVT,2023,SUV,B,nafta,Automática,115,1.6,Colombia,3 años ó 100.000 km,,
+Renault,Duster,Intens 1.6,2023,SUV,B,nafta,Manual,115,1.6,Colombia,3 años ó 100.000 km,,
+Renault,Duster,Outsaider 1.3T 4x2 CVT,2023,SUV,B,nafta,Automática,155,1.3,Colombia,3 años ó 100.000 km,,
+Renault,Duster,Zen 1.6,2023,SUV,B,nafta,Manual,115,1.6,Colombia,3 años ó 100.000 km,,
+Renault,Koleos,Intens 2.5 4x4 CVT,2023,SUV,C,nafta,Automática,170,2.5,Corea,3 años ó 100.000 km,,
+Renault,Koleos,Intens 2.5 4x4,2023,SUV,C,nafta,Automática,170,2.5,Corea,3 años ó 100.000 km,,
+SsangYong,Actyon,A 230 Full,2023,SUV,B,nafta,Manual,147,2.3,Corea,2 años ó 50.000 km,,
+SsangYong,Actyon,A 230,2023,SUV,B,nafta,Manual,147,2.3,Corea,2 años ó 50.000 km,,
+Subaru,Forester,2.0i AWD CVT XS,2023,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,,
+Subaru,Forester,2.0i AWD CVT X,2023,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,,
+Subaru,Forester,2.5i AWD CVT Dynamic ES,2023,SUV,C,nafta,Automática,184,2.5,Japón,5 años ó 100.000 km,,
+Subaru,Forester,2.5i AWD CVT Limited Sport ES,2023,SUV,C,nafta,Automática,184,2.5,Japón,5 años ó 100.000 km,,
+Subaru,XV,2.0i AWD Aut Limited Eyesight,2023,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,,
+Subaru,XV,2.0i AWD CVT Dynamic Eyesight,2023,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,,
+Suzuki,Jimny,GL Monotone,2023,SUV,B,nafta,Manual,100,1.5,Japón,5 años ó 100.000 km,,
+Suzuki,Jimny,GLX Bitone Aut,2023,SUV,B,nafta,Automática,100,1.5,Japón,5 años ó 100.000 km,,
+Suzuki,Jimny,GLX Bitone,2023,SUV,B,nafta,Manual,100,1.5,Japón,3 años ó 100.000 km,,
+Suzuki,Jimny,GLX Monotone Aut,2023,SUV,B,nafta,Automática,100,1.5,Japón,5 años ó 100.000 km,,
+Suzuki,Jimny,GLX Monotone,2023,SUV,B,nafta,Manual,100,1.5,Japón,5 años ó 100.000 km,,
+SWM,G01,6AT Elite,2023,SUV,C,nafta,Automática,154,1.5,China,No disponible,,
+SWM,G01,6AT Premium,2023,SUV,C,nafta,Automática,154,1.5,China,No disponible,,
+SWM,G01,6MT Elite,2023,SUV,C,nafta,Manual,154,1.5,China,No disponible,,
+SWM,G01,6MT Standar,2023,SUV,C,nafta,Manual,154,1.5,China,No disponible,,
+SWM,X7,1.5T Aut,2023,SUV,D,nafta,Automática,154,1.5,China,No disponible,,
+SWM,X7,1.8L,2023,SUV,D,nafta,Manual,135,1.8,China,No disponible,,
+Toyota,C-HR,Híbrida 1.8 eCVT,2023,SUV,B,nafta-eléctrico,Automática,98,1.8,Japón,5 años ó 100.000 km,,
+Toyota,Corolla Cross,2.0 GR-Sport CVT,2023,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,,
+Toyota,Corolla Cross,2.0 SEG CVT,2023,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,,
+Toyota,Corolla Cross,2.0 XEi CVT,2023,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,,
+Toyota,Corolla Cross,2.0 XLi CVT,2023,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,,
+Toyota,Corolla Cross,Híbrida 1.8 SEG eCVT,2023,SUV,C,nafta-eléctrico,Automática,98,1.8,Brasil,5 años ó 150.000 km,,
+Toyota,Corolla Cross,Híbrida 1.8 XEi eCVT,2023,SUV,C,nafta-eléctrico,Automática,98,1.8,Brasil,5 años ó 150.000 km,,
+Toyota,Land Cruiser 300,GR-S,2023,SUV,F,diesel,Automática,304,3.3,Japón,5 años ó 150.000 km,,
+Toyota,Land Cruiser 300,VX,2023,SUV,F,diesel,Automática,304,3.3,Japón,5 años ó 150.000 km,,
+Toyota,Land Cruiser,Prado VX Aut,2023,SUV,E,nafta,Automática,275,4.0,Japón,5 años ó 150.000 km,,
+Toyota,RAV4,HV 2.5 Limited 4x4 Híbrida,2023,SUV,C,nafta-eléctrico,Automática,175,2.5,Japón,5 años ó 150.000 km,,
+Toyota,SW4,Diamond II 2.8 TDi 7A Aut,2023,SUV,D,diesel,Automática,204,2.8,Argentina,5 años ó 150.000 km,,
+Toyota,SW4,GR-S 2.8 TDi 7A Aut,2023,SUV,D,diesel,Automática,224,2.8,Argentina,5 años ó 150.000 km,,
+Toyota,SW4,SRX 2.8 TDi 7A Aut,2023,SUV,D,diesel,Automática,204,2.8,Argentina,5 años ó 150.000 km,,
+Volkswagen,Nivus,170 TSi,2023,SUV,B,nafta,Manual,95,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,Nivus,Comfortline 200 TSi,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,Nivus,Hero 200 TSi,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,Nivus,Highline 200 TSi,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,170 TSi,2023,SUV,B,nafta,Manual,95,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,Comfortline 200 TSi,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,Comfortline MSi Tiptronic,2023,SUV,B,nafta,Automática,110,1.6,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,Highline 200 TSi Aut,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,Highline 200 TSi,2023,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,Trendline MSi,2023,SUV,B,nafta,Manual,110,1.6,Brasil,3 años ó 100.000 km,,
+Volkswagen,Taos,Comfortline Aut,2023,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,,
+Volkswagen,Taos,Hero,2023,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,,
+Volkswagen,Taos,Highline Aut Bitono,2023,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,,
+Volkswagen,Taos,Highline Aut,2023,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,,
+Volkswagen,Tiguan,Allspace 250 TSi DSG,2023,SUV,C,nafta,Automática,150,1.4,México,3 años ó 100.000 km,,
+Volkswagen,Tiguan,Allspace 350 TSi DSG Comfortline,2023,SUV,C,nafta,Automática,220,2.0,México,3 años ó 100.000 km,,
+Volkswagen,Tiguan,Allspace 350 TSi DSG Highline,2023,SUV,C,nafta,Automática,220,2.0,México,3 años ó 100.000 km,,
+Volkswagen,Tiguan,Allspace 350 TSi DSG Life,2023,SUV,C,nafta,Automática,220,2.0,México,3 años ó 100.000 km,,
+Volvo,C40 Electric,Recharge,2023,SUV,D,eléctrico,Automática,238,,Bélgica,3 años,,
+Volvo,C40 Electric,Twin,2023,SUV,D,eléctrico,Automática,249,,Bélgica,3 años,,
+Volvo,EX30 Electric,Single Motor Extended Range,2023,SUV,B,eléctrico,Automática,272,,Bélgica,3 años,,
+Volvo,EX30 Electric,Single Motor,2023,SUV,B,eléctrico,Automática,272,,Bélgica,3 años,,
+Volvo,XC40 Electric,Recharge,2023,SUV,C,eléctrico,Automática,238,,Bélgica,3 años,,
+Volvo,XC40 Electric,Twin,2023,SUV,C,eléctrico,Automática,249,,Bélgica,3 años,,
+Volvo,XC40,T4 FWD Kinetic,2023,SUV,C,nafta,Automática,190,2.0,Bélgica,3 años,,
+Volvo,XC60 Recharge,T8 AWD,2023,SUV,D,nafta-eléctrico,Automática,317,2.0,Suecia,3 años,,
+Volvo,XC60,Plus,2023,SUV,D,nafta,Automática,249,2.0,Suecia,3 años,,
+Volvo,XC60,T5 Inscription 4x4 Geartronic,2023,SUV,D,nafta,Automática,320,2.0,Suecia,3 años,,
+Volvo,XC60,T5 Momentum 4x4 Geartronic,2023,SUV,D,nafta,Automática,254,2.0,Suecia,3 años,,
+Volvo,XC90 Recharge,T8 AWD Plus 7 Asientos,2023,SUV,E,nafta-eléctrico,Automática,317,2.0,Suecia,3 años,,
+Volvo,XC90,D5 2.0 Momentum,2023,SUV,E,diesel,Automática,235,2.0,Suecia,3 años,,
+Volvo,XC90,D5 2.0T Inscription,2023,SUV,E,nafta,Automática,320,2.0,Suecia,3 años,,
+Volvo,XC90,Plus,2023,SUV,E,diesel,Automática,235,2.0,Suecia,3 años,,
+Volvo,XC90,Ultimate,2023,SUV,E,diesel,Automática,235,2.0,Suecia,3 años,,
+Alfa Romeo,Stelvio,Distinctive Q4 2.0 Aut,2024,SUV,D,nafta,Automática,200,2.0,Italia,5 años ó 100.000 km,,
+Alfa Romeo,Stelvio,Quadrifoglio,2024,SUV,D,nafta,Automática,510,3.0,Italia,5 años ó 100.000 km,,
+Alfa Romeo,Stelvio,Veloce Q4 2.0 Aut 280Cv,2024,SUV,D,nafta,Automática,280,2.0,Italia,5 años ó 100.000 km,,
+Audi,e-tron Sportback,55 quattro,2024,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,e-tron,Advanced 55 quattro,2024,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,Q2,30 T FSI Sport,2024,SUV,B,nafta,Automática,150,1.4,Alemania,No disponible,,
+Audi,Q3 Sportback,35 T FSI,2024,SUV,C,nafta,Manual,150,1.4,España,3 años ó 90.000 km,,
+Audi,Q3,35 T FSI,2024,SUV,C,nafta,Manual,150,1.4,España,No disponible,,
+Audi,Q3,40 T FSI Quattro,2024,SUV,C,nafta,Automática,180,2.0,España,No disponible,,
+Audi,Q5 Sportback,45 TFSI Advanced,2024,SUV,D,nafta,Automática,250,2.0,Alemania,No disponible,,
+Audi,Q5 Sportback,45 TFSI S line,2024,SUV,D,nafta,Automática,250,2.0,Alemania,No disponible,,
+Audi,Q5,45 TFSI Offroad,2024,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q5,45 TFSI Sport,2024,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q7,45 TDi S-Line Quattro,2024,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,,
+Audi,Q7,55 TFSi Offroad Quattro,2024,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q7,55 TFSi S-Line Quattro,2024,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q8 e-tron Sportback,55 TFSI quattro,2024,SUV,F,eléctrico,Automática,N/D,,Alemania,No disponible,,
+Audi,Q8 e-tron,55 TFSI quattro,2024,SUV,F,N/D,Automática,,,Alemania,No disponible,,
+Audi,Q8,45 TDI quattro,2024,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,,
+Audi,Q8,55 TFSI quattro,2024,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,RS Q8,V8 4.0 TFSI Quattro,2024,SUV,E,nafta,Automática,600,4.0,Alemania,No disponible,,
+Audi,SQ5,SQ5 3.0 T FSI,2024,SUV,D,nafta,Automática,354,3.0,Alemania,No disponible,,
+BAIC,BJ40,2.0T 4x2,2024,SUV,C,nafta,Automática,210,2.0,China,7 años o 100.000 km,,
+BAIC,BJ40,2.0T 4x4,2024,SUV,C,nafta,Automática,210,2.0,China,7 años o 100.000 km,,
+BAIC,X35,1.5 Luxury Aut,2024,SUV,B,nafta,Automática,110,1.5,China,7 años o 100.000 km,,
+BAIC,X55 II,Luxury,2024,SUV,C,nafta,Automática,138,1.5,China,7 años o 100.000 km,,
+BMW,iX2,xDrive30 Motor MSport,2024,SUV,C,N/D,Automática,,,Alemania,3 años ó 200.000 km,,
+BMW,X1,xDrive 20i,2024,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X2,sDrive20i MSportX,2024,SUV,C,nafta,Automática,192,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X2,sDrive35i,2024,SUV,C,nafta,Automática,306,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X2,xDrive20i Motor MSport,2024,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive 30e,2024,SUV,D,nafta-eléctrico,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive 30i,2024,SUV,D,nafta,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X4,xDrive 30i MSport,2024,SUV,D,nafta,Automática,252,2.0,Alemania,3 años ó 200.000 km,USD,106900.0
+BMW,X4,xDrive 30i xLine,2024,SUV,D,nafta,Automática,252,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X5,xDrive40i M Sport Pro,2024,SUV,E,nafta-eléctrico,Automática,381,3.0,Estados Unidos,3 años ó 200.000 km,,
+BMW,X6,xDrive40i MSportPro,2024,SUV,E,nafta,Automática,375,3.0,Estados Unidos,3 años ó 200.000 km,,
+BMW,X7,M Performance,2024,SUV,E,nafta,Automática,530,4.4,Estados Unidos,3 años ó 200.000 km,,
+Chery,Tiggo 2 PRO,Comfort 1.5 Aut,2024,SUV,B,nafta,Automática,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2 PRO,Comfort 1.5,2024,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 2 PRO,Luxury 1.5,2024,SUV,B,nafta,Manual,105,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Comfort CVT,2024,SUV,C,nafta,Automática,113,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Comfort,2024,SUV,C,nafta,Manual,113,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 4 Pro,1.5 Luxury CVT,2024,SUV,C,nafta,Automática,147,1.5,China,5 años ó 100.000 km,,
+Chery,Tiggo 8 Pro,Luxury CVT,2024,SUV,D,nafta,Automática,183,1.6,China,5 años ó 100.000 km,,
+Chevrolet,Equinox,1.5T Premier 4x4 Aut,2024,SUV,C,nafta,Automática,172,1.5,México,3 años ó 100.000 km,,
+Chevrolet,Equinox,1.5T RS 4x2 Aut,2024,SUV,C,nafta,Automática,172,1.5,México,3 años ó 100.000 km,,
+Chevrolet,Trailblazer,2.8 4x4 Premier Aut,2024,SUV,D,diesel,Automática,200,2.8,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,T200 Shine Bitono,2024,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,T200 Shine,2024,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,VTi Feel 7 Plazas,2024,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,VTi Feel Pack,2024,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,VTi Live,2024,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,VTi Shine 7 Plazas Bitono,2024,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+Citroën,C3 Aircross,VTi Shine 7 Plazas,2024,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,,
+Alfa Romeo,Stelvio,Distinctive Q4 2.0 Aut,2025,SUV,D,nafta,Automática,200,2.0,Italia,5 años ó 100.000 km,USD,79800.0
+Alfa Romeo,Stelvio,Quadrifoglio,2025,SUV,D,nafta,Automática,510,3.0,Italia,5 años ó 100.000 km,USD,298000.0
+Alfa Romeo,Stelvio,Veloce Q4 2.0 Aut 280Cv,2025,SUV,D,nafta,Automática,280,2.0,Italia,5 años ó 100.000 km,USD,99800.0
+Audi,e-tron Sportback,55 quattro,2025,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,e-tron,Advanced 55 quattro,2025,SUV,E,eléctrico,Automática,224,,No disponible,No disponible,,
+Audi,Q2,30 T FSI Sport,2025,SUV,B,nafta,Automática,150,1.4,Alemania,No disponible,,
+Audi,Q2,35 T FSI Sport,2025,SUV,B,nafta,Automática,150,1.4,Alemania,No disponible,USD,51618.0
+Audi,Q2,40 T FSI Sport,2025,SUV,B,nafta,Automática,150,1.4,Alemania,No disponible,USD,57872.0
+Audi,Q3 Sportback,35 T FSI,2025,SUV,C,nafta,Manual,150,1.4,España,3 años ó 90.000 km,USD,56670.0
+Audi,Q3 Sportback,40 T FSI S Line Quattro,2025,SUV,C,nafta,Manual,150,1.4,España,3 años ó 90.000 km,USD,70239.0
+Audi,Q3 Sportback,40 T FSI,2025,SUV,C,nafta,Manual,150,1.4,España,3 años ó 90.000 km,USD,61392.0
+Audi,Q3,35 T FSI,2025,SUV,C,nafta,Manual,150,1.4,España,No disponible,USD,54999.0
+Audi,Q3,40 T FSI Quattro,2025,SUV,C,nafta,Automática,180,2.0,España,No disponible,USD,61475.0
+Audi,Q5 Sportback,45 TFSI Advanced,2025,SUV,D,nafta,Automática,250,2.0,Alemania,No disponible,USD,77171.0
+Audi,Q5 Sportback,45 TFSI Premium Black,2025,SUV,D,nafta,Automática,250,2.0,Alemania,No disponible,USD,106660.0
+Audi,Q5 Sportback,45 TFSI S line,2025,SUV,D,nafta,Automática,250,2.0,Alemania,No disponible,USD,96358.0
+Audi,Q5,45 TFSI Advanced,2025,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,USD,75518.0
+Audi,Q5,45 TFSI Offroad,2025,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q5,45 TFSI Sport,2025,SUV,D,nafta,Automática,252,2.0,Alemania,No disponible,,
+Audi,Q7,45 TDi S-Line Quattro,2025,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,USD,149482.0
+Audi,Q7,55 TFSi Offroad Quattro,2025,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q7,55 TFSi S-Line Quattro,2025,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,,
+Audi,Q8 e-tron Sportback,55 TFSI quattro,2025,SUV,F,eléctrico,Automática,N/D,,Alemania,No disponible,USD,204318.0
+Audi,Q8 e-tron,55 TFSI quattro,2025,SUV,F,N/D,Automática,,,Alemania,No disponible,USD,195940.0
+Audi,Q8,45 TDI quattro,2025,SUV,F,diesel,Automática,249,3.0,Alemania,No disponible,,
+Audi,Q8,55 TFSI quattro,2025,SUV,F,nafta,Automática,340,3.0,Alemania,No disponible,USD,159223.0
+Audi,RS Q8,Quattro Tiptronic,2025,SUV,E,nafta,Automática,600,4.0,Alemania,No disponible,,
+Audi,RS Q8,V8 4.0 TFSI Quattro,2025,SUV,E,nafta,Automática,600,4.0,Alemania,No disponible,,
+Audi,SQ5,SQ5 3.0 T FSI,2025,SUV,D,nafta,Automática,354,3.0,Alemania,No disponible,,
+BAIC,BJ30,1.5T 4x2,2025,SUV,C,nafta-eléctrico,Automática,185,1.5,China,7 años o 100.000 km,,
+BAIC,BJ30,1.5T 4x4,2025,SUV,C,nafta-eléctrico,Automática,185,1.5,China,7 años o 100.000 km,,
+BAIC,BJ40,2.0T 4x2,2025,SUV,C,nafta,Automática,210,2.0,China,7 años o 100.000 km,,
+BAIC,BJ60,2.0L,2025,SUV,D,nafta,Automática,263,2.0,China,7 años o 100.000 km,,
+BAIC,X35,1.5 Luxury Aut,2025,SUV,B,nafta,Automática,110,1.5,China,7 años o 100.000 km,,
+BAIC,X55 II,Luxury,2025,SUV,C,nafta,Automática,138,1.5,China,7 años o 100.000 km,,
+BAIC,X55 Plus,1.5T,2025,SUV,D,nafta,Automática,185,1.5,China,7 años o 100.000 km,,
+BMW,iX2,xDrive30 MSport,2025,SUV,C,N/D,Automática,,,Alemania,3 años ó 200.000 km,USD,96900.0
+BMW,X1,Black Edition 20i,2025,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,USD,77900.0
+BMW,X1,sDrive 18i xLine,2025,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,USD,62900.0
+BMW,X1,xDrive 20i xLine,2025,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,USD,77900.0
+BMW,X1,xDrive 25e xLine,2025,SUV,C,N/D,Automática,,,Alemania,3 años ó 200.000 km,USD,89900.0
+BMW,X2,xDrive20i MSport,2025,SUV,C,nafta,Automática,204,2.0,Alemania,3 años ó 200.000 km,USD,79900.0
+BMW,X3,xDrive 20i,2025,SUV,D,nafta,Automática,208,2.0,Alemania,3 años ó 200.000 km,USD,91900.0
+BMW,X3,xDrive 30e,2025,SUV,D,nafta-eléctrico,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive 30i,2025,SUV,D,nafta,Automática,184,2.0,Alemania,3 años ó 200.000 km,,
+BMW,X3,xDrive M50i,2025,SUV,D,nafta,Automática,398,3.0,Alemania,3 años ó 200.000 km,USD,137900.0
+BMW,X4,xDrive 30i xLine,2025,SUV,D,nafta,Automática,252,2.0,Estados Unidos,3 años ó 200.000 km,,
+BMW,X5,xDrive40i M Sport Pro,2025,SUV,E,nafta-eléctrico,Automática,381,3.0,Estados Unidos,3 años ó 200.000 km,USD,179900.0
+BMW,X6 M,626Cv,2025,SUV,E,nafta,Automática,575,4.4,Alemania,3 años ó 200.000 km,USD,264900.0
+BMW,X6,xDrive40i MSportPro,2025,SUV,E,nafta,Automática,375,3.0,Estados Unidos,3 años ó 200.000 km,USD,189900.0
+BMW,X7,M Performance,2025,SUV,E,nafta,Automática,530,4.4,Estados Unidos,3 años ó 200.000 km,USD,259900.0
+Chery,Tiggo 4 Pro,1.5 Comfort CVT,2025,SUV,C,nafta,Automática,113,1.5,China,5 años ó 100.000 km,USD,25990.0
+Chery,Tiggo 4 Pro,1.5 Luxury CVT,2025,SUV,C,nafta,Automática,147,1.5,China,5 años ó 100.000 km,USD,29500.0
+Chevrolet,Equinox,1.5T Premier 4x4 Aut,2025,SUV,C,nafta,Automática,172,1.5,México,3 años ó 100.000 km,,
+Chevrolet,Tracker,1.2 Turbo Aut LTZ,2025,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,ARS,34662900.0
+Chevrolet,Tracker,1.2 Turbo Aut Premier,2025,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,ARS,37808900.0
+Chevrolet,Tracker,1.2 Turbo Aut RS,2025,SUV,B,nafta,Automática,132,1.2,Brasil,3 años ó 100.000 km,ARS,35549900.0
+Chevrolet,Tracker,1.2 Turbo Aut,2025,SUV,B,nafta,Automática,132,1.2,Brasil,3 años,ARS,30192900.0
+Chevrolet,Tracker,1.2 Turbo,2025,SUV,B,nafta,Manual,132,1.2,Brasil,3 años,ARS,28768900.0
+Chevrolet,Trailblazer,2.8 4x4 Premier Aut,2025,SUV,D,diesel,Automática,200,2.8,Brasil,3 años ó 100.000 km,,
+Chevrolet,Trailblazer,High Country 4x4 Aut,2025,SUV,D,diesel,Automática,207,2.8,Brasil,5 años ó 150.000 km,ARS,67175900.0
+Citroën,Basalt,Feel,2025,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,ARS,26400000.0
+Citroën,Basalt,First Edition,2025,SUV,B,nafta,Automática,125,1.0,Brasil,3 años ó 100.000 km,ARS,30500000.0
+Citroën,Basalt,Live,2025,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,ARS,24800000.0
+Citroën,Basalt,Shine,2025,SUV,B,nafta,Automática,125,1.0,Brasil,3 años ó 100.000 km,ARS,30160000.0
+Citroën,C3 Aircross,T200 Shine,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,32290000.0
+Citroën,C3 Aircross,VTi Feel 7 Plazas,2025,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,ARS,31420000.0
+Citroën,C3 Aircross,VTi Feel Pack,2025,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,ARS,31170000.0
+Citroën,C3 Aircross,VTi Live,2025,SUV,B,nafta,Manual,115,1.5,Brasil,3 años ó 100.000 km,ARS,28520000.0
+Citroën,C3 Aircross,VTi Shine 7 Plazas,2025,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,ARS,33740000.0
+Citroën,C4 Cactus,THP Shine Aut,2025,SUV,B,nafta,Automática,165,1.6,Brasil,3 años ó 100.000 km,ARS,33070000.0
+Citroën,C4 Cactus,Vti 115 Feel Plus Aut,2025,SUV,B,nafta,Automática,115,1.6,Brasil,3 años ó 100.000 km,ARS,30030000.0
+Citroën,C5 Aircross,THP 1.6 Turbo,2025,SUV,C,nafta,Automática,165,1.6,Francia,3 años ó 100.000 km,ARS,50910000.0
+DFSK,Glory 580,1.8L,2025,SUV,D,nafta,Manual,131,1.8,China,3 años ó 100.000 km,,
+DS,4 Crossback,Perfomance Line 215,2025,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,4 Crossback,Trocadero 215,2025,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback E-Tense,4X4 300 Bastille,2025,SUV,C,nafta-eléctrico,Automática,200,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Bastille 215,2025,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 Crossback,Rivoli 215,2025,SUV,C,nafta,Automática,215,1.6,Francia,3 años ó 100.000 km,,
+DS,7 E-Tense,4X4,2025,SUV,C,nafta-eléctrico,Automática,200,1.6,Francia,3 años ó 100.000 km,ARS,86520000.0
+FAW,T33,1.2L,2025,SUV,D,nafta,Automática,143,1.2,China,3 años ó 100.000 km,,
+FIAT,Fastback Abarth,T270 1.3L GSE,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,ARS,39058000.0
+FIAT,Fastback,Turbo 1.3L GSE,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,ARS,35581000.0
+FIAT,Pulse Abarth,1.3L Turbo,2025,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,ARS,34919000.0
+FIAT,Pulse,1.3 Drive CVT,2025,SUV,B,nafta,Automática,99,1.3,Brasil,3 años ó 100.000 km,ARS,29496000.0
+FIAT,Pulse,1.3 Drive,2025,SUV,B,nafta,Manual,99,1.3,Brasil,3 años ó 100.000 km,ARS,28318000.0
+FIAT,Pulse,Audace 1.0 CVT,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,31873000.0
+FIAT,Pulse,Impetus 1.0 CVT,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,32972000.0
+Ford,Bronco Sport,Badlands 2.0L,2025,SUV,C,nafta,Automática,253,2.0,México,3 años ó 100.000 km,ARS,57802000.0
+Ford,Bronco Sport,Big Bend 1.5L,2025,SUV,C,nafta,Automática,184,1.5,México,3 años ó 100.000 km,ARS,51919500.0
+Ford,Bronco Sport,Big Bend,2025,SUV,C,nafta,Automática,175,1.5,México,3 años ó 100.000 km,,
+Ford,Bronco Sport,Wildtrack,2025,SUV,C,nafta,Automática,253,2.0,México,3 años ó 100.000 km,,
+Ford,Bronco,Badlands,2025,SUV,C,nafta,Automática,334,2.7,Estados Unidos,3 años ó 100.000 km,ARS,121076600.0
+Ford,Bronco,Wildtrack,2025,SUV,C,nafta,Automática,334,2.7,Estados Unidos,3 años ó 100.000 km,,
+Ford,Everest,Titanium 4x4,2025,SUV,C,nafta,Automática,300,2.3,Tailandia,5 años ó 150.000 km,,
+Ford,Kuga Híbrida,Platinum,2025,SUV,C,nafta-eléctrico,Automática,165,2.5,Estados Unidos,3 años ó 100.000 km,ARS,68767000.0
+Ford,Mustang Mach-E,GT Performance,2025,SUV,C,eléctrico,Automática,130,,Estados Unidos,3 años ó 100.000 km,ARS,110880600.0
+Ford,Territory,SEL 1.8L,2025,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,,
+Ford,Territory,SEL,2025,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,ARS,41700000.0
+Ford,Territory,Titanium 1.8L,2025,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,,
+Ford,Territory,Titanium,2025,SUV,D,nafta,Automática,185,1.8,China,3 años ó 100.000 km,ARS,48600000.0
+Geely,Emgrand GS,Active,2025,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Balance Aut,2025,SUV,B,nafta,Automática,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Balance,2025,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Drive Plus,2025,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Drive,2025,SUV,B,nafta,Manual,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand GS,Executive Aut,2025,SUV,B,nafta,Automática,140,1.8,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Active 2.4 Aut,2025,SUV,C,nafta,Automática,162,2.4,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Drive 2.0,2025,SUV,C,nafta,Manual,141,2.0,China,5 años ó 150.000 km,,
+Geely,Emgrand X7 Sport,Executive 2.4 Aut 4x4,2025,SUV,C,nafta,Automática,162,2.4,China,5 años ó 150.000 km,,
+Great Wall,H6GT,4x4,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,,
+Great Wall,H6,2.0T Aut 4x4,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,,
+Great Wall,H6,2.0T Aut,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,,
+Great Wall,Jolion,1.5T Deluxe,2025,SUV,C,nafta,Automática,141,1.5,China,No disponible,,
+Great Wall,Jolion,1.5T Supreme,2025,SUV,C,nafta,Automática,141,1.5,China,No disponible,,
+Haval,H6 HEV,Deluxe,2025,SUV,D,nafta-eléctrico,Automática,147,1.5,China,3 años ó 100.000 km,,
+Haval,H6GT,4x4,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,USD,48037.0
+Haval,H6,2.0T Aut 4x4,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,ARS,43560.0
+Haval,H6,2.0T Aut,2025,SUV,D,nafta,Automática,201,2.0,China,3 años ó 100.000 km,ARS,39386.0
+Haval,Jolion PRO HEV,Deluxe,2025,SUV,C,nafta-eléctrico,Automática,94,1.5,China,No disponible,,
+Haval,Jolion PRO HEV,Supreme,2025,SUV,C,nafta,Automática,94,1.5,China,No disponible,,
+Haval,Jolion,1.5T Supreme,2025,SUV,C,nafta,Automática,141,1.5,China,No disponible,USD,34000.0
+Honda,CR-V Hybrid,2.0L,2025,SUV,C,nafta-eléctrico,Automática,148,2.0,Tailandia,3 años ó 100.000 km,USD,74900.0
+Honda,CR-V,EX 4x2,2025,SUV,C,nafta,Automática,191,1.5,México,3 años ó 100.000 km,USD,59500.0
+Honda,CR-V,EXL 4x4,2025,SUV,C,nafta,Automática,191,1.5,México,3 años ó 100.000 km,USD,70800.0
+Honda,CR-V,LX 4x2,2025,SUV,C,nafta,Automática,191,1.5,México,3 años ó 100.000 km,,
+Honda,HR-V,EX-L CVT,2025,SUV,B,nafta,Automática,121,1.5,Brasil,3 años ó 100.000 km,USD,39550.0
+Honda,HR-V,LX CVT,2025,SUV,B,nafta,Automática,121,1.5,Brasil,3 años ó 100.000 km,USD,35235.0
+Honda,Pilot,EX,2025,SUV,D,nafta,Automática,280,3.5,Estados Unidos,No disponible,,
+Honda,Pilot,Touring,2025,SUV,D,nafta,Automática,280,3.5,Estados Unidos,No disponible,,
+Honda,ZR-V,LX,2025,SUV,C,nafta,Automática,157,2.0,México,3 años ó 100.000 km,,
+Honda,ZR-V,Touring,2025,SUV,C,nafta,Automática,157,2.0,México,3 años ó 100.000 km,USD,45630.0
+Hyundai,Creta,Safety +,2025,SUV,B,nafta,Automática,115,1.5,India,3 años ó 100.000 km,USD,35000.0
+Hyundai,Creta,Safety,2025,SUV,B,nafta,Automática,123,1.6,India,3 años ó 100.000 km,,
+Hyundai,Tucson,Safety 2.0 Aut,2025,SUV,C,nafta,Automática,156,2.0,Corea,3 años ó 100.000 km,USD,48000.0
+Hyundai,Tucson,Ultimate 1.6T DCT 4x4,2025,SUV,C,nafta,Automática,180,1.6,Corea,3 años ó 100.000 km,USD,58000.0
+JAC,JS2,1.5 CVT Luxury,2025,SUV,B,nafta,Manual,105,1.5,China,7 años o 150.000 km,,
+JAC,JS4,Flagship,2025,SUV,B,nafta,Automática,147,1.5,China,7 años o 150.000 km,USD,29500.0
+JAC,JS4,Luxury,2025,SUV,B,nafta,Automática,147,1.5,China,7 años o 150.000 km,USD,27500.0
+JAC,JS8 Pro,1.5T GDi,2025,SUV,B,nafta,Automática,182,1.5,China,7 años o 150.000 km,USD,38900.0
+JAC,S2,Intelligent,2025,SUV,B,nafta,Manual,105,1.5,China,7 años o 150.000 km,USD,19900.0
+JAC,S2,Luxury,2025,SUV,B,nafta,Manual,105,1.5,China,7 años o 150.000 km,USD,21900.0
+JAC,S8 Pro,1.5T GDi,2025,SUV,B,nafta,Automática,182,1.5,China,7 años o 150.000 km,,
+Jaguar,E-Pace,300 Sport P300 4x4 Aut,2025,SUV,C,nafta-eléctrico,Automática,300,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE D200 4x4 Aut MHEV,2025,SUV,C,diesel,Automática,200,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P160 4x2 Aut,2025,SUV,C,nafta-eléctrico,Automática,160,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P200 4x4 Aut,2025,SUV,C,nafta-eléctrico,Automática,200,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P250 4x4 Aut,2025,SUV,C,nafta-eléctrico,Automática,250,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,R-Dynamic SE P300e 4x4 Aut PHEV,2025,SUV,C,nafta-eléctrico,Automática,300,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,S D200 4x4 Aut MHEV,2025,SUV,C,diesel,Automática,200,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,S P250 4x4 Aut,2025,SUV,C,nafta-eléctrico,Automática,250,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,SE P160 4x2 Aut,2025,SUV,C,nafta-eléctrico,Automática,160,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,E-Pace,SE P200 4x4 Aut MHEV,2025,SUV,C,nafta-eléctrico,Automática,200,1.5,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,2.0 Diesel Prestige,2025,SUV,D,diesel,Automática,179,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,2.0 R-Sport,2025,SUV,D,nafta,Automática,300,2.0,Gran Bretaña,3 años ó 100.000 km,,
+Jaguar,F-Pace,3.0 S/C Prestige Aut,2025,SUV,D,nafta,Automática,340,3.0,Gran Bretaña,3 años ó 100.000 km,,
+Jeep,Commander,1.3L Limited T270,2025,SUV,D,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,47900.0
+Jeep,Commander,2.0L Limited TD380,2025,SUV,D,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,,
+Jeep,Commander,2.0L Overland TD380,2025,SUV,D,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,USD,58200.0
+Jeep,Commander,Blackhawk,2025,SUV,D,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,USD,58700.0
+Jeep,Compass,1.3 4x2 Limited,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,41700.0
+Jeep,Compass,1.3 4x2 Longitude Plus,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Longitude,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Compass,1.3 4x2 Serie S,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,42100.0
+Jeep,Compass,1.3 4x2 Sport,2025,SUV,C,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,38600.0
+Jeep,Compass,Blackhawk,2025,SUV,C,nafta,Automática,272,2.0,Brasil,3 años ó 100.000 km,USD,51000.0
+Jeep,Compass,Trailhawk 2.0 4X4 TD Aut,2025,SUV,C,diesel,Automática,170,2.0,Brasil,3 años ó 100.000 km,,
+Jeep,Grand Cherokee,Limited,2025,SUV,E,nafta,Automática,293,3.6,Estados Unidos,3 años ó 100.000 km,USD,133700.0
+Jeep,Renegade,Longitude Aut,2025,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,35600.0
+Jeep,Renegade,Serie-S Aut,2025,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,36400.0
+Jeep,Renegade,Sport Aut,2025,SUV,B,nafta,Automática,130,1.8,Brasil,3 años ó 100.000 km,USD,32200.0
+Jeep,Renegade,Trailhawk 4x4 Aut,2025,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,,
+Jeep,Renegade,Willys,2025,SUV,B,nafta,Automática,175,1.3,Brasil,3 años ó 100.000 km,USD,40100.0
+Jeep,Wrangler,Rubicon 2P Aut,2025,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jeep,Wrangler,Rubicon 2P,2025,SUV,C,nafta,Automática,27,2.0,Estados Unidos,3 años ó 100.000 km,USD,119900.0
+Jeep,Wrangler,Rubicon 4P,2025,SUV,C,nafta,Automática,27,2.0,Estados Unidos,3 años ó 100.000 km,USD,126800.0
+Jeep,Wrangler,Unlimited Rubicon 4P Aut,2025,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jeep,Wrangler,Unlimited Sahara 4P Aut,2025,SUV,C,nafta,Automática,285,3.6,Estados Unidos,3 años ó 100.000 km,,
+Jetour,X70,1.5T Aut,2025,SUV,D,nafta,Automática,147,1.5,China,3 años ó 100.000 km,USD,33500.0
+Kaiyi,X3,1.5L Aut,2025,SUV,C,nafta,Automática,116,1.5,China,5 años ó 100.000 km,ARS,29900000.0
+KIA,K3 Cross,EX,2025,SUV,C,nafta,Automática,121,1.6,México,5 años ó 100.000 km,,
+KIA,K3 Cross,GT-Line,2025,SUV,C,nafta,Automática,121,1.6,México,5 años ó 100.000 km,,
+KIA,Seltos,LX 1.6 Aut,2025,SUV,B,nafta,Automática,113,1.5,India,5 años ó 100.000 km,USD,36000.0
+KIA,Sorento,EX 2.2 CRDi 4x4 Aut,2025,SUV,D,diesel,Automática,202,2.2,Corea,5 años ó 100.000 km,USD,120000.0
+KIA,Sportage,EX 4x2,2025,SUV,C,nafta,Automática,178,1.6,Corea,5 años ó 100.000 km,USD,50000.0
+Land Rover,Discovery,HSE V6 3.0 TDi,2025,SUV,E,diesel,Automática,258,3.0,Gran Bretaña,No disponible,USD,197000.0
+Land Rover,Range Rover Evoque,5P 2.0 SE R-Dynamic,2025,SUV,C,nafta,Automática,221,2.0,Gran Bretaña,No disponible,USD,149900.0
+Land Rover,Range Rover Evoque,5P 2.0 SE,2025,SUV,C,nafta,Automática,300,2.0,Gran Bretaña,No disponible,USD,129900.0
+Land Rover,Range Rover Velar,2.0 S,2025,SUV,E,nafta,Automática,250,2.0,Gran Bretaña,2 años,USD,195000.0
+Land Rover,Range Rover,Vogue SE SDV8,2025,SUV,F,diesel,Automática,340,4.4,Gran Bretaña,2 años,USD,312900.0
+Land Rover,Range Rover,Vogue SE V8,2025,SUV,F,diesel,Automática,525,5.0,Gran Bretaña,2 años,USD,329900.0
+Lexus,GX,550 Luxury,2025,SUV,D,nafta-eléctrico,Automática,353,3.5,Japón,5 años ó 150.000 km,USD,198350.0
+Lexus,LBX,Active,2025,SUV,B,nafta-eléctrico,Automática,136,1.5,Japón,5 años ó 150.000 km,USD,52800.0
+Lexus,LX,600 Urban,2025,SUV,E,nafta,Automática,415,3.5,Japón,5 años ó 150.000 km,USD,237460.0
+Lexus,NX,350 F-Sport,2025,SUV,D,nafta,Automática,278,2.4,Japón,5 años ó 150.000 km,USD,88700.0
+Lexus,NX,350h Luxury,2025,SUV,D,nafta-eléctrico,Automática,242,2.5,Japón,5 años ó 150.000 km,USD,90000.0
+Lexus,NX,450h+,2025,SUV,D,nafta-eléctrico,Automática,N/D,2.4,Japón,5 años ó 150.000 km,USD,156550.0
+Lexus,RX,350 F-Sport,2025,SUV,E,nafta,Automática,300,3.5,Japón,5 años ó 150.000 km,USD,107900.0
+Lexus,RX,450h+ Luxury,2025,SUV,E,nafta-eléctrico,Automática,N/D,2.5,Japón,5 años ó 150.000 km,USD,166400.0
+Lexus,RX,500h F-Sport,2025,SUV,E,nafta-eléctrico,Automática,300,3.5,Japón,5 años ó 150.000 km,USD,142700.0
+Lexus,UX,250h,2025,SUV,C,nafta-eléctrico,Automática,152,2.0,Japón,5 años ó 150.000 km,USD,55600.0
+Maserati,Levante,GTS V8,2025,SUV,F,nafta,Automática,549,4.0,Italia,No disponible,,
+Maserati,Levante,Levante,2025,SUV,F,nafta,Automática,350,3.0,Italia,No disponible,,
+Maserati,Levante,S,2025,SUV,F,nafta,Automática,430,3.0,Italia,No disponible,,
+Maserati,Levante,Trofeo V8,2025,SUV,F,nafta,Automática,580,4.0,Italia,No disponible,,
+Maxus,D90,Luxury,2025,SUV,D,diesel,Automática,218,2.0,China,No disponible,,
+Mercedes,Clase GLA,200 Progressive Aut,2025,SUV,C,nafta,Automática,163,1.3,Alemania,3 años,USD,65000.0
+Mercedes,Clase GLA,200 Urban Aut,2025,SUV,C,nafta,Automática,163,1.3,Alemania,3 años,,
+Mercedes,Clase GLA,250 Urban 4Matic AMG Line,2025,SUV,C,nafta,Automática,224,2.0,Alemania,3 años,USD,76700.0
+Mercedes,Clase GLB,200 Advance Aut,2025,SUV,C,nafta,Automática,163,1.3,Alemania,3 años,USD,66400.0
+Mercedes,Clase GLB,250 Progressive 4Matic,2025,SUV,C,nafta,Automática,224,2.0,Alemania,3 años,USD,76700.0
+Mercedes,Clase GLC AMG,43 AMG 4Matic,2025,SUV,D,nafta,Automática,367,3.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,63 S AMG 4Matic Coupé,2025,SUV,D,nafta,Automática,510,4.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,63 S AMG 4Matic,2025,SUV,D,nafta,Automática,510,4.0,No disponible,3 años,,
+Mercedes,Clase GLC AMG,Coupé 43 AMG 4Matic Aut,2025,SUV,D,nafta,Automática,367,3.0,No disponible,3 años,,
+Mercedes,Clase GLC,200 4Matic Avantgarde,2025,SUV,D,nafta-eléctrico,Automática,204,2.0,No disponible,3 años,USD,105000.0
+Mercedes,Clase GLC,300 4Matic MHEV,2025,SUV,D,nafta,Automática,258,2.0,No disponible,3 años,USD,119900.0
+Mercedes,Clase GLC,Coupé 300 4Matic,2025,SUV,D,nafta,Automática,258,2.0,No disponible,3 años,USD,140000.0
+Mercedes,Clase GLE AMG,AMG 53 S Coupé,2025,SUV,E,nafta,Automática,435,3.0,No disponible,No disponible,USD,240000.0
+Mercedes,Clase GLE AMG,AMG 63 S Coupé,2025,SUV,E,nafta,Automática,585,5.5,No disponible,No disponible,,
+Mercedes,Clase GLE,450 4MATIC,2025,SUV,E,nafta,Automática,367,3.0,No disponible,No disponible,USD,205000.0
+Mercedes,Clase G,500,2025,SUV,F,nafta,Automática,421,4.0,México,3 años,,
+Mercedes,EQA,350 4MATIC,2025,SUV,C,eléctrico,Automática,292,,Alemania,3 años,USD,102000.0
+Mercedes,EQE,500 4MATIC AMG Line,2025,SUV,C,eléctrico,Automática,408,,Alemania,3 años,USD,199900.0
+MINI,Cooper Countryman,C Classic,2025,SUV,B,nafta,Automática,136,1.5,Gran Bretaña,3 años ó 200.000 km,USD,54900.0
+MINI,Cooper Countryman,John Cooper Works,2025,SUV,B,nafta,Automática,306,2.0,Gran Bretaña,3 años ó 200.000 km,,
+MINI,Cooper Countryman,S All4 Classic Confort,2025,SUV,B,nafta,Automática,192,2.0,Gran Bretaña,3 años ó 200.000 km,USD,59900.0
+MINI,Cooper Countryman,S All4 Favoured,2025,SUV,B,nafta,Automática,192,2.0,Gran Bretaña,3 años ó 200.000 km,USD,65900.0
+Mitsubishi,Outlander,2.5L 4x4 CVT,2025,SUV,D,nafta,Automática,184,2.5,Japón,3 años ó 100.000 km,USD,55000.0
+Nissan,Kicks,Advance CVT Plus,2025,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,ARS,36255800.0
+Nissan,Kicks,Advance CVT,2025,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,ARS,34620500.0
+Nissan,Kicks,Exclusive CVT,2025,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,ARS,38074400.0
+Nissan,Kicks,Sense,2025,SUV,B,nafta,Manual,120,1.6,Brasil,3 años ó 100.000 km,ARS,29122000.0
+Nissan,Kicks,XPlay,2025,SUV,B,nafta,Automática,120,1.6,Brasil,3 años ó 100.000 km,,
+Nissan,X-Trail e-Power,e-4ORCE,2025,SUV,C,nafta-eléctrico,Automática,158,1.5,Japón,3 años ó 100.000 km,ARS,76635500.0
+Nissan,X-Trail,Exclusive,2025,SUV,C,nafta,Automática,181,2.5,Japón,3 años ó 100.000 km,ARS,63948200.0
+Peugeot,2008,Active T200,2025,SUV,B,nafta,Automática,120,1.0,Argentina,3 años ó 100.000 km,ARS,34240000.0
+Peugeot,2008,Allure T200,2025,SUV,B,nafta,Automática,120,1.0,Argentina,3 años ó 100.000 km,ARS,37800000.0
+Peugeot,2008,GT T200,2025,SUV,B,nafta,Automática,120,1.0,Argentina,3 años ó 100.000 km,ARS,42040000.0
+Peugeot,3008 SUV,GT Pack Hybrid4 4WD,2025,SUV,C,nafta-eléctrico,Automática,197,1.6,Francia,3 años ó 100.000 km,ARS,55593693.0
+Peugeot,5008 SUV,GT Pack,2025,SUV,D,diesel,Automática,165,1.6,Francia,3 años ó 100.000 km,ARS,56642436.0
+Porsche,Cayenne Coupé,3.0L Aut,2025,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,USD,188800.0
+Porsche,Cayenne E-Hybrid Coupé,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,304,3.0,Alemania,4 años,USD,232200.0
+Porsche,Cayenne E-Hybrid,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,340,3.0,Alemania,4 años,USD,229900.0
+Porsche,Cayenne S Coupé,3.0L V6 Aut,2025,SUV,D,nafta,Automática,441,3.0,Alemania,4 años,USD,249200.0
+Porsche,Cayenne S E-Hybrid Coupé,3.0L Aut,2025,SUV,D,nafta-eléctrico,Automática,353,3.0,Alemania,4 años,USD,259500.0
+Porsche,Cayenne S E-Hybrid,3.0L V8 Aut,2025,SUV,D,nafta-eléctrico,Automática,550,4.0,Alemania,4 años,USD,256300.0
+Porsche,Cayenne S,3.0L V6 Aut,2025,SUV,D,nafta,Automática,440,3.0,Alemania,4 años,USD,242900.0
+Porsche,Cayenne Turbo E-Hybrid Coupé,4.0L,2025,SUV,D,nafta-eléctrico,Automática,599,4.0,Alemania,4 años,USD,387400.0
+Porsche,Cayenne Turbo E-Hybrid,4.0L,2025,SUV,D,nafta-eléctrico,Automática,599,4.0,Alemania,4 años,USD,385500.0
+Porsche,Cayenne Turbo GT Coupé,Turbo GT,2025,SUV,D,nafta,Automática,640,4.0,Alemania,4 años,USD,589000.0
+Porsche,Cayenne Turbo GTS Coupé,500 CV,2025,SUV,D,nafta,Automática,500,4.0,Alemania,4 años,USD,288700.0
+Porsche,Cayenne,3.0L Aut,2025,SUV,D,nafta,Automática,340,3.0,Alemania,4 años,USD,184400.0
+Porsche,Macan 4 Electric,408 Cv,2025,SUV,D,eléctrico,Automática,408,,Alemania,4 años,USD,174700.0
+Porsche,Macan 4S Electric,516 Cv,2025,SUV,D,eléctrico,Automática,516,,Alemania,4 años,USD,189900.0
+Porsche,Macan Electric,430 Cv,2025,SUV,D,eléctrico,Automática,430,,Alemania,4 años,USD,168100.0
+Porsche,Macan GTS,GTS,2025,SUV,D,nafta,Automática,381,3.0,Alemania,4 años,USD,211300.0
+Porsche,Macan S,S Diesel,2025,SUV,D,diesel,Automática,258,3.0,Alemania,4 años,USD,186800.0
+Porsche,Macan Turbo Electric,430 Cv,2025,SUV,D,eléctrico,Automática,408,,Alemania,4 años,USD,233700.0
+Porsche,Macan Turbo,3.6L,2025,SUV,D,nafta,Automática,400,3.6,Alemania,No disponible,USD,138100.0
+Porsche,Macan,Macan,2025,SUV,D,nafta,Automática,252,2.0,Alemania,4 años,USD,128800.0
+Renault,Arkana E-Tech Hybrid,Esprit Alpine 1.3T,2025,SUV,D,nafta-eléctrico,Automática,140,1.3,Brasil,3 años ó 100.000 km,ARS,43900000.0
+Renault,Duster,Iconic 4x4,2025,SUV,B,nafta,Manual,163,1.3,Colombia,3 años ó 100.000 km,ARS,37410000.0
+Renault,Duster,Iconic CVT 4x2,2025,SUV,B,nafta,Automática,163,1.3,Colombia,3 años ó 100.000 km,ARS,35820000.0
+Renault,Duster,Intens,2025,SUV,B,nafta,Manual,115,1.6,Colombia,3 años ó 100.000 km,ARS,32730000.0
+Renault,Kardian,Evolution 156,2025,SUV,B,nafta,Manual,115,1.6,Brasil,3 años ó 100.000 km,ARS,29250000.0
+Renault,Kardian,Evolution 200 EDC,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,31830000.0
+Renault,Kardian,Premier Edition 200 EDC,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,35020000.0
+Renault,Kardian,Techno 200 EDC,2025,SUV,B,nafta,Automática,120,1.0,Brasil,3 años ó 100.000 km,ARS,33270000.0
+Renault,Koleos,Intens 2.5 4x4,2025,SUV,C,nafta,Automática,170,2.5,Corea,3 años ó 100.000 km,ARS,46590000.0
+Renault,Megane E-Tech,220 CV,2025,SUV,C,eléctrico,Automática,N/D,,Brasil,3 años ó 100.000 km,ARS,54450000.0
+SsangYong,Actyon,A 230 Full,2025,SUV,B,nafta,Manual,147,2.3,Corea,2 años ó 50.000 km,,
+SsangYong,Actyon,A 230,2025,SUV,B,nafta,Manual,147,2.3,Corea,2 años ó 50.000 km,,
+Subaru,Crosstrek Híbrida,2.0i AWD CVT Limited ES,2025,SUV,C,nafta-eléctrico,Automática,150,2.0,Japón,5 años ó 100.000 km,USD,48900.0
+Subaru,Crosstrek,2.0i AWD CVT Limited ES,2025,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,USD,44900.0
+Subaru,Forester Híbrido,2.0i Hybrid AWD CVT Limited ES,2025,SUV,C,nafta-eléctrico,Automática,150,2.0,Japón,5 años ó 100.000 km,USD,54900.0
+Subaru,Forester,2.0i AWD CVT Dynamic ES,2025,SUV,C,nafta,Automática,156,2.0,Japón,5 años ó 100.000 km,,
+Subaru,Forester,2.5i AWD CVT Dynamic ES,2025,SUV,C,nafta,Automática,184,2.5,Japón,5 años ó 100.000 km,,
+Subaru,Forester,2.5i AWD CVT Limited Sport ES,2025,SUV,C,nafta,Automática,184,2.5,Japón,5 años ó 100.000 km,USD,51900.0
+Suzuki,Jimny 5 Puertas,GL Monotone,2025,SUV,B,nafta,Manual,100,1.5,Japón,5 años ó 100.000 km,USD,41900.0
+Suzuki,Jimny 5 Puertas,GLX Monotone Aut,2025,SUV,B,nafta,Automática,100,1.5,Japón,5 años ó 100.000 km,USD,43900.0
+Suzuki,Jimny,GL Monotone,2025,SUV,B,nafta,Manual,100,1.5,Japón,5 años ó 100.000 km,USD,37900.0
+Suzuki,Jimny,GLX Bitone Aut,2025,SUV,B,nafta,Automática,100,1.5,Japón,5 años ó 100.000 km,USD,39900.0
+Suzuki,Jimny,GLX Monotone Aut,2025,SUV,B,nafta,Automática,100,1.5,Japón,5 años ó 100.000 km,USD,39900.0
+SWM,G01,6AT Elite,2025,SUV,C,nafta,Automática,154,1.5,China,No disponible,,
+SWM,G01,6AT Premium,2025,SUV,C,nafta,Automática,154,1.5,China,No disponible,,
+SWM,G01,6MT Elite,2025,SUV,C,nafta,Manual,154,1.5,China,No disponible,,
+SWM,G01,6MT Standar,2025,SUV,C,nafta,Manual,154,1.5,China,No disponible,,
+SWM,X7,1.5T Aut,2025,SUV,D,nafta,Automática,154,1.5,China,No disponible,USD,29000.0
+SWM,X7,1.8L,2025,SUV,D,nafta,Manual,135,1.8,China,No disponible,USD,25000.0
+Toyota,C-HR,Híbrida 1.8 eCVT,2025,SUV,B,nafta-eléctrico,Automática,98,1.8,Japón,5 años ó 100.000 km,,
+Toyota,Corolla Cross,2.0 GR-Sport CVT,2025,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,ARS,49279000.0
+Toyota,Corolla Cross,2.0 SEG CVT,2025,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,ARS,47588000.0
+Toyota,Corolla Cross,2.0 XEi CVT,2025,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,ARS,43313000.0
+Toyota,Corolla Cross,2.0 XLi CVT,2025,SUV,C,nafta,Automática,170,2.0,Brasil,5 años ó 150.000 km,ARS,40314000.0
+Toyota,Corolla Cross,Híbrida 1.8 SEG eCVT,2025,SUV,C,nafta-eléctrico,Automática,98,1.8,Brasil,5 años ó 150.000 km,ARS,49126000.0
+Toyota,Corolla Cross,Híbrida 1.8 XEi eCVT,2025,SUV,C,nafta-eléctrico,Automática,98,1.8,Brasil,5 años ó 150.000 km,ARS,44763000.0
+Toyota,Crown,Platinum HEV 2.4T,2025,SUV,D,nafta-eléctrico,Automática,272,2.4,Japón,5 años ó 150.000 km,,
+Toyota,Land Cruiser 300,GR-S,2025,SUV,F,diesel,Automática,304,3.3,Japón,5 años ó 150.000 km,,
+Toyota,Land Cruiser 300,VX,2025,SUV,F,diesel,Automática,304,3.3,Japón,5 años ó 150.000 km,,
+Toyota,Land Cruiser,Prado VX Aut,2025,SUV,E,nafta,Automática,275,4.0,Japón,5 años ó 150.000 km,,
+Toyota,RAV4,HV 2.5 Limited 4x4 Híbrida,2025,SUV,C,nafta-eléctrico,Automática,175,2.5,Japón,5 años ó 150.000 km,,
+Toyota,SW4,Diamond II 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,204,2.8,Argentina,5 años ó 150.000 km,ARS,73166000.0
+Toyota,SW4,GR-S 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,224,2.8,Argentina,5 años ó 150.000 km,ARS,76941000.0
+Toyota,SW4,SRX 2.8 TDi 7A Aut,2025,SUV,D,diesel,Automática,204,2.8,Argentina,5 años ó 150.000 km,ARS,72683000.0
+Volkswagen,Nivus,170 TSi,2025,SUV,B,nafta,Manual,101,1.0,Brasil,3 años ó 100.000 km,ARS,31999100.0
+Volkswagen,Nivus,Comfortline 200 TSi,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,35936500.0
+Volkswagen,Nivus,Highline 200 TSi,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,38803100.0
+Volkswagen,Nivus,Outfit 200 TSi,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,39694600.0
+Volkswagen,Nivus,Trendline 200 TSi,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,33966700.0
+Volkswagen,T-Cross,170 TSi Trendline,2025,SUV,B,nafta,Manual,101,1.0,Brasil,3 años ó 100.000 km,ARS,37297600.0
+Volkswagen,T-Cross,200 TSi Comfortline,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,42417950.0
+Volkswagen,T-Cross,200 TSi Extreme,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,47997550.0
+Volkswagen,T-Cross,200 TSi Highline Bitono,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,,
+Volkswagen,T-Cross,200 TSi Highline,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,46820700.0
+Volkswagen,T-Cross,200 TSi Trendline Aut,2025,SUV,B,nafta,Automática,116,1.0,Brasil,3 años ó 100.000 km,ARS,39217650.0
+Volkswagen,Taos,Comfortline Aut,2025,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,ARS,45717800.0
+Volkswagen,Taos,Highline Aut Bitono,2025,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,ARS,51257500.0
+Volkswagen,Taos,Highline Aut,2025,SUV,C,nafta,Automática,150,1.4,Argentina,3 años ó 100.000 km,ARS,50802000.0
+Volkswagen,Tiguan,Allspace 350 TSi DSG Life,2025,SUV,C,nafta,Automática,220,2.0,México,3 años ó 100.000 km,ARS,70841800.0
+Volvo,C40 Electric,Recharge,2025,SUV,D,eléctrico,Automática,238,,Bélgica,3 años,,
+Volvo,C40 Electric,Twin,2025,SUV,D,eléctrico,Automática,249,,Bélgica,3 años,,
+Volvo,EX30 Electric,Single Motor Extended Range,2025,SUV,B,eléctrico,Automática,272,,Bélgica,3 años,,
+Volvo,EX30 Electric,Single Motor,2025,SUV,B,eléctrico,Automática,272,,Bélgica,3 años,,
+Volvo,XC40 Electric,Recharge,2025,SUV,C,eléctrico,Automática,238,,Bélgica,3 años,,
+Volvo,XC40 Electric,Twin,2025,SUV,C,eléctrico,Automática,249,,Bélgica,3 años,,
+Volvo,XC60 Recharge,T8 AWD,2025,SUV,D,nafta-eléctrico,Automática,317,2.0,Suecia,3 años,,
+Volvo,XC60,Plus,2025,SUV,D,nafta,Automática,249,2.0,Suecia,3 años,,
+Volvo,XC90 Recharge,T8 AWD Plus 7 Asientos,2025,SUV,E,nafta-eléctrico,Automática,317,2.0,Suecia,3 años,,
+Volvo,XC90,Plus,2025,SUV,E,diesel,Automática,235,2.0,Suecia,3 años,,
+Volvo,XC90,Ultimate,2025,SUV,E,diesel,Automática,235,2.0,Suecia,3 años,,
