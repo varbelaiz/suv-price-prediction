@@ -1,11 +1,21 @@
+# Core ML Libraries
+scikit-learn==1.6.1
+xgboost>=2.0.0
+pandas==2.2.2
+numpy==2.0.1
+scipy==1.15.2
+
+# Deep Learning
+torch>=2.0.0
+
+# Experiment Tracking
+mlflow==3.1.0
+optuna>=3.0.0
+
+# Data Processing
+cloudpickle==3.0.0
+
+# System
+psutil==7.0.0
 requests>=2.28.0
 typing-extensions>=4.0.0
-# Note: hashlib, hmac, base64, and datetime are part of Python's standard library 
-mlflow==3.1.0
-cloudpickle==3.0.0
-numpy==2.0.1
-pandas==2.2.2
-psutil==7.0.0
-scikit-learn==1.6.1
-scipy==1.15.2
-torch>=2.0.0
