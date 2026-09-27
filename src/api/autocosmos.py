@@ -1,3 +1,4 @@
+import os
 import requests
 import json
 import hashlib
@@ -293,13 +294,8 @@ def print_match_info(response: Dict[str, Any]) -> None:
 
 
 if __name__ == "__main__":
-    # Example usage - YOU NEED TO PROVIDE YOUR OWN API CREDENTIALS
-
-    
-    # Replace these with your actual API credentials
-    APP_KEY = "<AUTOCOSMOS_APP_KEY>"
-    APP_SECRET = "<AUTOCOSMOS_APP_SECRET>"
-    
+    APP_KEY = os.environ["AUTOCOSMOS_APP_KEY"]
+    APP_SECRET = os.environ["AUTOCOSMOS_APP_SECRET"]
 
     try:
         api = AutocosmosAPI(APP_KEY, APP_SECRET)
